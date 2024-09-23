@@ -3,9 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>PI - Pictures &amp; Images - Regístrate</title>
 </head>
 <body>
-  
+    <header>
+    <img src="imgusers/logo1.png" alt="Logo">
+    <h1>PI - Pictures & Images</h1>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="busqueda.html">Buscador</a></li>
+        <li><input type="search"> <span class="material-symbols-outlined">search</span></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="signin.html">Regístrate</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <form>
+      <h2>Regístrate</h2>
+      <label for="usu">Usuario</label>
+      <input type="text" name="usu" id="usu">
+      <label for="pwd">Contraseña</label>
+      <input type="password" name="pwd" id="pwd">
+      <label for="pwd2">Repetir Contraseña</label>
+      <input type="password" name="pwd2" id="pwd2">
+      <label for="email">Correo electrónico</label>
+      <input type="email" name="email" id="email">
+      
+      <label for="genero">Sexo</label>
+      <select name="genero" id="genero">
+        <option value="">--Please choose an option--</option>
+        <option value="h">Hombre</option>
+        <option value="m">Mujer</option>
+        <option value="x">Otro</option>
+      </select>
+
+      <label for="fnac">Fecha de nacimiento</label>
+      <input type="date" name="fnac" id="fnac">
+      
+      <label for="city">Ciudad de residencia</label>
+      <input type="text" name="" id="">
+
+      <label for="country">País de residencia</label>
+      <select name="country" id="country">
+        <option value="">--Elige un país--</option>
+        <option value="s">España</option>
+        <option value="m">Portugal</option>
+        <option value="x">Italia</option>
+      </select>
+
+      <label for="">Foto</label>
+      <input type="file" name="" id="">
+
+      <input type="submit" value="Registrarse">
+
+      <p>¿Tienes ya una cuenta? <a href="login.html">Iniciar sesión</a></p>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2024 -Kevin Danilo & Marcos López</p>
+  </footer>
 </body>
 </html>
