@@ -15,8 +15,10 @@
         <li><a href="index.html">Inicio</a></li>
         <li><a href="busqueda.html">Buscador</a></li>
         <li>
-          <input type="search">
-          <button type="button">Buscar</button>
+          <form action="resultado.html">
+            <input type="search" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+          </form>
         </li>
         <li><a href="login.html">Iniciar sesión</a></li>
         <li><a href="registro.html">Regístrate</a></li>
@@ -25,7 +27,7 @@
   </header>
   <main>
     <h2>Regístrate</h2>
-    <form>
+    <form action="login.html">
       <label for="usu">Nombre de usuario</label>
       <input type="text" name="usu" id="usu">
 

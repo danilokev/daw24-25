@@ -16,8 +16,10 @@
         <li><a href="index.html">Inicio</a></li>
         <li><a href="busqueda.html">Buscador</a></li>
         <li>
-          <input type="search">
-          <button type="button">Buscar</button>
+          <form action="resultado.html">
+            <input type="search" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+          </form>
         </li>
         <li><a href="login.html">Iniciar sesión</a></li>
         <li><a href="registro.html">Regístrate</a></li>
@@ -26,27 +28,43 @@
   </header>
 
   <main>
-    <h2>Últimas fotos subidas</h2>
-    <a href="foto.html">
-      <figure>
-        <img src="imgusers/image1.jpg" alt="Afordable wooden modern house" width="500">
-        <figcaption>Minecraft house tutorial</figcaption>
-      </figure>
-    </a>
+    <h2>Resultado de búsqueda</h2>
 
     <figure>
-      <img src="imgusers/image2.jpg" alt="Oak cottage" width="500">
-      <figcaption>Minecraft house tutorial</figcaption>
+      <!-- <img src="https://picsum.photos/id/2/200" alt="Afordable wooden modern house" width="500"> -->
+      <a href="foto.html">
+        <img src="https://picsum.photos/id/11/400" alt="Afordable wooden modern house">
+      </a>
+
+      <!-- <figcaption>Minecraft house tutorial</figcaption> -->
+      <figcaption>
+        <h3>Título de la foto</h3>
+        <p>Fecha de publicación: 01/01/2024</p>
+        <p>País: España</p>
+      </figcaption>
     </figure>
 
     <figure>
-      <img src="imgusers/image4.jpg" alt="Mining oak house" width="500">
-      <figcaption>Minecraft house tutorial</figcaption>
+      <img src="https://picsum.photos/id/11/400" alt="Oak cottage">
+      <figcaption>
+        <h3>Título de la foto</h3>
+        <p>Fecha de publicación: 01/01/2024</p>
+        <p>País: España</p>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://picsum.photos/id/11/400" alt="Mining oak house">
+      <figcaption>
+        <h2>Título de la foto</h2>
+        <p>Fecha de publicación: 01/01/2024</p>
+        <p>País: España</p>
+      </figcaption>
     </figure>
   </main>
 
   <footer>
-    <p>&copy; 2024 -Kevin Danilo & Marcos López</p>
+    <p>&copy; 2024 - Kevin Danilo & Marcos López</p>
   </footer>
 </body>
 </html>

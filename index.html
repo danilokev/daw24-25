@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PI - Pictures &amp; Images | Página principal</title>
+  <title>PI - Pictures &amp; Images | Página principal (NO identificado)</title>
 </head>
 <body>
   <header>
@@ -15,14 +15,47 @@
         <li><a href="index.html">Inicio</a></li>
         <li><a href="busqueda.html">Buscador</a></li>
         <li>
-          <input type="search">
-          <button type="button">Buscar</button>
+          <form action="resultado.html">
+            <input type="search" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+          </form>
         </li>
         <li><a href="login.html">Iniciar sesión</a></li>
         <li><a href="registro.html">Regístrate</a></li>
       </ul>
     </nav>
   </header>
+
+  <main>
+    <h2>Últimas fotos subidas</h2>
+    <!-- Te lleva a login porque el usuario no está identificado -->
+    <a href="login.html">
+      <figure>
+        <img src="https://picsum.photos/id/11/400" alt="Afordable wooden modern house">
+        <figcaption>Minecraft house tutorial</figcaption>
+      </figure>
+    </a>
+
+    <figure>
+      <img src="https://picsum.photos/id/11/400" alt="Oak cottage">
+      <figcaption>Minecraft house tutorial</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://picsum.photos/id/11/400" alt="Spruce huge manor">
+      <figcaption>Minecraft house tutorial</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://picsum.photos/id/11/400" alt="Mining oak house">
+      <figcaption>Minecraft house tutorial</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://picsum.photos/id/11/400" alt="Stone house with berry bushes">
+      <figcaption>Minecraft house tutorial</figcaption>
+    </figure>
+  </main>
 
   <footer>
     <p>&copy; 2024 - Kevin Danilo & Marcos López</p>
