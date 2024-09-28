@@ -7,94 +7,98 @@
 </head>
 <body>
   <header>
-
     <a href="index.html"> 
-    <img src="imgusers/logo1.png" alt="Logo">
-    <h1>PI - Pictures & Images</h1>
+      <img src="imgusers/logo1.png" alt="Logo">
+      <h1>PI - Pictures & Images</h1>
     </a>
 
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="busqueda.html">Buscador</a></li>
-        <li><a href="perfil.html">Perfil</a></li>
-        <li>
-          <form action="resultado.html">
-            <input type="search" placeholder="Buscar...">
-            <button type="submit">Buscar</button>
-          </form>
-        </li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-        <li><a href="registro.html">Regístrate</a></li>
+          <li><a href="index.html">&raquo; Inicio</a></li>
+          <li><a href="perfil.html">&star; Perfil</a></li>
+          <li>
+              <form action="resultado.html">
+                <input type="search" placeholder="&#128270; Buscar...">
+                <button type="submit">Buscar</button>
+              </form>
+          </li>
+          <li><a href="busqueda-avanzada.html">&bull; Buscador avanzado</a></li>
+          <li><a href="registro.html">&plus; Regístrate</a></li>
       </ul>
     </nav>
-        <!-- Formulario de inicio de sesión -->
-        <div id="login-form">
-          <h2>Iniciar sesión</h2>
-            <form action="index2.html">
-              <li>
-                <label for="email"> Correo electrónico:</label>
-                <input type ="text" id="email" name="email"/>
-              </li>
-              <li>
-                <label for="psw">Contraseña:</label>
-                <input type ="text" id="psw" name="psw"/>
-              </li>
-              <li>
-                <input type ="submit" id="submit" name="submit" value="Iniciar sesión"/>
-              </li>      
-            </form>
-      </div>
+    
+    <!-- Formulario de inicio de sesión -->
+    <div id="login-form">
+      <h2>Iniciar sesión</h2>
+      <form action="index2.html">
+        <div>
+          <label for="email">Correo electrónico:</label>
+          <input type="text" id="email" name="email">
+        </div>
+        <div>
+          <label for="psw">Contraseña:</label>
+          <input type="text" id="psw" name="psw">
+        </div>
+        <div>
+          <input type="submit" id="submit" name="submit" value="Iniciar sesión">
+        </div>
+      </form>
+    </div>
   </header>
 
   <main>
     <h2>Últimas fotos subidas</h2>
-    <!-- Te lleva a login porque el usuario no está identificado -->
-    <a href="sin-iniciar.html"> 
+
+    <!-- Foto 1 -->
+    <a href="foto.html"> 
       <figure>
         <img src="imgusers/foto1.jpg" alt="Abeja en flor amarilla" width="600">
         <figcaption>Abeja</figcaption>
-        <p>Fecha: 01/09/2024</p>
-        <p>País: España</p>
-      </figure> 
+      </figure>
+      <p>Fecha: 01/09/2024</p>
+      <p>País: España</p>
     </a>
 
+    <!-- Foto 2 -->
     <a href="sin-iniciar.html"> 
       <figure>
         <img src="imgusers/foto2.jpg" alt="Bosque verde" width="600">
         <figcaption>Bosque</figcaption>
-        <p>Fecha: 06/01/2014</p>
-        <p>País: Argentina</p>
       </figure>
+      <p>Fecha: 06/01/2014</p>
+      <p>País: Argentina</p>
     </a>
 
-   <a href="sin-iniciar.html"> 
-    <figure>
-      <img src="imgusers/foto3.webp" alt="Atardecer en el bosque" width="600">
-      <figcaption>Atardecer en el bosque</figcaption>
+    <!-- Foto 3 -->
+    <a href="sin-iniciar.html"> 
+      <figure>
+        <img src="imgusers/foto3.webp" alt="Atardecer en el bosque" width="600">
+        <figcaption>Atardecer en el bosque</figcaption>
+      </figure>
       <p>Fecha: 07/11/2022</p>
-      <p>País: Japon</p>
-    </figure>
-  </a>
+      <p>País: Japón</p>
+    </a>
 
-   <a href="sin-iniciar.html"> 
-    <figure>
-      <img src="imgusers/foto4.webp" alt="Plantas iluminadas con un rayo de sol" width="600">
-      <figcaption>Plantas</figcaption>
+    <!-- Foto 4 -->
+    <a href="sin-iniciar.html"> 
+      <figure>
+        <img src="imgusers/foto4.webp" alt="Plantas iluminadas con un rayo de sol" width="600">
+        <figcaption>Plantas</figcaption>
+      </figure>
       <p>Fecha: 01/09/2024</p>
       <p>País: Colombia</p>
-    </figure>
-  </a>
+    </a>
 
-   <a href="sin-iniciar.html"> 
-    <figure>
-      <img src="imgusers/foto5.jpeg" alt="Guepardo posando" width="600">
-      <figcaption>Lindo minino</figcaption>
+    <!-- Foto 5 -->
+    <a href="sin-iniciar.html"> 
+      <figure>
+        <img src="imgusers/foto5.jpeg" alt="Guepardo posando" width="600">
+        <figcaption>Lindo minino</figcaption>
+      </figure>
       <p>Fecha: 01/09/2024</p>
       <p>País: Congo</p>
-    </figure>
-  </a>
-
+    </a>
   </main>
 
   <footer>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Fotos</title>
+</head>
+<body>
+    <a href="index.html"> 
+        <img src="imgusers/logo1.png" alt="Logo">
+        <h1>PI - Pictures & Images</h1>
+        </a>
+    <header>
+    <!--BARRA DE NAVEGACIÓN-->
+    <nav>
+        <ul>
+            <li><a href="index.html">&raquo; Inicio</a></li>
+            <li><a href="perfil.html">&star; Perfil</a></li>
+            <li>
+                <form action="resultado.html">
+                  <input type="search" placeholder="&#128270; Buscar...">
+                  <button type="submit">Buscar</button>
+                </form>
+            </li>
+            <li><a href="busqueda-avanzada.html">&bull; Buscador avanzado</a></li>
+            <li><a href="registro.html">&plus; Regístrate</a></li>
+        </ul>
+    </nav>
+    
+         <!-- Formulario de inicio de sesión -->
+
+    </header>
+    <h1>Búsqueda de Fotos</h1>
+
+    <!-- Formulario de búsqueda -->
+    <form action="resultado.html" method="GET">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo"><br><br>
+
+        <label for="fecha">Fecha (YYYY-MM-DD):</label><br>
+        <input type="date" id="fecha" name="fecha"><br><br>
+
+        <label for="pais">País:</label><br>
+        <input type="text" id="pais" name="pais"><br><br>
+
+        <input type="submit" value="Buscar">
+    </form>
+
+</body>
+</html>
