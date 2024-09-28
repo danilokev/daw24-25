@@ -3,84 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PI - Pictures &amp; Images | Busquedas</title>
+  <title>KeepMoments - Buscador avanzado</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <a href="index.html"> 
-      <img src="imgusers/logo1.png" alt="Logo">
-      <h1>PI - Pictures & Images</h1>
+    <a href="index.html">
+      <img src="img/logo1.png" alt="Logo">
+      <h1>KM - KeepMoments</h1>
     </a>
     <!-- BARRA DE NAVEGACIÓN -->
     <nav>
       <ul>
-          <li><a href="index.html">&raquo; Inicio</a></li>
-          <li><a href="perfil.html">&star; Perfil</a></li>
-          <li>
-              <form action="resultado.html">
-                <input type="search" placeholder="&#128270; Buscar...">
-                <button type="submit">Buscar</button>
-              </form>
-          </li>
-          <li><a href="busqueda-avanzada.html">&bull; Buscador avanzado</a></li>
-          <li><a href="registro.html">&plus; Regístrate</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="busqueda.html">Buscador</a></li>
+        <li>
+          <form action="resultado.html">
+            <input type="search" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+          </form>
+        </li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="registro.html">Regístrate</a></li>
       </ul>
     </nav>
   </header>
-
   <main>
-    <h2>Últimas fotos subidas</h2>
+    <h2>Realiza una búsqueda avanzada</h2>
+    <!-- Formulario de búsqueda -->
+    <form action="resultado.html" method="GET">
+      <label for="titulo">Título:</label><br>
+      <input type="text" id="titulo" name="titulo"><br><br>
 
-    <!-- Enlaces a fotos, te lleva a login porque el usuario no está identificado -->
-    <a href="foto.html"> 
-      <figure>
-        <img src="imgusers/foto1.jpg" alt="Abeja en flor amarilla" width="600">
-        <figcaption>Abeja</figcaption>
-      </figure> 
-      <p>Fecha: 01/09/2024</p>
-      <p>País: España</p>
-    </a>
-  
-    <a href="foto.html"> 
-      <figure>
-        <img src="imgusers/foto2.jpg" alt="Bosque verde" width="600">
-        <figcaption>Bosque</figcaption>
-      </figure>
-      <p>Fecha: 06/01/2014</p>
-      <p>País: Argentina</p>
-    </a>
-  
-    <a href="foto.html"> 
-      <figure>
-        <img src="imgusers/foto3.webp" alt="Atardecer en el bosque" width="600">
-        <figcaption>Atardecer en el bosque</figcaption>
-      </figure>
-      <p>Fecha: 07/11/2022</p>
-      <p>País: Japón</p>
-    </a>
-  
-    <a href="foto.html"> 
-      <figure>
-        <img src="imgusers/foto4.webp" alt="Plantas iluminadas con un rayo de sol" width="600">
-        <figcaption>Plantas</figcaption>
-      </figure>
-      <p>Fecha: 01/09/2024</p>
-      <p>País: Colombia</p>
-    </a>
-  
-    <a href="foto.html"> 
-      <figure>
-        <img src="imgusers/foto5.jpeg" alt="Guepardo posando" width="600">
-        <figcaption>Lindo minino</figcaption>
-      </figure>
-      <p>Fecha: 01/09/2024</p>
-      <p>País: Congo</p>
-    </a>
+      <label for="fecha">Fecha:</label><br>
+      <input type="date" id="fecha" name="fecha"><br><br>
+
+      <label for="pais">País:</label><br>
+      <input type="text" id="pais" name="pais"><br><br>
+
+      <input type="submit" value="Buscar">
+    </form>
   </main>
 
   <footer>
-    <p>&copy; 2024 - Kevin Danilo & Marcos López</p>
+    <p>Autores: Kevin Danilo & Marcos López</p>
+    <p>&copy; 2024 - Proyecto DAW</p>
   </footer>
 </body>
 </html>
