@@ -1,4 +1,4 @@
-# DAW20-24
+# DAW24-25
 _Sistema gestor de álbumes de fotos que admita múltiples usuarios. Proyecto de la asignatura de Desarrollo de Aplicaciones Web (DAW) del grado de ingeniería Multimedia de la Universidad de Alicante._ 
 ## Archivos HTML
 - index.html: Archivo principal que enlaza a las diferentes secciones de la web.
