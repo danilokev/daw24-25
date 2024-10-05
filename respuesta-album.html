@@ -1,0 +1,113 @@
+<!-- 
+  Archivo: respuesta-album.html
+  En este archivo se muestra la respuesta al solicitar un álbum impreso.
+
+  Creado por: Kevin Danilo, Marcos López el 30/09/2024
+
+  Historial de cambios:
+  05/10/2024 - Creación del archivo
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud Confirmada - KeepMoments</title>
+</head>
+<body>
+    <header>
+        <a href="identificado.html">
+          <img src="img/logo1.png" alt="Logo">
+          <h1>KM - KeepMoments</h1>
+        </a>
+        <!--BARRA DE NAVEGACIÓN-->
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="busqueda.html">Buscador</a></li>
+            <li>
+              <form action="resultado.html">
+                <input type="search" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+              </form>
+            </li>
+            <li><a href="menu-usuario.html">Usuario Identificado</a></li>
+            <li><a href="index.html">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+  <main>
+    <h2>Confirmación de solicitud de álbum impreso</h2>
+    <p>¡Gracias por solicitar tu álbum impreso en KeepMoments! A continuación, te mostramos los principales datos de tu solicitud:</p>
+
+    <h3>Detalles del Álbum</h3>
+    <p><strong>Nombre:</strong> Juan Pérez</p>
+    <p><strong>Título del álbum:</strong> Recuerdos de Viaje</p>
+    <p><strong>Texto adicional:</strong> Este álbum contiene los mejores momentos de nuestro viaje por Europa.</p>
+    <p><strong>Correo electrónico:</strong> juan.perez@example.com</p>
+
+    <h3>Dirección de Envío</h3>
+        <p><strong>Calle:</strong> Calle Garcia</p>
+        <p><strong>Número:</strong> 666</p>
+        <p><strong>Piso:</strong> 4</p>
+        <p><strong>Puerta:</strong> B</p>
+        <p><strong>Código Postal:</strong> 03660</p>
+        <p><strong>Localidad:</strong> Novelda</p>
+        <p><strong>Provincia:</strong> Comunidad Valenciana</p>
+        <p><strong>País:</strong> España</p>
+
+    <h3>Configuración del Álbum</h3>
+<label for="color">Color de la portada:</label>
+      <!-- Aquí se muestra el color negro preseleccionado -->
+      <input type="color" id="color" name="color" value="#000000" disabled> <!-- color negro por defecto -->
+
+        <p><strong>Número de copias:</strong> 1</p>
+        <p><strong>Resolución de las fotos:</strong> 300 dpi</p>
+        <p><strong>Álbum seleccionado:</strong> Álbum 1</p>
+        <p><strong>Impresión a color:</strong> Sí</p>
+
+    <h3>Coste del Álbum</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Coste</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Procesamiento y envío</td>
+          <td>10€</td>
+        </tr>
+        <tr>
+            <td>Número de páginas</td>
+            <td>10</td>
+          </tr>
+        <tr>
+          <td>Precio por página</td>
+          <td>1.8€ por página</td>
+        </tr>
+        <tr>
+          <td>Fotos en color</td>
+          <td>0.5€ por foto</td>
+        </tr>
+        <tr>
+          <td>Resolución > 300 dpi</td>
+          <td>0.2€ por foto</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>35€</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <footer>
+    <p>Autores: Kevin Danilo & Marcos López</p>
+    <p>&copy; 2024 - Proyecto DAW</p>
+  </footer>
+
+</body>
+</html>
