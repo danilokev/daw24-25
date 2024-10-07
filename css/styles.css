@@ -1,0 +1,38 @@
+/* 
+  Archivo: styles.css
+  Estilos generales de la aplicación
+
+  Creado por: Kevin Danilo, Marcos López el 07/10/2024
+
+  Historial de cambios:
+  07/10/2024 - Creación del archivo
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+body > header > nav > ul{
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+
+  > li > a {
+    text-decoration: none;
+    font-size: 18px;
+
+    &:hover {
+      color: #f00;
+    }
+  }
+}
