@@ -7,6 +7,11 @@
   Historial de cambios:
   07/10/2024 - Creación del archivo
 */
+
+/* Importación de Google Fonts para los iconos */
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons&display=swap');
+
+/* Global */
 * {
   margin: 0;
   padding: 0;
@@ -14,25 +19,162 @@
 }
 
 body {
-  min-height: 100dvh;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background: #f0f0f0;;
 }
 
-img {
-  height: auto;
-  max-width: 100%;
-}
-
-body > header > nav > ul{
+/* Estilos para el header */
+header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+header img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-size: 1.5em;
+}
+
+/* Estilos de la barra de navegación */
+nav ul {
   list-style-type: none;
+  display: flex;
+  gap: 10px;
+}
 
-  > li > a {
-    text-decoration: none;
-    font-size: 18px;
+nav ul li {
+  display: flex;
+  align-items: center;
+}
 
-    &:hover {
-      color: #f00;
-    }
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a .material-icons {
+  margin-right: 5px;
+}
+
+/* Ocultar el menú para pantallas pequeñas */
+#nav-menu {
+  display: none;
+}
+
+/* Mostrar el menú hamburguesa en pantallas pequeñas */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  /* Mostrar el menú cuando el botón hamburguesa es clicado */
+  #nav-menu.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul li {
+    justify-content: center;
   }
 }
+
+/* Main section */
+main {
+  margin-top: 20px;
+}
+
+main h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+main a {
+  text-decoration: none;
+  color: #000;
+}
+
+main figure {
+  margin-bottom: 20px;
+}
+
+main img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+main figcaption {
+  text-align: center;
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+
+/* Estilos para pantallas más grandes */
+@media (min-width: 768px) {
+  header {
+    padding: 20px 0;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  main h2 {
+    font-size: 2em;
+  }
+
+  footer {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  nav ul li a {
+    font-size: 1.5em;
+  }
+}
+
