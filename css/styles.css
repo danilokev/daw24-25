@@ -7,11 +7,10 @@
   Historial de cambios:
   07/10/2024 - Creación del archivo
 */
-
 /* Importación de Google Fonts para los iconos */
 @import url('https://fonts.googleapis.com/css2?family=Material+Icons&display=swap');
+@import url('../css/variables.css');
 
-/* Global */
 * {
   margin: 0;
   padding: 0;
@@ -19,162 +18,474 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
-  background: #f0f0f0;;
+  min-height: 100dvh;
+  font-family: sans-serif;
+  background-color: var(--background-color);
 }
 
-/* Estilos para el header */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Estilos para el header ------------------- */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
+  padding: 1em;
+  border-bottom: 1px solid var(--border-color);
 }
 
-header a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #333;
+header>div {
+  >a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  >label {
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  >input {
+    display: none;
+
+    &:checked~nav>ul {
+      max-height: 100vh; /* Mostrar el menú */
+    }
+  }
+}
+
+nav>ul {
+  list-style-type: none;
+  max-height: 0; /* por defecto el menú está acultado */
+  overflow: hidden;
+  background-color: var(--card-background-color);
+  box-shadow: 0 0 10px var(--shadow-color);
+
+  >li>a {
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color .3s;
+
+    &:hover {
+      color: var(--hover-primary);
+    }
+  }
 }
 
 header img {
-  height: 40px;
-  margin-right: 10px;
+  width: 2em;
 }
 
-header h1 {
-  font-size: 1.5em;
+/* barra de navegación simple */
+#form-search {
+  text-align: center;
+  margin-top: 1.5em;
+
+  >input[type="search"] {
+    border: 1px solid var(--border-color);
+    padding: .75em;
+    width: 17em; /* ancho del buscador simple */
+  }
 }
 
-/* Estilos de la barra de navegación */
-nav ul {
-  list-style-type: none;
-  display: flex;
-  gap: 10px;
+/* botón buscar de la barra de navegación */
+.btn-search {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  padding: .75em 1em;
+  border: none;
+  border-radius: .5em;
+  margin-left: .5em;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--hover-secondary);
+  }
 }
 
-nav ul li {
-  display: flex;
-  align-items: center;
+/* Estilos index --------------------------------------------- */
+body>main>h1 {
+  text-align: center;
+  color: var(--text-color);
+  margin: 1em 0;
 }
 
-nav ul li a {
+.container-photos>a {
   text-decoration: none;
-  color: #333;
+}
+
+.container-photos figure {
+  margin-bottom: 1.5em;
+
+  >figcaption {
+    background-color: var(--secondary-color);
+    padding: .75em;
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+
+  img:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  }
+}
+
+/* Estilos botones ----------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: .75em;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: .5em;
+  font-weight: bold;
   font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color .3s;
+  width: 100%;
+
+  &:hover {
+    background-color: var(--hover-primary);
+  }
+}
+
+/* Estilos Foto Detalle ------------------------------------- */
+.container-card {
+  padding: 1em;
+
+  img {
+    border-radius: .5em;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  >button {
+    margin-top: 1em;
+  }
+}
+
+.article-p {
+  line-height: 3em;
+}
+
+/* Icon account_circle de página foto detalle */
+.article-account {
   display: flex;
+  flex-direction: column;
   align-items: center;
-}
-
-nav ul li a .material-icons {
-  margin-right: 5px;
-}
-
-/* Ocultar el menú para pantallas pequeñas */
-#nav-menu {
-  display: none;
-}
-
-/* Mostrar el menú hamburguesa en pantallas pequeñas */
-@media (max-width: 768px) {
-  #menu-toggle {
-    display: block;
-  }
-
-  /* Mostrar el menú cuando el botón hamburguesa es clicado */
-  #nav-menu.active {
-    display: block;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  nav ul li {
-    justify-content: center;
-  }
-}
-
-/* Main section */
-main {
-  margin-top: 20px;
-}
-
-main h2 {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-}
-
-main a {
+  margin-bottom: 1.5em;
   text-decoration: none;
   color: #000;
+
+  &:hover {
+    color: #333;
+  }
 }
 
-main figure {
-  margin-bottom: 20px;
+#icon-account {
+  font-size: 4em;
 }
 
-main img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-main figcaption {
+/* estilos solicitar álbum impreso --------------------------- */
+.text-album-impreso {
   text-align: center;
-  font-size: 1em;
-  margin-top: 10px;
+  text-wrap: pretty;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  margin-top: 1em;
 }
 
-/* Footer */
-footer {
+/* Estilos tabla */
+table {
+  border-collapse: collapse;
+  width: 100%; 
+  max-width: 600px; 
+  margin: 20px auto; /* centrar tabla */
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Encabezado de la tabla */
+thead {
+  background-color: #333;
+  color: #ffffff;
+}
+
+th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* Cuerpo de la tabla */
+tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Alternar colores en filas para mejor legibilidad */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover para filas */
+tbody tr:hover {
+  background-color: #e1e1e1;
+  cursor: pointer;
+}
+
+/* Estilo para la primera columna */
+td:first-child {
+  font-weight: bold;
+}
+
+/* Estilo para la segunda columna */
+td:last-child {
+  text-align: right;
+}
+
+/* Estilos formulario ---------------------------------------- */
+main>form {
+  background-color: var(--card-background-color);
+  box-shadow: 0 0 10px var(--shadow-color);
+  padding: 1em;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+
+  >label {
+    font-weight: bold;
+    margin-bottom: .5em;
+  }
+}
+
+.form-input input,
+select, textarea {
+  padding: 1em;
+  border: 1px solid var(--border-color);
+}
+
+.form-footer {
   text-align: center;
-  margin-top: 30px;
-  font-size: 0.9em;
+  margin-top: 2em;
+
+  >a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-/* Estilos para pantallas más grandes */
-@media (min-width: 768px) {
-  header {
-    padding: 20px 0;
+.form-info {
+  margin: 1.5em 0;
+  color: var(--text-color);
+  text-wrap: pretty;
+  font-weight: 600;
+}
+
+/* formulario solicitar álbum ----- */
+.obligatorio {
+  color: #f00;
+  font-weight: bold;
+}
+
+#container-form-impreso {
+  > p {
+    margin-bottom: 1em;
+    font-size: 1.2em;
   }
 
-  header h1 {
-    font-size: 2em;
+  >fieldset {
+    padding: 1em;
+    border: 2px solid var(--border-color);
+    margin-bottom: 1.5em;
+    >legend {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+  }
+}
+
+#color-impreso {
+  padding: .3em;
+  height: 4em;
+  border: 1px solid var(--border-color);
+}
+
+#copias {
+  width: 8em;
+}
+
+#outvol, #outvol-span {
+  text-align: center;
+  font-weight: 600;
+}
+
+.impresion-color {
+  >label {
+    font-weight: bold;
+    margin-right: 1em;
+  }
+}
+
+/* Footer ---------------------------------------------------- */
+.container-footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  text-wrap: balance;
+  line-height: 3em;
+  padding: 1em;
+}
+
+/* ---------------------------------------------- */
+/* MEDIA QUERIES                                  */
+/* ---------------------------------------------- */
+@media screen and (width >=600px) {
+  /* Estilos index */
+  .container-photos {
+    padding: 1em;
   }
 
-  nav ul {
-    flex-direction: row;
-    gap: 20px;
+  .container-photos figure>figcaption {
+    border-radius: 0.5em;
   }
 
-  main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  body>main>h1 {
+    margin: 1em 0 0 0;
+  }
+}
+
+@media screen and (width >768px) {
+  /* header y nav */
+  header>div>label {
+    display: none;
   }
 
-  main h2 {
-    font-size: 2em;
+  header>div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  footer {
+  /* mostrar menú completo en horizontal */
+  nav>ul {
+    display: flex;
+    max-height: none; 
+    /* quitar los estilos de la parte móvil */
+    background-color: var(--background-color);
+    box-shadow: none;
+  }
+
+  #form-search input[type="search"] {
+    width: 30em; /* ancho del buscador simple */
     font-size: 1em;
   }
+
+  /* botón buscar del buscador simple */
+  .btn-search {
+    font-size: 1em;
+  }
+
+  /* index */
+  .container-photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5em;
+  }
+
+  .container-photos figure {
+    margin-bottom: 0;
+
+    >img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: .5em;
+    }
+  }
+
+  /* formulario */
+  .main-form {
+    padding: 4em;
+  }
+
+  main>form {
+    margin: 0 auto;
+    padding: 2em;
+    border-radius: .5em;
+  }
+
+  #container-form-impreso {
+    width: 50em;
+    margin-bottom: 4em;
+  }
+
+  /* foto detalle */
+  .container-card {
+    width: 60%;
+    margin: 0 auto;
+
+    >button {
+      width: 12em;
+    }
+  }
+
+  /* texto solicitar album */
+  .container-text-impreso {
+    margin: 0 4em;
+  }
 }
 
-@media (min-width: 1024px) {
-  main {
+@media screen and (width >=1280px) {
+  header img {
+    width: 3em;
+  }
+
+  body>main>h1 {
+    margin-top: 3em;
+    margin-bottom: 1em;
+  }
+
+  /* index */
+  .container-photos {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  nav ul li a {
-    font-size: 1.5em;
+  /* foto detalle y formulario*/
+  .container-card {
+    width: 50%;
+  }
+
+  main>form {
+    width: 40em;
   }
 }
-

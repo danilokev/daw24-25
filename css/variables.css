@@ -1,0 +1,20 @@
+:root {
+  /* Colores principales */
+  --primary-color: #007BFF; /* Azul cielo */
+  --secondary-color: #FFA726; /* Naranja suave */
+  --accent-color: #66BB6A; /* Verde suave */
+  --background-color: #F8F9FA; /* Gris claro */
+  --text-color: #343A40; /* Gris oscuro */
+  --card-background-color: #ffffff; /* Blanco */
+  --image-card-background: #f0f0f5; /* Gris claro para fondo de imagen */
+
+  /* Colores adicionales */
+  --hover-primary: #0056b3; /* Azul más oscuro para hover */
+  --hover-secondary: #e68a00; /* Naranja más oscuro para hover */
+  --shadow-color: rgba(0, 0, 0, .1); /* Sombra suave */
+
+  /* Otros */
+  --border-color: #E0E0E0; /* Gris claro para bordes */
+  --success-color: #28a745; /* Verde para estados de éxito */
+  --error-color: #dc3545; /* Rojo para estados de error */
+}

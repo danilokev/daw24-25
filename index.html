@@ -14,72 +14,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KeepMoments - Página principal</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search">
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="img/logo1.png" alt="Logo">
-      <h1>KM - KeepMoments</h1>
-    </a>
-    <!-- BARRA DE NAVEGACIÓN -->
-    <nav>
-      <ul>
-        <li><a href="index.html"><span class="material-icons">home</span>Inicio</a></li>
-        <li><a href="busqueda.html">🔍 Buscador</a></li>
-        <li>
-          <form action="resultado.html">
-            <input type="search" placeholder="Buscar...">
-            <button type="submit"><span class="material-icons">search</span></button>
-          </form>
-        </li>
-        <li><a href="login.html"><span class="material-icons">login</span>Iniciar sesión</a></li>
-        <li><a href="registro.html"><span class="material-icons">person_add</span>Regístrate</a></li>
-      </ul>
-    </nav>
-    
+    <div>
+      <label for="chkMenu">&equiv;</label>
+      <input type="checkbox" name="menu" id="chkMenu">
+      <a href="index.html"><img src="img/logo1.png" alt="">KeepMoments</a>
+      <nav>
+        <ul>
+          <li><a href="index.html"><span class="material-icons">home</span>Inicio</a></li>
+          <li><a href="busqueda.html"><span class="material-symbols-outlined">search</span>Buscador</a></li>
+          <li><a href="registro.html"><span class="material-icons">person_add</span>Regístrate</a></li>
+          <li><a href="login.html"><span class="material-icons">login</span>Iniciar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+    <form action="resultado.html" id="form-search">
+      <input type="search" placeholder="Buscar...">
+      <button class="btn-search" type="submit">Buscar</button>
+    </form>
   </header>
 
   <!-- Página principal con usuario NO identificado, por lo tanto, cuando se de click en una foto se redirreciona a login.html -->
 
   <main>
-    <h2>Últimas fotos subidas</h2>
-    <a href="login.html">
-      <figure>
-        <img src="img/foto1.jpg" alt="Abeja en flor amarilla" width="600">
-        <figcaption>Abeja</figcaption>
-      </figure>
-    </a>
-
-    <a href="login.html">
-      <figure>
-        <img src="img/foto2.jpg" alt="Bosque verde" width="600">
-        <figcaption>Bosque</figcaption>
-      </figure>
-    </a>
-
-    <a href="login.html">
-      <figure>
-        <img src="img/foto3.webp" alt="Atardecer en el bosque" width="600">
-        <figcaption>Atardecer en el bosque</figcaption>
-      </figure>
-    </a>
-
-    <a href="login.html">
-      <figure>
-        <img src="img/foto4.webp" alt="Plantas iluminadas con un rayo de sol" width="600">
-        <figcaption>Plantas</figcaption>
-      </figure>
-    </a>
-
-    <a href="login.html">
-      <figure>
-        <img src="img/foto5.jpeg" alt="Guepardo posando" width="600">
-        <figcaption>Lindo minino</figcaption>
-      </figure>
-    </a>
+    <h1>Últimas fotos subidas</h1>
+    <div class="container-photos">
+      <a href="login.html">
+        <figure>
+          <img src="img/foto1.jpg" alt="Abeja en flor amarilla">
+          <figcaption>Abeja</figcaption>
+        </figure>
+      </a>
+      <a href="login.html">
+        <figure>
+          <img src="img/foto2.jpg" alt="Bosque verde">
+          <figcaption>Bosque</figcaption>
+        </figure>
+      </a>
+      <a href="login.html">
+        <figure>
+          <img src="img/foto3.webp" alt="Atardecer en el bosque">
+          <figcaption>Atardecer en el bosque</figcaption>
+        </figure>
+      </a>
+      <a href="login.html">
+        <figure>
+          <img src="img/foto4.webp" alt="Plantas iluminadas con un rayo de sol">
+          <figcaption>Plantas</figcaption>
+        </figure>
+      </a>
+      <a href="login.html">
+        <figure>
+          <img src="img/foto5.jpeg" alt="Guepardo posando">
+          <figcaption>Lindo minino</figcaption>
+        </figure>
+      </a>
+    </div>
   </main>
-
-  <footer>
+  <footer class="container-footer">
     <p>Autores: Kevin Danilo & Marcos López</p>
     <p>&copy; 2024 - Proyecto DAW</p>
   </footer>

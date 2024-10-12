@@ -17,25 +17,23 @@
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="img/logo1.png" alt="Logo">
-      <h1>KM - KeepMoments</h1>
-    </a>
-    <!--BARRA DE NAVEGACIÓN-->
-    <nav>
-      <ul>
-        <li><a href="index.html"><span class="material-icons">home</span>Inicio</a></li>
-        <li><a href="busqueda.html">🔍 Buscador</a></li>
-        <li>
-          <form action="resultado.html">
-            <input type="search" placeholder="Buscar...">
-            <button type="submit"><span class="material-icons">search</span>Buscar</button>
-          </form>
-        </li>
-        <li><a href="menu-usuario.html"><span class="material-icons">person</span>Usuario Identificado</a></li>
-        <li><a href="index.html"><span class="material-icons">logout</span>Logout</a></li>
-      </ul>
-    </nav>
+    <div>
+      <label for="chkMenu">&equiv;</label>
+      <input type="checkbox" name="menu" id="chkMenu">
+      <a href="index.html"><img src="img/logo1.png" alt="">KeepMoments</a>
+      <nav>
+        <ul>
+          <li><a href="index.html"><span class="material-icons">home</span>Inicio</a></li>
+          <li><a href="busqueda.html"><span class="material-symbols-outlined">search</span>Buscador</a></li>
+          <li><a href="registro.html"><span class="material-icons">person_add</span>Regístrate</a></li>
+          <li><a href="login.html"><span class="material-icons">login</span>Iniciar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+    <form action="resultado.html" id="form-search">
+      <input type="search" placeholder="Buscar...">
+      <button class="btn-search" type="submit">Buscar</button>
+    </form>
   </header>
 
   <main>

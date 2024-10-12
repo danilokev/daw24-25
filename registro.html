@@ -14,91 +14,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KeepMoments | Formulario de registro</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search">
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="img/logo1.png" alt="Logo">
-      <h1>KM - KeepMoments</h1>
-    </a>
-    <!--BARRA DE NAVEGACIÓN-->
-    <nav>
-      <ul>
-        <li><a href="index.html"><span class="material-icons">home</span>Inicio</a></li>
-        <li><a href="busqueda.html">🔍 Buscador</a></li>
-        <li>
-          <form action="resultado.html">
-            <input type="search" placeholder="Buscar...">
-            <button type="submit"><span class="material-icons">search</span></button>
-          </form>
-        </li>
-        <li><a href="login.html"><span class="material-icons">login</span>Iniciar sesión</a></li>
-        <li><a href="registro.html"><span class="material-icons">person_add</span>Regístrate</a></li>
-      </ul>
-    </nav>
-
-
+    <div>
+      <label for="chkMenu">&equiv;</label>
+      <input type="checkbox" name="menu" id="chkMenu">
+      <a href="index.html"><img src="img/logo1.png" alt="">KeepMoments</a>
+      <nav>
+        <ul>
+          <li><a href="index.html"><span class="material-icons">home</span>Inicio</a></li>
+          <li><a href="busqueda.html"><span class="material-symbols-outlined">search</span>Buscador</a></li>
+          <li><a href="registro.html"><span class="material-icons">person_add</span>Regístrate</a></li>
+          <li><a href="login.html"><span class="material-icons">login</span>Iniciar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+    <form action="resultado.html" id="form-search">
+      <input type="search" placeholder="Buscar...">
+      <button class="btn-search" type="submit">Buscar</button>
+    </form>
   </header>
-  <main>
-    <h2>Regístrate</h2>
+  <main class="main-form">
     <form action="login.html">
-      <label for="usu">Nombre de usuario</label>
-      <input type="text" name="usu" id="usu">
-
-      <label for="pwd">Contraseña</label>
-      <input type="password" name="pwd" id="pwd">
-
-      <label for="pwd2">Repetir contraseña</label>
-      <input type="password" name="pwd2" id="pwd2">
-
-      <label for="email">Correo electrónico</label>
-      <input type="email" name="email" id="email">
-
-      <label for="genero">Sexo</label>
-      <select name="genero" id="genero">
-        <option value="">--Elige una opción--</option>
-        <option value="h">Hombre</option>
-        <option value="m">Mujer</option>
-        <option value="x">Otro</option>
-      </select>
-
-      <label for="fnac">Fecha de nacimiento</label>
-      <input type="date" name="fnac" id="fnac">
-
-      <label for="city">Ciudad de residencia</label>
-      <input type="text" name="city" id="city">
-
-      <label for="country">País de residencia</label>
-      <select name="country" id="country">
-        <option value="">--Elige un país--</option>
-        <option value="es">España</option>
-        <option value="prt">Portugal</option>
-        <option value="ita">Italia</option>
-        <option value="fra">Francia</option>
-        <option value="su">Suiza</option>
-        <option value="mx">México</option>
-        <option value="ar">Argentina</option>
-        <option value="us">Estados Unidos</option>
-        <option value="al">Alemania</option>
-        <option value="other">Otro</option>
-      </select>
-
-      <label for="photo">Foto</label>
-      <input type="file" name="photo" id="photo">
-
+      <h1>Únete a KeepMoments</h1>
+      <p class="form-info">Registra tu cuenta.</p>
+      <p class="form-input">
+        <label for="usu">Nombre de usuario:</label>
+        <input type="text" name="usu" id="usu">
+      </p>
+      <p class="form-input">
+        <label for="pwd">Contraseña:</label>
+        <input type="password" name="pwd" id="pwd">
+      </p>
+      <p class="form-input">
+        <label for="pwd2">Repetir contraseña:</label>
+        <input type="password" name="pwd2" id="pwd2">
+      </p>
+      <p class="form-input">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" name="email" id="email">
+      </p>
+      <p class="form-input">
+        <label for="genero">Sexo:</label>
+        <select name="genero" id="genero">
+          <option value="">--Elige una opción--</option>
+          <option value="h">Hombre</option>
+          <option value="m">Mujer</option>
+          <option value="x">Otro</option>
+        </select>
+      </p>
+      <p class="form-input">
+        <label for="fnac">Fecha de nacimiento:</label>
+        <input type="date" name="fnac" id="fnac">
+      </p>
+      <p class="form-input">
+        <label for="city">Ciudad de residencia:</label>
+        <input type="text" name="city" id="city">
+      </p>
+      <p class="form-input">
+        <label for="country">País de residencia:</label>
+        <select name="country" id="country">
+          <option value="">--Elige un país--</option>
+          <option value="es">España</option>
+          <option value="prt">Portugal</option>
+          <option value="ita">Italia</option>
+          <option value="fra">Francia</option>
+          <option value="su">Suiza</option>
+          <option value="mx">México</option>
+          <option value="ar">Argentina</option>
+          <option value="us">Estados Unidos</option>
+          <option value="al">Alemania</option>
+          <option value="other">Otro</option>
+        </select>
+      </p>
+      <p class="form-input">
+        <label for="photo">Foto:</label>
+        <input type="file" name="photo" id="photo">
+      </p>
       <!-- Botón de envío -->
-      <input type="submit" value="Registrarse">
-
-      <footer>
-        <p>¿Tienes ya una cuenta? <a href="login.html">Inicia sesión</a></p>
-      </footer>
+      <p>
+        <input class="btn" type="submit" value="Registrarse">
+      </p>
+      <p class="form-footer">¿Tienes ya una cuenta? <a href="login.html">Inicia sesión</a></p>
     </form>
   </main>
 
-  <footer>
+  <footer class="container-footer">
     <p>Autores: Kevin Danilo & Marcos López</p>
     <p>&copy; 2024 - Proyecto DAW</p>
   </footer>
 </body>
-
 </html>

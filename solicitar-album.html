@@ -14,36 +14,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KeepMoments</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search">
 </head>
 <body>
   <header>
-    <a href="identificado.html">
-      <img src="img/logo1.png" alt="Logo">
-      <h1>KM - KeepMoments</h1>
-    </a>
-    <!--BARRA DE NAVEGACIÓN-->
-    <nav>
-      <ul>
-        <li><a href="identificado.html"><span class="material-icons">home</span>Inicio</a></li>
-        <li><a href="busqueda.html">🔍 Buscador</a></li>
-        <li>
-          <form action="resultado.html">
-            <input type="search" placeholder="Buscar...">
-            <button type="submit"><span class="material-icons">search</span>Buscar</button>
-          </form>
-        </li>
-        <li><a href="menu-usuario.html"><span class="material-icons">person</span>Usuario Identificado</a></li>
-        <li><a href="index.html"><span class="material-icons">logout</span>Logout</a></li>
-      </ul>
-    </nav>
+    <div>
+      <label for="chkMenu">&equiv;</label>
+      <input type="checkbox" name="menu" id="chkMenu">
+      <a href="index.html">
+        <img src="img/logo1.png" alt="logo">
+        <span>KeepMoments</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html"><span class="material-icons">home</span>Inicio</a></li>
+          <li><a href="busqueda.html"><span class="material-symbols-outlined">search</span>Buscador</a></li>
+          <li><a href="registro.html"><span class="material-icons">person_add</span>Regístrate</a></li>
+          <li><a href="login.html"><span class="material-icons">login</span>Iniciar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+    <form action="resultado.html" id="form-search">
+      <input type="search" placeholder="Buscar...">
+      <button class="btn-search" type="submit">Buscar</button>
+    </form>
   </header>
   <main>
-    <h2>Solicitar álbum impreso</h2>
+    <h1>Solicitar álbum impreso</h1>
 
-    <p>Para solicitar un álbum impreso, por favor rellena el formulario a continuación. Asegúrate de completar todos los campos obligatorios marcados con (*). </p>
-    <p>Podrás personalizar tu álbum con un título, texto adicional, y elegir entre varias opciones de configuración como el color de la portada, el número de copias, y la resolución de las fotos.</p>
-    <p>También podrás seleccionar la fecha aproximada de recepción y si deseas la impresión en color o en blanco y negro. Una vez completado, haz clic en "Solicitar álbum" para enviar tu solicitud.</p>
-
+    <div class="container-text-impreso">
+      <p class="text-album-impreso">Para solicitar un álbum impreso, por favor rellena el formulario a continuación. Asegúrate de completar todos los
+        campos obligatorios marcados con (*). </p>
+      <p class="text-album-impreso">Podrás personalizar tu álbum con un título, texto adicional, y elegir entre varias opciones de configuración como
+        el color de la portada, el número de copias, y la resolución de las fotos.</p>
+      <p class="text-album-impreso">También podrás seleccionar la fecha aproximada de recepción y si deseas la impresión en color o en blanco y
+        negro. Una vez completado, haz clic en "Solicitar álbum" para enviar tu solicitud.</p>
+    </div>
+  
     <table>
       <thead>
         <tr>
@@ -87,101 +95,122 @@
       </tbody>
     </table>
 
-    <form action="respuesta-album.html">
-      <p>Los campos marcados con un <abbr title="obligatorio">*</abbr> son obligatorios.</p>
+    <form id="container-form-impreso" action="respuesta-album.html">
+      <p>Los campos marcados con un <abbr class="obligatorio" title="obligatorio">*</abbr> son obligatorios.</p>
       <fieldset>
         <legend>Datos Personales</legend>
-        <label for="nombre">Nombre: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="text" id="nombre" name="nombre" maxlength="200" required>
-
-        <label for="apellidos">Apellidos: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="text" id="apellidos" name="apellidos" maxlength="200" required>
-
-        <label for="email">Correo electrónico: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="email" id="email" name="email" maxlength="200" required>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono">
+        <p class="form-input">
+          <label for="nombre">Nombre completo: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="text" id="nombre" name="nombre" maxlength="200" required>
+        </p>
+        <p class="form-input">
+          <label for="email">Correo electrónico: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="email" id="email" name="email" maxlength="200" required>
+        </p>
+        <p class="form-input">
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono" name="telefono">
+        </p>
       </fieldset>
 
       <fieldset>
         <legend>Detalles del Álbum</legend>
-        <label for="titulo">Título del álbum: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="text" id="titulo" name="titulo" maxlength="200" required>
-
-        <label for="texto">Texto adicional:</label>
-        <textarea id="texto" name="texto" maxlength="4000" rows="4" cols="50"></textarea>
+        <p class="form-input">
+          <label for="titulo">Título del álbum: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="text" id="titulo" name="titulo" maxlength="200" required>
+        </p>
+        <p class="form-input">
+          <label for="texto">Texto adicional:</label>
+          <textarea id="texto" name="texto" maxlength="4000"></textarea>
+        </p>
       </fieldset>
 
       <fieldset>
         <legend>Dirección de Envío</legend>
-        <label for="calle">Calle: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="text" id="calle" name="calle" required>
-
-        <label for="numero">Número: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="number" id="numero" name="numero" required>
-
-        <label for="piso">Piso: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="text" id="piso" name="piso" required>
-
-        <label for="puerta">Puerta: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="text" id="puerta" name="puerta" required>
-
-        <label for="codp">Código Postal: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="number" id="codp" name="codigo_postal" required>
-
-        <label for="localidad">Localidad: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="text" id="localidad" name="localidad" required>
-
-        <label for="provincia">Provincia: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <input type="text" id="provincia" name="provincia" required>
-
-        <label for="pais">País: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <select name="pais" id="pais" required>
-          <option value="">--Elige un país--</option>
-          <option value="es">España</option>
-          <option value="prt">Portugal</option>
-          <option value="ita">Italia</option>
-          <option value="fra">Francia</option>
-          <option value="su">Suiza</option>
-          <option value="mx">México</option>
-          <option value="ar">Argentina</option>
-          <option value="us">Estados Unidos</option>
-          <option value="al">Alemania</option>
-          <option value="other">Otro</option>
-        </select>>
+        <p class="form-input">
+          <label for="calle">Calle: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="text" id="calle" name="calle" required>
+        </p>
+        <p class="form-input">
+          <label for="numero">Número: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="number" id="numero" name="numero" required>
+        </p>
+        <p class="form-input">
+          <label for="piso">Piso: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="text" id="piso" name="piso" required>
+        </p>
+        <p class="form-input">
+          <label for="puerta">Puerta: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="text" id="puerta" name="puerta" required>
+        </p>
+        <p class="form-input">
+          <label for="codp">Código Postal: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="number" id="codp" name="codigo_postal" required>
+        </p>
+        <p class="form-input">
+          <label for="localidad">Localidad: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="text" id="localidad" name="localidad" required>
+        </p>
+        <p class="form-input">
+          <label for="provincia">Provincia: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <input type="text" id="provincia" name="provincia" required>
+        </p>
+        <p class="form-input">
+          <label for="pais">País: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <select name="pais" id="pais" required>
+            <option value="">--Elige un país--</option>
+            <option value="es">España</option>
+            <option value="prt">Portugal</option>
+            <option value="ita">Italia</option>
+            <option value="fra">Francia</option>
+            <option value="su">Suiza</option>
+            <option value="mx">México</option>
+            <option value="ar">Argentina</option>
+            <option value="us">Estados Unidos</option>
+            <option value="al">Alemania</option>
+            <option value="other">Otro</option>
+          </select>
+        </p>
       </fieldset>
 
       <fieldset>
         <legend>Configuración del álbum</legend>
-        <label for="color">Color de la portada:</label>
-        <input type="color" id="color" name="color" value="#000000">
-
-        <label for="copias">Número de copias:</label>
-        <input type="number" id="copias" name="copias" min="1" max="99" value="1">
-
-        <label for="resolucion">Resolución de las fotos:</label>
-        <input type="range" id="resolucion" name="resolucion" min="150" max="900" step="150" value="150"
-          onchange="document.getElementById('outvol').value=value">
-        <output id="outvol" name="outvol" for="resolucion">150</output><span> dpi</span>
-
-        <label for="album">Álbum de fotos: <abbr title="obligatorio" aria-label="obligatorio">*</abbr></label>
-        <select id="album" name="album" required>
-          <option value="1">Álbum 1</option>
-          <option value="2">Álbum 2</option>
-        </select>
-
-        <label for="fecha">Fecha de recepción:</label>
-        <input type="date" id="fecha" name="fecha">
-
-        <label for="impresion">Impresión a color:</label>
-        <input type="checkbox" id="impresion" name="impresion">
+        <p class="form-input">
+          <label for="color-impreso">Color de la portada:</label>
+          <input type="color" id="color-impreso" name="color" value="#000">
+        </p>
+        <p class="form-input">
+          <label for="copias">Número de copias:</label>
+          <input type="number" id="copias" name="copias" min="1" max="99" value="1">
+        </p>
+        <p class="form-input">
+          <label for="resolucion">Resolución de las fotos:</label>
+          <input type="range" id="resolucion" name="resolucion" min="150" max="900" step="150" value="150"
+            onchange="document.getElementById('outvol').value=value">
+          <output id="outvol" name="outvol" for="resolucion">150</output><span id="outvol-span"> dpi</span>
+        </p>
+        <p class="form-input">
+          <label for="album">Álbum de fotos: <abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+          <select id="album" name="album" required>
+            <option value="1">Álbum 1</option>
+            <option value="2">Álbum 2</option>
+          </select>
+        </p>
+        <p class="form-input">
+          <label for="fecha">Fecha de recepción:</label>
+          <input type="date" id="fecha" name="fecha">
+        </p>
+        <p class="impresion-color">
+          <label for="impresion">Impresión a color:</label>
+          <input type="checkbox" id="impresion" name="impresion">
+        </p>
       </fieldset>
-
-      <input type="submit" value="Solicitar álbum">
+      <p>
+        <input class="btn" type="submit" value="Solicitar álbum">
+      </p>
     </form>
   </main>
-  <footer>
+  <footer class="container-footer">
     <p>Autores: Kevin Danilo & Marcos López</p>
     <p>&copy; 2024 - Proyecto DAW</p>
   </footer>
