@@ -28,7 +28,7 @@ img {
   max-width: 100%;
 }
 
-/* Estilos para el header ------------------- */
+/* Estilos para el header ------------------------- */
 header {
   padding: 1em;
   border-bottom: 1px solid var(--border-color);
@@ -136,25 +136,6 @@ body>main>h1 {
   }
 }
 
-/* Estilos botones ----------------------------------------- */
-.btn {
-  display: inline-block;
-  padding: .75em;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: .5em;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color .3s;
-  width: 100%;
-
-  &:hover {
-    background-color: var(--hover-primary);
-  }
-}
-
 /* Estilos Foto Detalle ------------------------------------- */
 .container-card {
   background-color: var(--card-background-color);
@@ -196,6 +177,50 @@ body>main>h1 {
 
 #icon-account {
   font-size: 4em;
+}
+
+/* estilos resultado búsqueda avanzada -------------------------- */
+.container-card-search {
+  background-color: var(--card-background-color);
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: .5em;
+  box-shadow: 0 0 10px var(--shadow-color);
+  text-align: center;
+  margin-bottom: 2em;
+
+  img {
+    border-radius: .5em;
+    margin-bottom: 1em;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+  }
+
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  p {
+    line-height: 3em;
+  }
+
+  >button {
+    margin-top: 1em;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+}
+
+#btn-card-search {
+  display: block;
+  margin: 0 auto;
+  width: 16em;
+  margin-bottom: 4em;
 }
 
 /* estilos solicitar álbum impreso --------------------------- */
@@ -265,6 +290,25 @@ td:first-child {
 /* Estilo para la segunda columna */
 td:last-child {
   text-align: right;
+}
+
+/* Estilos botones ----------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: .75em;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: .5em;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color .3s;
+  width: 100%;
+
+  &:hover {
+    background-color: var(--hover-primary);
+  }
 }
 
 /* Estilos formulario ---------------------------------------- */
@@ -341,13 +385,14 @@ select, textarea {
 }
 
 #color-impreso {
-  padding: .3em;
+  padding: .2em;
   height: 4em;
+  width: 4em;
   border: 1px solid var(--border-color);
 }
 
 #copias {
-  width: 8em;
+  width: 6em;
 }
 
 #outvol, #outvol-span {
@@ -355,11 +400,9 @@ select, textarea {
   font-weight: 600;
 }
 
-.impresion-color {
-  >label {
-    font-weight: bold;
-    margin-right: 1em;
-  }
+.impresion-color>label {
+  font-weight: bold;
+  margin-right: 1em;
 }
 
 /* Footer ---------------------------------------------------- */
@@ -445,7 +488,7 @@ select, textarea {
   }
 
   main>form {
-    margin: 0 auto;
+    margin: 0 auto; /* centrar formulario */
     padding: 2em;
   }
 
@@ -478,6 +521,24 @@ select, textarea {
   .container-text-impreso {
     margin: 0 4em;
   }
+
+  /* página resultado búsqueda */
+  #container-main-search {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5em;
+  }
+
+  .container-card-search {
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+  }
 }
 
 @media screen and (width >=1280px) {
@@ -492,6 +553,7 @@ select, textarea {
 
   /* index */
   .container-photos {
+    padding: 0 2em 2em;
     grid-template-columns: repeat(3, 1fr);
 
     figure>figcaption {
@@ -508,6 +570,16 @@ select, textarea {
   .text-album-impreso {
     font-size: 18px;
     font-weight: 600;
+  }
+
+  /* resultado búsqueda */
+  #container-main-search {
+    padding: 2em;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .container-card-search p {
+    font-size: 18px;
   }
 
   .btn {
