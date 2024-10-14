@@ -543,7 +543,7 @@ select, textarea {
 
 @media screen and (width >=1280px) {
   header img {
-    width: 3em;
+    width: 4em;
   }
 
   body>main>h1 {
