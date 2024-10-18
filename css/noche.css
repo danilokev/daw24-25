@@ -1,0 +1,95 @@
+/* 
+  Archivo: styles.css
+  Estilos generales de la aplicación
+
+  Creado por: Kevin Danilo, Marcos López el 07/10/2024
+
+  Historial de cambios:
+  07/10/2024 - Creación del archivo
+*/
+/* @import url('../css/variables.css'); */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #90CAF9;
+    --secondary-color: #FFB74D;
+    --accent-color: #81C784;
+    --background-color: #121212;
+    --text-color: #E0E0E0;
+    --card-background-color: #1E1E1E;
+    --image-card-background: #2C2C2C;
+    --hover-primary: #1A73E8; /* Azul intenso para hover */
+    --hover-secondary: #FF9800;
+    --shadow-color: rgba(255, 255, 255, .2);
+    --border-color: #373737;
+    --table-header-bg: #333333;
+    --table-row-bg: #1E1E1E;
+    --table-row-alt-bg: #2C2C2C;
+    --table-hover-bg: #3E3E3E; /* Fondo para hover en filas */
+  }
+
+  /* Mejoras adicionales */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  header, footer {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+  }
+
+  nav ul li a {
+    color: var(--text-color);
+  }
+
+  nav ul li a:hover {
+    color: var(--hover-primary);
+  }
+
+  .container-photos figure figcaption {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+
+  .btn {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
+  .btn:hover {
+    background-color: var(--hover-primary);
+  }
+
+  /* Mejora del sombreado */
+  .container-card, .container-card-search {
+    box-shadow: 0 4px 20px var(--shadow-color);
+  }
+
+  table {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+  }
+
+  thead {
+    background-color: var(--table-header-bg);
+    color: #ffffff;
+  }
+
+  tbody tr {
+    background-color: var(--table-row-bg);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: var(--table-row-alt-bg);
+  }
+
+  tbody tr:hover {
+    background-color: var(--table-hover-bg); /* Fondo más oscuro para el hover */
+    color: #ffffff; /* Asegurar que el texto sea legible */
+  }
+}
+

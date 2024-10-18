@@ -7,7 +7,8 @@
   Historial de cambios:
   07/10/2024 - Creación del archivo
 */
-/* Importación de Google Fonts para los iconos */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('../css/variables.css');
 
 * {
@@ -18,7 +19,7 @@
 
 body {
   min-height: 100dvh;
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--background-color);
 }
 
@@ -40,24 +41,26 @@ header>div {
     font-weight: bold;
     font-size: 1.5em;
   }
-  
+
   >label {
     font-size: 2em;
     cursor: pointer;
   }
-  
+
   >input {
     display: none;
 
     &:checked~nav>ul {
-      max-height: 100vh; /* Mostrar el menú */
+      max-height: 100vh;
+      /* Mostrar el menú */
     }
   }
 }
 
 nav>ul {
   list-style-type: none;
-  max-height: 0; /* por defecto el menú está acultado */
+  max-height: 0;
+  /* por defecto el menú está acultado */
   overflow: hidden;
   background-color: var(--card-background-color);
   box-shadow: 0 0 10px var(--shadow-color);
@@ -66,6 +69,7 @@ nav>ul {
     display: block;
     padding: 1em;
     text-decoration: none;
+    letter-spacing: .05em;
     color: var(--primary-color);
     font-weight: bold;
     transition: color .3s;
@@ -88,7 +92,8 @@ header img {
   >input[type="search"] {
     border: 1px solid var(--border-color);
     padding: .75em;
-    width: 17em; /* ancho del buscador simple */
+    width: 17em;
+    /* ancho del buscador simple */
   }
 }
 
@@ -126,6 +131,7 @@ body>main>h1 {
     background-color: var(--secondary-color);
     padding: .75em;
     color: var(--text-color);
+    font-size: 18px;
     text-align: center;
     font-weight: 600;
   }
@@ -163,6 +169,7 @@ body>main>h1 {
 #article-account {
   text-align: center;
   margin-bottom: 1em;
+
   >a {
     color: var(--text-color);
     font-weight: 600;
@@ -205,10 +212,6 @@ body>main>h1 {
     line-height: 3em;
   }
 
-  >button {
-    margin-top: 1em;
-  }
-
   a {
     text-decoration: none;
     color: var(--text-color);
@@ -223,8 +226,13 @@ body>main>h1 {
 }
 
 /* estilos solicitar álbum impreso --------------------------- */
+.container-text-impreso {
+  padding: 0 1em;
+}
+
 .text-album-impreso {
-  text-align: center;
+  text-align: left;
+  letter-spacing: .05em;
   text-wrap: pretty;
   color: var(--text-color);
   line-height: 1.5em;
@@ -234,9 +242,10 @@ body>main>h1 {
 /* Estilos tabla --------- */
 table {
   border-collapse: collapse;
-  width: 100%; 
-  max-width: 600px; 
-  margin: 20px auto; /* centrar tabla */
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  /* centrar tabla */
   background-color: #f9f9f9;
   border-radius: 8px;
   overflow: hidden;
@@ -333,7 +342,8 @@ main>form {
 }
 
 .form-input input,
-select, textarea {
+select,
+textarea {
   padding: 1em;
   border: 1px solid var(--border-color);
 }
@@ -359,14 +369,20 @@ select, textarea {
   font-weight: 600;
 }
 
-/* formulario solicitar álbum ----- */
+/* formulario solicitar álbum ----------- */
 .obligatorio {
   color: #f00;
   font-weight: bold;
 }
 
 #container-form-impreso {
-  > p {
+  background-color: var(--card-background-color);
+  padding: 1em;
+  border-radius: .5em;
+  box-shadow: 0 0 10px var(--shadow-color);
+  margin-bottom: 4em;
+
+  >p {
     margin-bottom: 1em;
     font-weight: 600;
   }
@@ -375,6 +391,7 @@ select, textarea {
     padding: 1em;
     border: 2px solid var(--border-color);
     margin-bottom: 1.5em;
+
     >legend {
       font-weight: bold;
       font-size: 1.5em;
@@ -393,12 +410,13 @@ select, textarea {
   width: 6em;
 }
 
-#outvol, #outvol-span {
+#outvol,
+#outvol-span {
   text-align: center;
   font-weight: 600;
 }
 
-.impresion-color>label {
+#impresion-color>label {
   font-weight: bold;
   margin-right: 1em;
 }
@@ -417,6 +435,7 @@ select, textarea {
 /* MEDIA QUERIES                                  */
 /* ---------------------------------------------- */
 @media screen and (width >=600px) {
+
   /* Estilos index */
   .container-photos {
     padding: 1em;
@@ -431,7 +450,8 @@ select, textarea {
   }
 }
 
-@media screen and (width >768px) {
+@media screen and (width >=768px) {
+
   /* header y nav */
   header>div>label {
     display: none;
@@ -446,14 +466,15 @@ select, textarea {
   /* mostrar menú completo en horizontal */
   nav>ul {
     display: flex;
-    max-height: none; 
+    max-height: none;
     /* quitar los estilos de la parte móvil */
     background-color: var(--background-color);
     box-shadow: none;
   }
 
   #form-search input[type="search"] {
-    width: 30em; /* ancho del buscador simple */
+    width: 30em;
+    /* ancho del buscador simple */
     font-size: 1em;
   }
 
@@ -486,12 +507,13 @@ select, textarea {
   }
 
   main>form {
-    margin: 0 auto; /* centrar formulario */
+    margin: 0 auto;
     padding: 2em;
   }
 
   #container-form-impreso {
-    width: 50em;
+    width: 40em;
+    margin: 0 auto;
     margin-bottom: 4em;
   }
 
@@ -517,7 +539,9 @@ select, textarea {
 
   /* contenedor texto solicitar album */
   .container-text-impreso {
-    margin: 0 4em;
+    width: 100%;
+    max-width: 50em;
+    margin: 0 auto;
   }
 
   /* página resultado búsqueda */
@@ -539,7 +563,7 @@ select, textarea {
   }
 }
 
-@media screen and (width >=1280px) {
+@media screen and (width > 1280px) {
   header img {
     width: 4em;
   }
@@ -553,10 +577,19 @@ select, textarea {
   .container-photos {
     padding: 0 2em 2em;
     grid-template-columns: repeat(3, 1fr);
+  }
 
-    figure>figcaption {
-      font-size: 20px;
-    }
+  /* página solicitar álbum impreso */
+  #container-table-form {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+  }
+
+  table {
+    width: 30em;
+    margin: 0;
   }
 
   /* formulario */
@@ -564,10 +597,8 @@ select, textarea {
     width: 40em;
   }
 
-  /* text de pagina album impreso */
-  .text-album-impreso {
-    font-size: 18px;
-    font-weight: 600;
+  #container-form-impreso {
+    margin: 0 0 4em 0;
   }
 
   /* resultado búsqueda */

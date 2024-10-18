@@ -1,0 +1,89 @@
+/*
+  Archivo: print.css
+  Estilos para la impresión de la página
+
+  Páginas:
+  - página principal (index.html)
+  - página resultado búsqueda (resultado.html)
+  - página detalle foto (foto.html)
+  - página respuesta solicitar álbum impreso (respuesta-album.html)
+
+  Unidades de medida: cm, mm, in, pt o pc
+
+  reglas específicas para impresión: @page, page-break-before, widows y orphans.
+*/
+
+@import url('../css/variables.css');
+
+@page {
+  size: A4;
+  margin: 1cm;
+}
+
+* {
+  background-color: var(--color-blanco);
+  color: var(--color-negro);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+}
+
+header {
+  display: none;
+}
+
+a {
+  color: var(--color-azul);
+  text-decoration: underline;
+}
+
+a::after{ 
+  content: attr(href); 
+}
+
+img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+p {
+  text-align: left;
+}
+
+.container-photos figure {
+  margin-bottom: 0;
+
+  >figcaption {
+    text-align: start;
+  }
+}
+
+.container-card-search {
+  border-radius: 0;
+  box-shadow: none;
+  text-align: start;
+
+  h2, a {
+    color: var(--color-azul);
+    text-decoration: underline
+  }
+}
+
+#btn-card-search, .btn {
+  border: 1px solid var(--color-negro);
+  color: var(--color-negro);
+}
+
+#article-account {
+  p,a {
+    color: var(--color-azul);
+    text-align: center;
+  }
+}
+
+/* falta la página respuesta-album.html */

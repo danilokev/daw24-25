@@ -1,0 +1,30 @@
+/*
+  Archivo: contrast.css
+  Estilos para el modo de alto contraste
+*/
+
+/* botón buscar de la barra de navegación */
+@import url('../css/variables.css');
+
+nav>ul>li>a {
+  color: var(--contrast-primary-color);
+}
+
+.btn-search, figure>figcaption {
+  color: var(--color-negro);
+}
+
+.btn {
+  background-color: var(--contrast-primary-color);
+  color: var(--color-blanco);
+
+  &:hover {
+    background-color: var(--contrast-hover-primary);
+  }
+}
+
+.container-photos figure {
+  >figcaption {
+    color: var(--color-negro);
+  }
+}
