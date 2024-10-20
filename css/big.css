@@ -1,4 +1,21 @@
 /* 
-  Arcivo: big.css
+  Archivo: big.css
   Estilos para el modo de letra grande.
 */
+
+body {
+  font-size: 18pt; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.5em; 
+}
+
+p, a, label, input, textarea, button {
+  font-size: 1.2em; 
+}
+
+/* Formularios */
+input, textarea, select {
+  font-size: 1.2em; 
+}

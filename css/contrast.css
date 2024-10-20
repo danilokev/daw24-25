@@ -28,3 +28,72 @@ nav>ul>li>a {
     color: var(--color-negro);
   }
 }
+
+/*Modificaciones principales*/
+body {
+  background-color: #000000; 
+  color: #000000; 
+}
+body>main {
+  background-color: #000000; 
+  color: #FFFFFF; 
+}
+
+a {
+  color: #FFFF00; 
+  text-decoration: underline; 
+}
+
+a:hover {
+  color: #00FFFF; 
+}
+
+
+header {
+  background-color: #333333; 
+  color: #FFFFFF;
+}
+
+header a {
+  color: #FFFF00;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+nav ul li a:hover {
+  color: #00FFFF;
+}
+
+
+figure {
+  border: 3px solid #FFFFFF; 
+  padding: 5px;
+}
+
+figcaption {
+  color: #FFFF00; 
+}
+
+#form-search input[type="search"] {
+  background-color: #333333; 
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF; 
+}
+
+#form-search input[type="search"]::placeholder {
+  color: #AAAAAA;
+}
+
+
+footer {
+  background-color: #222222; 
+  color: #FFFFFF;
+}
+
+
+input[type="checkbox"]:focus, button:focus, a:focus {
+  outline: 3px dashed #00FFFF; 
+}
