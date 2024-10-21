@@ -421,6 +421,36 @@ textarea {
   margin-right: 1em;
 }
 
+/* Estilos respuesta álbum --------------------------- */
+.text-res-album {
+  padding: 0 1em;
+  margin-bottom: 1em;
+}
+
+.container-respuesta {
+  background-color: var(--card-background-color);
+  padding: 1em;
+  border-radius: .5em;
+  box-shadow: 0 0 10px var(--shadow-color);
+  margin-bottom: 2em;
+  h2 {
+    margin-bottom: 1em;
+  }
+  >p {
+    line-height: 2em;
+    text-wrap: pretty;
+    color: var(--text-color);
+  }
+}
+
+#color-portada {
+  display: inline-block;
+  background-color: var(--color-negro);
+  border: 1px solid var(--border-color);
+  padding: 1em;
+  margin-left: .5em;
+}
+
 /* Footer ---------------------------------------------------- */
 .container-footer {
   background-color: #333;
@@ -451,7 +481,6 @@ textarea {
 }
 
 @media screen and (width >=768px) {
-
   /* header y nav */
   header>div>label {
     display: none;
@@ -561,6 +590,22 @@ textarea {
       object-fit: cover;
     }
   }
+
+  /* respuesta album */
+  .text-res-album {
+    padding: 0 4em;
+  }
+
+  #container-main-res {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+    padding: 2em;
+  }
+
+  .container-respuesta {
+    margin: 0;
+  }
 }
 
 @media screen and (width > 1280px) {
@@ -587,7 +632,7 @@ textarea {
     margin-top: 2em;
   }
 
-  table {
+  #table-solicitar {
     width: 30em;
     margin: 0;
   }
@@ -613,5 +658,18 @@ textarea {
 
   .btn {
     padding: 1em;
+  }
+
+  /* respuesta álbum */
+  #container-main-res {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+    padding: 0 8em;
+    margin: 2em 0 4em 0;
+  }
+
+  .text-res-album {
+    text-align: center;
   }
 }

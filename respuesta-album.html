@@ -9,6 +9,7 @@
 -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +22,7 @@
   <link rel="stylesheet" href="css/print.css" media="print">
   <link rel="stylesheet" href="css/fontello.css">
 </head>
+
 <body>
   <header>
     <div>
@@ -42,16 +44,20 @@
     </form>
   </header>
   <main>
-    <h2>Confirmación de solicitud de álbum impreso</h2>
-    <p>¡Gracias por solicitar tu álbum impreso en KeepMoments! A continuación, te mostramos los principales datos de tu solicitud:</p>
-
-    <h3>Detalles del Álbum</h3>
-    <p><strong>Nombre:</strong> Juan Pérez</p>
-    <p><strong>Título del álbum:</strong> Recuerdos de Viaje</p>
-    <p><strong>Texto adicional:</strong> Este álbum contiene los mejores momentos de nuestro viaje por Europa.</p>
-    <p><strong>Correo electrónico:</strong> juan.perez@example.com</p>
-
-    <h3>Dirección de Envío</h3>
+    <h1>Confirmación de solicitud de álbum impreso</h1>
+    <p class="text-album-impreso text-res-album">¡Gracias por solicitar tu álbum impreso en KeepMoments! A continuación, te mostramos los principales datos de tu
+      solicitud:</p>
+    <div id="container-main-res">
+      <section class="container-respuesta">
+        <h2>Detalles del Álbum</h2>
+        <p><strong>Nombre:</strong> Juan Pérez</p>
+        <p><strong>Título del álbum:</strong> Recuerdos de Viaje</p>
+        <p><strong>Texto adicional:</strong> Este álbum contiene los mejores momentos de nuestro viaje por Europa.</p>
+        <p><strong>Correo electrónico:</strong> juan.perez@example.com</p>
+      </section>
+  
+      <section class="container-respuesta">
+        <h2>Dirección de Envío</h2>
         <p><strong>Calle:</strong> Calle Garcia</p>
         <p><strong>Número:</strong> 666</p>
         <p><strong>Piso:</strong> 4</p>
@@ -60,55 +66,56 @@
         <p><strong>Localidad:</strong> Novelda</p>
         <p><strong>Provincia:</strong> Comunidad Valenciana</p>
         <p><strong>País:</strong> España</p>
-
-    <h3>Configuración del Álbum</h3>
-<label for="color">Color de la portada:</label>
-      <!-- Aquí se muestra el color negro preseleccionado -->
-      <input type="color" id="color" name="color" value="#000000" disabled> <!-- color negro por defecto -->
-
+      </section>
+  
+      <section class="container-respuesta">
+        <h2>Configuración del Álbum</h2>
+        <p><strong>Color de la portada:</strong><span id="color-portada"></span></p>
         <p><strong>Número de copias:</strong> 1</p>
         <p><strong>Resolución de las fotos:</strong> 300 dpi</p>
         <p><strong>Álbum seleccionado:</strong> Álbum 1</p>
         <p><strong>Impresión a color:</strong> Sí</p>
-
-    <h3>Coste del Álbum</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Concepto</th>
-          <th>Coste</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Procesamiento y envío</td>
-          <td>10€</td>
-        </tr>
-        <tr>
-            <td>Número de páginas</td>
-            <td>10</td>
-          </tr>
-        <tr>
-          <td>Precio por página</td>
-          <td>1.8€ por página</td>
-        </tr>
-        <tr>
-          <td>Fotos en color</td>
-          <td>0.5€ por foto</td>
-        </tr>
-        <tr>
-          <td>Resolución > 300 dpi</td>
-          <td>0.2€ por foto</td>
-        </tr>
-        <tr>
-          <td><strong>Total</strong></td>
-          <td><strong>35€</strong></td>
-        </tr>
-      </tbody>
-    </table>
-
+      </section>
+  
+      <section class="container-respuesta">
+        <h2>Coste del Álbum</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Coste</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Procesamiento y envío</td>
+              <td>10€</td>
+            </tr>
+            <tr>
+              <td>Número de páginas</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Precio por página</td>
+              <td>1.8€ por página</td>
+            </tr>
+            <tr>
+              <td>Fotos en color</td>
+              <td>0.5€ por foto</td>
+            </tr>
+            <tr>
+              <td>Resolución > 300 dpi</td>
+              <td>0.2€ por foto</td>
+            </tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td><strong>35€</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
   </main>
-
   <footer class="container-footer">
     <p>Autores: Kevin Danilo & Marcos López</p>
     <p>&copy; 2024 - Proyecto DAW</p>

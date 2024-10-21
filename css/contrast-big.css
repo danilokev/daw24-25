@@ -4,58 +4,42 @@
 */
 /* Archivo: contrast-big.css */
 
-/* Fondo y texto */
 body {
-  background-color: #000000;
-  color: #000000;
-  font-size: 18pt; /* Tamaño base aumentado */
-}
-/*Mañana arreglar, hay que crear una clase para las fotos o para el solictar si ocupas el main se destruyen entre ellos*/
-body>main {
-  background-color: #000000; 
-  color: #FFFFFF; 
+  font-size: 18pt; 
 }
 
-/* Enlaces */
-a {
-  color: #FFFF00;
-  text-decoration: underline;
-  font-size: 1.2em;
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.5em; 
 }
 
-a:hover {
-  color: #00FFFF;
-}
-
-/* Botones */
-button, .btn {
-  background-color: #FFFF00;
-  color: #000000;
-  border: 2px solid #FFFFFF;
-  font-size: 1.2em;
-}
-
-button:hover, .btn:hover {
-  background-color: #00FFFF;
-  color: #000000;
+p, a, label, input, textarea, button {
+  font-size: 1.2em; 
 }
 
 /* Formularios */
 input, textarea, select {
-  background-color: #333333;
-  color: #FFFFFF;
-  border: 2px solid #FFFFFF;
+  font-size: 1.2em; 
+}
+
+nav>ul>li>a {
+  color: var(--contrast-primary-color);
+}
+.btn-search, figure>figcaption {
+  color: var(--color-negro);
+}
+.btn {
+  background-color: var(--contrast-primary-color);
+  color: var(--color-blanco);
+  &:hover {
+    background-color: var(--contrast-hover-primary);
+  }
+}
+.container-photos figure {
+  >figcaption {
+    color: var(--color-negro);
+  }
+}
+
+.container-photos figure > figcaption {
   font-size: 1.2em;
-}
-
-/* Encabezados */
-h1, h2, h3, h4, h5, h6 {
-  color: #FFFFFF;
-  font-size: 1.5em;
-}
-
-/* Pies de página */
-footer {
-  background-color: #222222;
-  color: #FFFFFF;
 }
