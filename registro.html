@@ -19,6 +19,7 @@
   <link rel="alternate stylesheet" href="css/big.css" title="Modo con Letra Mayor">
   <link rel="alternate stylesheet" href="css/contrast-big.css" title="Modo alto contraste y con Letra Mayor">
   <link rel="stylesheet" href="css/fontello.css">
+  <script src="js/scripts.js" defer></script>
 </head>
 <body>
   <header>
@@ -41,7 +42,7 @@
     </form>
   </header>
   <main class="main-form">
-    <form action="login.html">
+    <form id="registrationForm"> <!-- ID para el formulario -->
       <h1>Únete a KeepMoments</h1>
       <p class="form-info">Registra tu cuenta.</p>
       <p class="form-input">
@@ -93,11 +94,6 @@
           <option value="other">Otro</option>
         </select>
       </p>
-      <p class="form-input">
-        <label for="photo"><span class="icon-picture"></span>Foto:</label>
-        <input type="file" name="photo" id="photo">
-      </p>
-      <!-- Botón de envío -->
       <p>
         <input class="btn" type="submit" value="Registrarse">
       </p>

@@ -369,6 +369,16 @@ textarea {
   font-weight: 600;
 }
 
+/* Estilos para los campos con errores */
+.input-error {
+  border: 2px solid var(--error-color);
+  background-color: rgba(220, 53, 69, 0.1); /* Fondo ligeramente rojo */
+}
+
+.label-error {
+  color: var(--error-color);
+}
+
 /* formulario solicitar álbum ----------- */
 .obligatorio {
   color: #f00;
