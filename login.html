@@ -33,16 +33,18 @@
     </form>
   </header>
   <main class="main-form">
-    <form id="loginForm">
+    <form id="miForm">
       <h1>Iniciar Sesión</h1>
         <p class="form-info">Inicia sesión para explorar todo el contenido de nuestra web.</p>
         <p class="form-input">
-          <label for="email"><span class="icon-mail-alt"></span>Correo electrónico:</label>
-          <input type="text" name="email" id="email">
+          <label for="usu"><span class="icon-doc-text"></span>Nombre de usuario:</label>
+          <input type="text" name="usu" id="usu">
+          <span class="error-message" id="usernameError"></span>
         </p>
         <p class="form-input">
           <label for="psw"><span class="icon-key"></span>Contraseña:</label>
           <input type="password" id="psw" name="psw">
+          <span class="error-message" id="passwordError"></span>
         </p>
         <p>
           <input class="btn" type="submit" id="submit" name="submit" value="Iniciar sesión">
