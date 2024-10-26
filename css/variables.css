@@ -1,27 +1,39 @@
 :root {
   /* Colores principales */
-  --primary-color: #007BFF; /* Azul cielo */
-  --secondary-color: #FFA726; /* Naranja suave */
-  --accent-color: #66BB6A; /* Verde suave */
-  --background-color: #F8F9FA; /* Gris claro */
-  --text-color: #343A40; /* Gris oscuro */
-  --card-background-color: #ffffff; /* Blanco */
-  --image-card-background: #f0f0f5; /* Gris claro para fondo de imagen */
+  --primary-color: #007BFF;
+  --secondary-color: #FFA726;
+  --accent-color: #66BB6A;
+  --background-color: #F8F9FA;
+  --text-color: #343A40;
+  --card-background-color: #ffffff;
+  --image-card-background: #f0f0f5;
 
   /* Colores adicionales */
-  --hover-primary: #0056b3; /* Azul más oscuro para hover */
-  --hover-secondary: #e68a00; /* Naranja más oscuro para hover */
-  --shadow-color: rgba(0, 0, 0, .1); /* Sombra suave */
+  --hover-primary: #0056b3;
+  --hover-secondary: #e68a00;
+  --shadow-color: rgba(0, 0, 0, .1);
 
   /* Otros */
-  --border-color: #E0E0E0; /* Gris claro para bordes */
-  --success-color: #28a745; /* Verde para estados de éxito */
-  --error-color: #dc3545; /* Rojo para estados de error */
+  --border-color: #E0E0E0;
+  --success-color: #28a745;
+  --error-color: #dc3545;
   --color-blanco: #ffffff;
   --color-negro: #000000;
   --color-azul: #0000ff;
 
   /* Colores para modo de alto contraste */
-  --contrast-primary-color: #0A2463; /* Azul marino intenso */
-  --contrast-hover-primary: #051C47; /* Azul marino mucho más oscuro para hover */
+  --contrast-primary-color: #0A2463;
+  --contrast-hover-primary: #051C47;
+
+  /* Modo oscuro */
+  --dark-background-color: #121212;
+  --dark-primary-color: #6EA8FF;
+  --dark-secondary-color: #FFB74D;;
+  --dark-text-primary: rgba(255, 255, 255, 0.87);
+  --dark-card-background-color: #1E1E1E;
+  --dark-image-card-background: #2A2A2E;
+  --dark-hover-primary: #85B8FF;
+  --dark-hover-secondary: #FFC266;
+  /* --dark-border-color: rgba(255, 255, 255, .90); */
+  --dark-shadow-color: rgba(255, 255, 255, .1); 
 }

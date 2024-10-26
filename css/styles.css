@@ -35,13 +35,6 @@ header {
 }
 
 header>div {
-  >a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.5em;
-  }
-
   >label {
     font-size: 2em;
     cursor: pointer;
@@ -51,8 +44,7 @@ header>div {
     display: none;
 
     &:checked~nav>ul {
-      max-height: 100vh;
-      /* Mostrar el menú */
+      max-height: 100vh; /* Mostrar el menú */
     }
   }
 }
@@ -475,7 +467,6 @@ textarea {
 /* MEDIA QUERIES                                  */
 /* ---------------------------------------------- */
 @media screen and (width >=600px) {
-
   /* Estilos index */
   .container-photos {
     padding: 1em;
