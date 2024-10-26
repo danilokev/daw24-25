@@ -2,44 +2,5 @@
   Archivo: contrast-big.css
   Estilos para el modo de alto contraste con un tipo de letra mayor.
 */
-/* Archivo: contrast-big.css */
-
-body {
-  font-size: 18pt; 
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 1.5em; 
-}
-
-p, a, label, input, textarea, button {
-  font-size: 1.2em; 
-}
-
-/* Formularios */
-input, textarea, select {
-  font-size: 1.2em; 
-}
-
-nav>ul>li>a {
-  color: var(--contrast-primary-color);
-}
-.btn-search, figure>figcaption {
-  color: var(--color-negro);
-}
-.btn {
-  background-color: var(--contrast-primary-color);
-  color: var(--color-blanco);
-  &:hover {
-    background-color: var(--contrast-hover-primary);
-  }
-}
-.container-photos figure {
-  >figcaption {
-    color: var(--color-negro);
-  }
-}
-
-.container-photos figure > figcaption {
-  font-size: 1.2em;
-}
+@import url('../css/contrast.css');
+@import url('../css/big.css');

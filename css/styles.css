@@ -461,6 +461,14 @@ textarea {
   text-wrap: balance;
   line-height: 3em;
   padding: 1em;
+
+  a {
+    color: var(--color-blanco);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 /* ---------------------------------------------- */
