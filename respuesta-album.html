@@ -9,7 +9,6 @@
 -->
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +21,6 @@
   <link rel="stylesheet" href="css/print.css" media="print">
   <link rel="stylesheet" href="css/fontello.css">
 </head>
-
 <body>
   <header>
     <div>
@@ -45,7 +43,8 @@
   </header>
   <main>
     <h1>Confirmación de solicitud de álbum impreso</h1>
-    <p class="text-album-impreso text-res-album">¡Gracias por solicitar tu álbum impreso en KeepMoments! A continuación, te mostramos los principales datos de tu
+    <p class="text-album-impreso text-res-album">¡Gracias por solicitar tu álbum impreso en KeepMoments! A continuación,
+      te mostramos los principales datos de tu
       solicitud:</p>
     <div id="container-main-res">
       <section class="container-respuesta">
@@ -56,65 +55,64 @@
         <p><strong>Correo electrónico:</strong> <span id="email-respuesta"></span></p>
       </section>
 
-    <section class="container-respuesta">
-      <h2>Dirección de Envío</h2>
-      <p><strong>Calle:</strong> <span id="calle-respuesta"></span></p>
-      <p><strong>Número:</strong> <span id="numero-respuesta"></span></p>
-      <p><strong>Piso:</strong> <span id="piso-respuesta"></span></p>
-      <p><strong>Puerta:</strong> <span id="puerta-respuesta"></span></p>
-      <p><strong>Código Postal:</strong> <span id="codp-respuesta"></span></p>
-      <p><strong>Localidad:</strong> <span id="localidad-respuesta"></span></p>
-      <p><strong>Provincia:</strong> <span id="provincia-respuesta"></span></p>
-      <p><strong>País:</strong> <span id="pais-respuesta"></span></p>
-    </section>
-  
-    <section class="container-respuesta">
-      <h2>Configuración del Álbum</h2>
-      <p><strong>Color de la portada:</strong> <span id="color-portada"></span></p>
-      <p><strong>Número de copias:</strong> <span id="copias-respuesta"></span></p>
-      <p><strong>Resolución de las fotos:</strong> <span id="resolucion-respuesta"></span></p>
-      <p><strong>Álbum seleccionado:</strong> <span id="album-respuesta"></span></p>
-      <p><strong>Impresión a color:</strong> <span id="impresion-respuesta"></span></p>
-    </section>
-    
-    <section class="container-respuesta">
-      <h2>Coste del Álbum</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Concepto</th>
-            <th>Coste</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Procesamiento y envío</td>
-            <td id="coste-procesamiento"></td>
-          </tr>
-          <tr>
-            <td>Número de páginas</td>
-            <td id="numero-paginas"></td>
-          </tr>
-          <tr>
-            <td>Precio por página</td>
-            <td id="precio-por-pagina"></td>
-          </tr>
-          <tr>
-            <td>Fotos en color</td>
-            <td id="fotos-color"></td>
-          </tr>
-          <tr>
-            <td>Resolución > 300 dpi</td>
-            <td id="resolucion-coste"></td>
-          </tr>
-          <tr>
-            <td><strong>Total</strong></td>
-            <td id="total-coste"><strong></strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    
+      <section class="container-respuesta">
+        <h2>Dirección de Envío</h2>
+        <p><strong>Calle:</strong> <span id="calle-respuesta"></span></p>
+        <p><strong>Número:</strong> <span id="numero-respuesta"></span></p>
+        <p><strong>Piso:</strong> <span id="piso-respuesta"></span></p>
+        <p><strong>Puerta:</strong> <span id="puerta-respuesta"></span></p>
+        <p><strong>Código Postal:</strong> <span id="codp-respuesta"></span></p>
+        <p><strong>Localidad:</strong> <span id="localidad-respuesta"></span></p>
+        <p><strong>Provincia:</strong> <span id="provincia-respuesta"></span></p>
+        <p><strong>País:</strong> <span id="pais-respuesta"></span></p>
+      </section>
+
+      <section class="container-respuesta">
+        <h2>Configuración del Álbum</h2>
+        <p><strong>Color de la portada:</strong> <span id="color-portada"></span></p>
+        <p><strong>Número de copias:</strong> <span id="copias-respuesta"></span></p>
+        <p><strong>Resolución de las fotos:</strong> <span id="resolucion-respuesta"></span></p>
+        <p><strong>Álbum seleccionado:</strong> <span id="album-respuesta"></span></p>
+        <p><strong>Impresión a color:</strong> <span id="impresion-respuesta"></span></p>
+      </section>
+
+      <section class="container-respuesta">
+        <h2>Coste del Álbum</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Coste</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Procesamiento y envío</td>
+              <td id="coste-procesamiento"></td>
+            </tr>
+            <tr>
+              <td>Número de páginas</td>
+              <td id="numero-paginas"></td>
+            </tr>
+            <tr>
+              <td>Precio por página</td>
+              <td id="precio-por-pagina"></td>
+            </tr>
+            <tr>
+              <td>Fotos en color</td>
+              <td id="fotos-color"></td>
+            </tr>
+            <tr>
+              <td>Resolución > 300 dpi</td>
+              <td id="resolucion-coste"></td>
+            </tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td id="total-coste"><strong></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
   </main>
   <footer class="container-footer">
@@ -122,64 +120,5 @@
     <p>&copy; 2024 - Proyecto DAW</p>
     <P><a href="accesibilidad.html">Declaración de Accesibilidad</a></P>
   </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Datos del álbum
-      document.getElementById("nombre-respuesta").textContent = localStorage.getItem("nombre");
-      document.getElementById("titulo-respuesta").textContent = localStorage.getItem("titulo");
-      document.getElementById("texto-respuesta").textContent = localStorage.getItem("texto");
-      document.getElementById("email-respuesta").textContent = localStorage.getItem("email");
-    
-      // Dirección de envío
-      document.getElementById("calle-respuesta").textContent = localStorage.getItem("calle");
-      document.getElementById("numero-respuesta").textContent = localStorage.getItem("numero");
-      document.getElementById("piso-respuesta").textContent = localStorage.getItem("piso");
-      document.getElementById("puerta-respuesta").textContent = localStorage.getItem("puerta");
-      document.getElementById("codp-respuesta").textContent = localStorage.getItem("codp");
-      document.getElementById("localidad-respuesta").textContent = localStorage.getItem("localidad");
-      document.getElementById("provincia-respuesta").textContent = localStorage.getItem("provincia");
-      document.getElementById("pais-respuesta").textContent = localStorage.getItem("pais");
-    
-      // Configuración del álbum
-      document.getElementById("color-portada").style.backgroundColor = localStorage.getItem("color");
-      document.getElementById("copias-respuesta").textContent = localStorage.getItem("copias");
-      document.getElementById("resolucion-respuesta").textContent = localStorage.getItem("resolucion") + " dpi";
-      document.getElementById("album-respuesta").textContent = localStorage.getItem("album");
-      document.getElementById("impresion-respuesta").textContent = localStorage.getItem("impresion");
-    });
-    </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Recuperar los datos del formulario desde localStorage y asignar valores predeterminados
-    const numCopias = parseInt(localStorage.getItem("copias") || "1", 10);
-    const resolucion = parseInt(localStorage.getItem("resolucion") || "150", 10);
-    const impresionColor = localStorage.getItem("impresion") === "Sí";
-    const numPaginas = 10; // Este es un valor de ejemplo. Cambia este valor si el número de páginas es dinámico.
-  
-    // Calcular tarifas y costos específicos con valores predeterminados
-    const costeProcesamiento = 10;
-    const costePagina = numPaginas <= 5 ? 2 : numPaginas <= 10 ? 1.8 : 1.6;
-    const costePorFotoColor = impresionColor ? 0.5 : 0;
-    const costePorResolucion = resolucion > 300 ? 0.2 : 0;
-    
-    // Calcular los costos totales considerando copias y tarifas
-    const costePaginasTotal = numPaginas * costePagina;
-    const costeColorTotal = numPaginas * costePorFotoColor;
-    const costeResolucionTotal = numPaginas * costePorResolucion;
-    const totalCoste = (costeProcesamiento + costePaginasTotal + costeColorTotal + costeResolucionTotal) * numCopias;
-  
-    // Insertar los valores calculados en la tabla de costos
-    document.getElementById("coste-procesamiento").textContent = `${costeProcesamiento}€`;
-    document.getElementById("numero-paginas").textContent = numPaginas;
-    document.getElementById("precio-por-pagina").textContent = `${costePagina}€ por página`;
-    document.getElementById("fotos-color").textContent = impresionColor ? `${costePorFotoColor}€ por foto` : "0€";
-    document.getElementById("resolucion-coste").textContent = `${costePorResolucion}€ por foto`;
-    document.getElementById("total-coste").textContent = `${totalCoste.toFixed(2)}€`;
-  });
-  </script>
-  
-      
-</body>  
+</body>
 </html>

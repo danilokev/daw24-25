@@ -18,9 +18,8 @@
   <link rel="alternate stylesheet" href="css/contrast.css" title="Modo alto contraste">
   <link rel="alternate stylesheet" href="css/big.css" title="Modo con Letra Mayor">
   <link rel="alternate stylesheet" href="css/contrast-big.css" title="Modo alto contraste y con Letra Mayor">
-
-  
   <link rel="stylesheet" href="css/fontello.css">
+  <script src="js/tabla.js"></script>
 </head>
 <body>
   <header>
@@ -100,8 +99,10 @@
             </tr>
           </tbody>
         </table>
-      </div>
 
+        <button id="mostrar-tabla" class="btn">Ver posibles costes</button>
+        <div id="contenedor-tabla-coste" style="display: none;"></div>
+      </div>
 
       <form id="container-form-impreso" action="respuesta-album.html">
         <p>Los campos marcados con un <abbr class="obligatorio" title="obligatorio">*</abbr> son obligatorios.</p>
@@ -234,41 +235,7 @@
   <footer class="container-footer">
     <p>Autores: Kevin Danilo & Marcos López</p>
     <p>&copy; 2024 - Proyecto DAW</p>
+    <P><a href="accesibilidad.html">Declaración de Accesibilidad</a></P>
   </footer>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("container-form-impreso");
-      
-      form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Evitar el envío del formulario para procesar los datos
-    
-        // Guardar datos en localStorage
-        localStorage.setItem("nombre", document.getElementById("nombre").value);
-        localStorage.setItem("email", document.getElementById("email").value);
-        localStorage.setItem("telefono", document.getElementById("telefono").value);
-        localStorage.setItem("titulo", document.getElementById("titulo").value);
-        localStorage.setItem("texto", document.getElementById("texto").value);
-        localStorage.setItem("calle", document.getElementById("calle").value);
-        localStorage.setItem("numero", document.getElementById("numero").value);
-        localStorage.setItem("piso", document.getElementById("piso").value);
-        localStorage.setItem("puerta", document.getElementById("puerta").value);
-        localStorage.setItem("codp", document.getElementById("codp").value);
-        localStorage.setItem("localidad", document.getElementById("localidad").value);
-        localStorage.setItem("provincia", document.getElementById("provincia").value);
-        localStorage.setItem("pais", document.getElementById("pais").value);
-        localStorage.setItem("color", document.getElementById("color-impreso").value);
-        localStorage.setItem("copias", document.getElementById("copias").value);
-        localStorage.setItem("resolucion", document.getElementById("resolucion").value);
-        localStorage.setItem("album", document.getElementById("album").value);
-        localStorage.setItem("fecha", document.getElementById("fecha").value);
-        localStorage.setItem("impresion", document.getElementById("impresion").checked ? "Sí" : "No");
-    
-        // Redirigir a la página de respuesta
-        window.location.href = "respuesta-album.html";
-      });
-    });
-    </script>
-    
 </body>
 </html>

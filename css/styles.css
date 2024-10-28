@@ -236,8 +236,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   max-width: 600px;
-  margin: 20px auto;
-  /* centrar tabla */
+  margin: 20px auto; /* centrar tabla */
   background-color: #f9f9f9;
   border-radius: 8px;
   overflow: hidden;
