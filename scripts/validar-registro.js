@@ -1,53 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('miForm');
-  const username = document.getElementById('usu');
-  const password = document.getElementById('psw');
-  const usernameError = document.getElementById('usernameError');
-  const passwordError = document.getElementById('passwordError');
+// Implementación de la validación del formulario de registro
 
-  function comprobarCampos() {
-    let valid = true; // Variable para almacenar si el formulario es válido o no
-
-    // Reset error styles and messages
-    username.classList.remove('error');
-    password.classList.remove('error');
-    usernameError.textContent = '';
-    passwordError.textContent = '';
-
-    // Comprobamos si el usuario está vacío o contiene solo espacios
-    if (!username.value.trim()) {
-      valid = false; 
-      usernameError.textContent = 'El nombre de usuario no puede estar vacío o contener solo espacios en blanco.';
-      username.classList.add('error');
-    }
-
-    // Comprobamos si la contraseña está vacía o contiene solo espacios
-    if (!password.value.trim()) {
-      valid = false;
-      passwordError.textContent = 'La contraseña no puede estar vacía o contener solo espacios en blanco.';
-      password.classList.add('error');
-    }
-
-    return valid;
-  }
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevenir el envío por defecto del formulario siempre
-
-    if (comprobarCampos()) {
-      console.log('Formulario enviado, redirigiendo a identificado.html');
-      // Redirigir a identificado.html 
-      window.location.href = 'identificado.html';
-    } else {
-      console.log('Formulario no enviado, campos inválidos.');
-    }
-  });
-
-  username.addEventListener('input', comprobarCampos);
-  password.addEventListener('input', comprobarCampos);
-});
-
-// registro.js
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("registrationForm");
   form.addEventListener("submit", function (event) {
