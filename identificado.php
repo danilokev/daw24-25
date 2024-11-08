@@ -1,6 +1,8 @@
 <?php
   $titulo = "KeepMoments - Página principal";
   include "inc/html-start.php";
+  //Variable para que cambie la cabecera.
+  $usuario_identificado = true;
   include "inc/cabecera.php";
 ?>
 

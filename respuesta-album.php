@@ -1,6 +1,7 @@
 <?php
   $titulo = "KeepMoments - Confirmación de solicitud de álbum impreso";
   include "inc/html-start.php";
+  $usuario_identificado = true;
   include "inc/cabecera.php";
 ?>
   <main>
@@ -10,31 +11,22 @@
     <div id="container-main-res">
       <section class="container-respuesta">
         <h2>Detalles del Álbum</h2>
-        <p><strong>Nombre:</strong><?= isset($_GET['nombre']) ? $_GET['nombre'] : 'N/A'; ?></p>
-        <p><strong>Título del álbum:</strong> <?= $_GET['titulo']; ?></p>
-        <p><strong>Texto adicional:</strong> Este álbum contiene los mejores momentos de nuestro viaje por Europa.</p>
-        <p><strong>Correo electrónico:</strong> <?= isset($_GET['email']) ? $_GET[email] : 'N/A'; ?></p>
-      </section>
-  
-      <section class="container-respuesta">
-        <h2>Dirección de Envío</h2>
-        <p><strong>Calle:</strong> <?= $_GET['calle']; ?></p>
-        <p><strong>Número:</strong> <?= $_GET['numero']; ?></p>
-        <p><strong>Piso:</strong> <?= $_GET['piso']; ?></p>
-        <p><strong>Puerta:</strong> <?= $_GET['puerta']; ?></p>
-        <p><strong>Código Postal:</strong> <?= $_GET['codigo_postal']; ?></p>
-        <p><strong>Localidad:</strong> <?= $_GET['localidad']; ?></p>
-        <p><strong>Provincia:</strong> <?= $_GET['provincia']; ?></p>
-        <p><strong>País:</strong> <?= $_GET['pais']; ?></p>
-      </section>
-  
-      <section class="container-respuesta">
-        <h2>Configuración del Álbum</h2>
-        <p><strong>Color de la portada:</strong><span id="color-portada"></span></p>
-        <p><strong>Número de copias:</strong> 1</p>
-        <p><strong>Resolución de las fotos:</strong> 300 dpi</p>
-        <p><strong>Álbum seleccionado:</strong> <?= $_GET['album']; ?></p>
-        <p><strong>Impresión a color:</strong> Sí</p>
+          <p><strong>Nombre:</strong><?= isset($_POST['nom']) ? $_POST['nom'] : 'N/A'; ?></p>
+          <p><strong>Título del álbum:</strong> <?= $_POST['titulo']; ?></p>
+          <p><strong>Texto adicional:</strong> <?= isset($_POST['texto']) ? $_POST['texto'] : 'N/A'; ?></p>
+          <p><strong>Correo electrónico:</strong> <?= isset($_POST['email']) ? $_POST['email'] : 'N/A'; ?></p>
+
+          <p><strong>Calle:</strong> <?= $_POST['calle']; ?></p>
+          <p><strong>Número:</strong> <?= $_POST['numero']; ?></p>
+          <p><strong>Piso:</strong> <?= $_POST['piso']; ?></p>
+          <p><strong>Puerta:</strong> <?= $_POST['puerta']; ?></p>
+          <p><strong>Código Postal:</strong> <?= $_POST['codigo_postal']; ?></p>
+          <p><strong>Localidad:</strong> <?= $_POST['localidad']; ?></p>
+          <p><strong>Provincia:</strong> <?= $_POST['provincia']; ?></p>
+          <p><strong>País:</strong> <?= $_POST['pais']; ?></p>
+          <p><strong>Álbum seleccionado:</strong> <?= $_POST['album']; ?></p>
+          <p><strong>Impresión a color:</strong> <?= isset($_POST['impresion']) ? 'Sí' : 'No'; ?></p>
+
       </section>
   
       <section class="container-respuesta">

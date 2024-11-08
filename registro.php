@@ -70,7 +70,7 @@
       <p>
         <input class="btn" type="submit" value="Registrarse">
       </p>
-      <p class="form-footer">¿Tienes ya una cuenta? <a href="login.html">Inicia sesión</a></p>
+      <p class="form-footer">¿Tienes ya una cuenta? <a href="login.php">Inicia sesión</a></p>
     </form>
   </main>
 <?php

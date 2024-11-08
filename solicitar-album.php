@@ -1,6 +1,7 @@
 <?php
   $titulo = "KeepMoments - Solicitar álbum impreso";
   include "inc/html-start.php";
+  $usuario_identificado = true;
   include "inc/cabecera.php";
   include "inc/tabla.php";
 ?>

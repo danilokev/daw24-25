@@ -10,6 +10,7 @@
 <?php
   $titulo = "KeepMoments - Página principal";
   include "inc/html-start.php";
+  $usuario_identificado = true;
   include "inc/cabecera.php";
 ?>
   <main>
@@ -18,7 +19,7 @@
       <li><a href="#">Modificar datos</a></li>
       <li><a href="#">Darse de baja</a></li>
       <li><a href="#">Visualizar álbumes</a></li>
-      <li><a href="crear-album">Crear álbum nuevo</a></li>
+      <li><a href="crear-album.php">Crear álbum nuevo</a></li>
       <li><a href="solicitar-album.php">Solicitar álbum impreso</a></li>
       <li><a href="index.html">Salir</a></li>
     </ul>
