@@ -1,49 +1,11 @@
-<!-- 
-  Archivo: soicitar-album.html
-  En este archivo se muestra el formulario para solicitar un álbum impreso.
-
-  Creado por: Kevin Danilo, Marcos López el 30/09/2024
-
-  Historial de cambios:
-  30/09/2024 - Creación del archivo
--->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KeepMoments</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="alternate stylesheet" href="css/noche.css" title="Modo noche">
-  <link rel="alternate stylesheet" href="css/contrast.css" title="Modo alto contraste">
-  <link rel="alternate stylesheet" href="css/big.css" title="Modo con Letra Mayor">
-  <link rel="alternate stylesheet" href="css/contrast-big.css" title="Modo alto contraste y con Letra Mayor">
-  <link rel="stylesheet" href="css/fontello.css">
-  <script src="scripts/tabla.js"></script>
-</head>
-<body>
-  <header>
-    <div>
-      <label for="chkMenu">&equiv;</label>
-      <input type="checkbox" name="menu" id="chkMenu">
-      <a href="index.html"><img src="img/logo1.png" alt="logo"></a>
-      <nav>
-        <ul>
-          <li><a href="index.html"><span class="icon-home"></span>Inicio</a></li>
-          <li><a href="busqueda.html"><span class="icon-search"></span>Buscador</a></li>
-          <li><a href="registro.html"><span class="icon-user-plus"></span>Regístrate</a></li>
-          <li><a href="login.html"><span class="icon-login"></span>Iniciar sesión</a></li>
-        </ul>
-      </nav>
-    </div>
-    <form action="resultado.html" id="form-search">
-      <input type="search" placeholder="Buscar...">
-      <button class="btn-search" type="submit">Buscar</button>
-    </form>
-  </header>
+<?php
+  $titulo = "KeepMoments - Solicitar álbum impreso";
+  include "inc/html-start.php";
+  include "inc/cabecera.php";
+  include "inc/tabla.php";
+?>
   <main>
     <h1>Solicitar álbum impreso</h1>
-
     <div class="container-text-impreso">
       <p class="text-album-impreso">Para solicitar un álbum impreso, por favor rellena el formulario a
         continuación. Asegúrate de completar todos los campos obligatorios marcados con (*). </p>
@@ -57,7 +19,7 @@
 
     <div id="container-table-form">
       <div>
-        <table>
+        <table id="table-solicitar">
           <thead>
             <tr>
               <th>Concepto</th>
@@ -99,22 +61,18 @@
             </tr>
           </tbody>
         </table>
-
-        <button id="mostrar-tabla" class="btn">Ver posibles costes</button>
-        <div id="contenedor-tabla-coste" style="display: none;"></div>
       </div>
 
-      <form id="container-form-impreso" action="respuesta-album.html">
+      <form id="container-form-impreso" method="POST" action="respuesta-album.php">
         <p>Los campos marcados con un <abbr class="obligatorio" title="obligatorio">*</abbr> son obligatorios.</p>
         <fieldset>
           <legend>Datos Personales</legend>
           <p class="form-input">
-            <label for="nombre">Nombre completo: <abbr class="obligatorio" title="obligatorio"
-                aria-label="obligatorio">*</abbr></label>
-            <input type="text" id="nombre" name="nombre" maxlength="200" required>
+            <label for="nombre">Nombre completo: <?php echo isset($_POST['nombre']) ? $_POST['nombre'] : ''; ?><abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
+            <input type="text" id="nombre" name="nom" maxlength="200" required>
           </p>
           <p class="form-input">
-            <label for="email">Correo electrónico: <abbr class="obligatorio" title="obligatorio"
+            <label for="email">Correo electrónico: <?= isset($_POST['email']) ? $_POST['email'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="email" id="email" name="email" maxlength="200" required>
           </p>
@@ -127,7 +85,7 @@
         <fieldset>
           <legend>Detalles del Álbum</legend>
           <p class="form-input">
-            <label for="titulo">Título del álbum: <abbr class="obligatorio" title="obligatorio"
+            <label for="titulo">Título del álbum: <?= isset($_POST['titulo']) ? $_POST['titulo'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="text" id="titulo" name="titulo" maxlength="200" required>
           </p>
@@ -140,42 +98,42 @@
         <fieldset>
           <legend>Dirección de Envío</legend>
           <p class="form-input">
-            <label for="calle">Calle: <abbr class="obligatorio" title="obligatorio"
+            <label for="calle">Calle: <?= isset($_POST['calle']) ? $_POST['calle'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="text" id="calle" name="calle" required>
           </p>
           <p class="form-input">
-            <label for="numero">Número: <abbr class="obligatorio" title="obligatorio"
+            <label for="numero">Número: <?= isset($_POST['numero']) ? $_POST['numero'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="number" id="numero" name="numero" required>
           </p>
           <p class="form-input">
-            <label for="piso">Piso: <abbr class="obligatorio" title="obligatorio"
+            <label for="piso">Piso: <?= isset($_POST['piso']) ? $_POST['piso'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="number" id="piso" name="piso" required>
           </p>
           <p class="form-input">
-            <label for="puerta">Puerta: <abbr class="obligatorio" title="obligatorio"
+            <label for="puerta">Puerta: <?= isset($_POST['puerta']) ? $_POST['puerta'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="text" id="puerta" name="puerta" required>
           </p>
           <p class="form-input">
-            <label for="codp">Código Postal: <abbr class="obligatorio" title="obligatorio"
+            <label for="codp">Código Postal: <?= isset($_POST['codigo_postal']) ? $_POST['codigo_postal'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="number" id="codp" name="codigo_postal" required>
           </p>
           <p class="form-input">
-            <label for="localidad">Localidad: <abbr class="obligatorio" title="obligatorio"
+            <label for="localidad">Localidad: <?= isset($_POST['localidad']) ? $_POST['localidad'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="text" id="localidad" name="localidad" required>
           </p>
           <p class="form-input">
-            <label for="provincia">Provincia: <abbr class="obligatorio" title="obligatorio"
+            <label for="provincia">Provincia: <?= isset($_POST['provincia']) ? $_POST['provincia'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <input type="text" id="provincia" name="provincia" required>
           </p>
           <p class="form-input">
-            <label for="pais">País: <abbr class="obligatorio" title="obligatorio"
+            <label for="pais">País: <?= isset($_POST['pais']) ? $_POST['pais'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <select name="pais" id="pais" required>
               <option value="">--Elige un país--</option>
@@ -210,7 +168,7 @@
             <output id="outvol" name="outvol" for="resolucion">150</output><span id="outvol-span"> dpi</span>
           </p>
           <p class="form-input">
-            <label for="album">Álbum de fotos: <abbr class="obligatorio" title="obligatorio"
+            <label for="album">Álbum de fotos: <?= isset($_POST['album']) ? $_POST['album'] : ''; ?><abbr class="obligatorio" title="obligatorio"
                 aria-label="obligatorio">*</abbr></label>
             <select id="album" name="album" required>
               <option value="1">Álbum 1</option>
@@ -232,10 +190,7 @@
       </form>
     </div>
   </main>
-  <footer class="container-footer">
-    <p>Autores: Kevin Danilo & Marcos López</p>
-    <p>&copy; 2024 - Proyecto DAW</p>
-    <P><a href="accesibilidad.html">Declaración de Accesibilidad</a></P>
-  </footer>
-</body>
-</html>
+<?php
+  include "inc/pie.php";
+  include "inc/html-end.php";
+?>
