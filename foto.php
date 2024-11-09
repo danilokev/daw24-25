@@ -1,23 +1,14 @@
-<!-- 
-  Archivo: foto.html
-  En este archivo se muestra la información detallada de una foto.
-
-  Creado por: Kevin Danilo, Marcos López el 23/09/2024
-
-  Historial de cambios:
-  23/09/2024 - Creación del archivo
-  -->
-  <?php
+<?php
 $titulo = "KeepMoments - Detalle de Foto";
 include "inc/html-start.php";
+$usuario_identificado = true;
 include "inc/cabecera.php";
 
-// Recupera el id de la URL
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
+// recuperamos el id de la URL, si no existe le asignamos 1
+$id = $_GET['id'] ?? 1;
 
-// Datos de la foto (para esta práctica, los datos están hardcodeados)
-if ($id % 2 === 0) {
-    // Detalles para la foto del bosque
+// Si el id es par muestra una foto, si es impar muestra otra
+if ($id % 2 == 0) {
     $foto = [
         'src' => 'img/foto2.jpg',
         'titulo' => 'Bosque',
@@ -27,7 +18,6 @@ if ($id % 2 === 0) {
         'usuario' => 'Usuario2'
     ];
 } else {
-    // Detalles para la foto de la abeja
     $foto = [
         'src' => 'img/foto1.jpg',
         'titulo' => 'Abeja en flor amarilla',
@@ -45,14 +35,14 @@ if ($id % 2 === 0) {
         <div id="article-account">
             <a href="menu-usuario.html">
                 <span id="icon-account" class="icon-user-circle"></span>
-                <p><?= htmlspecialchars($foto['usuario']) ?></p>
+                <p><?= $foto['usuario']; ?></p>
             </a>
         </div>
-        <img src="<?= htmlspecialchars($foto['src']) ?>" alt="<?= htmlspecialchars($foto['titulo']) ?>">
-        <h2><?= htmlspecialchars($foto['titulo']) ?></h2>
-        <p class="article-p">Fecha de publicación: <?= htmlspecialchars($foto['fecha']) ?></p>
-        <p class="article-p">País: <?= htmlspecialchars($foto['pais']) ?></p>
-        <p class="article-p">Álbum: <?= htmlspecialchars($foto['album']) ?></p>
+        <img src="<?= $foto['src'] ?>" alt="<?= $foto['titulo']; ?>">
+        <h2><?= $foto['titulo'] ?></h2>
+        <p class="article-p">Fecha de publicación: <?= $foto['fecha']; ?></p>
+        <p class="article-p">País: <?= $foto['pais']; ?></p>
+        <p class="article-p">Álbum: <?= $foto['album']; ?></p>
         <button class="btn">Ver Álbum</button>
     </article>
 </main>

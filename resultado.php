@@ -8,25 +8,26 @@
   23/09/2024 - Creación del archivo
 -->
 <?php
-  $titulo = "KeepMoments - Resultado de búsqueda";
-  include "inc/html-start.php";
-  include "inc/cabecera.php";
+$titulo = "KeepMoments - Resultado de búsqueda";
+include "inc/html-start.php";
+$usuario_identificado = false;
+include "inc/cabecera.php";
 
-  // Capturar los valores del formulario
-  $tituloBusqueda = isset($_GET['titulo']) ? $_GET['titulo'] : '-';
-  $fechaBusqueda = isset($_GET['fecha']) ? $_GET['fecha'] : '-';
-  $paisBusqueda = isset($_GET['country']) ? $_GET['country'] : '-';
+// Almacenamos los valores introducidos en el formulario
+$tituloBusqueda = $_GET['titulo'] ? $_GET['titulo'] : '-';
+$fechaBusqueda = $_GET['fecha'] ? $_GET['fecha'] : '-';
+$paisBusqueda = $_GET['country'] ? $_GET['country'] : '-';
 ?>
 
 <main>
   <h1>Resultado de búsqueda</h1>
-  
-  <!-- Muestra los datos que el usuario ha ingresado -->
+
+  <!-- Mostramos los datos que el usuario ha ingresado -->
   <section>
     <h2>Datos de búsqueda ingresados:</h2>
-    <p><strong>Título:</strong> <?= htmlspecialchars($tituloBusqueda); ?></p>
-    <p><strong>Fecha:</strong> <?= htmlspecialchars($fechaBusqueda); ?></p>
-    <p><strong>País:</strong> <?= htmlspecialchars($paisBusqueda); ?></p>
+    <p><strong>Título:</strong> <?= $tituloBusqueda; ?></p>
+    <p><strong>Fecha:</strong> <?= $fechaBusqueda; ?></p>
+    <p><strong>País:</strong> <?= $paisBusqueda; ?></p>
   </section>
 
   <!-- Resultados estáticos de ejemplo -->
@@ -71,6 +72,6 @@
 </main>
 
 <?php
-  include "inc/pie.php";
-  include "inc/html-end.php";
+include "inc/pie.php";
+include "inc/html-end.php";
 ?>

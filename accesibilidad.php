@@ -2,41 +2,13 @@
   archivo: accesibilidad.html
   En este achivo se muestra la declaración sobre la accesibilidad de la página web.
 -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>>KeepMoments - Accesibilidad</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="alternate stylesheet" href="css/noche.css" title="Modo noche">
-  <link rel="alternate stylesheet" href="css/contrast.css" title="Modo alto contraste">
-  <link rel="alternate stylesheet" href="css/big.css" title="Modo con Letra Mayor">
-  <link rel="alternate stylesheet" href="css/contrast-big.css" title="Modo alto contraste y con Letra Mayor">
-  <link rel="stylesheet" href="css/print.css" media="print">
-  <link rel="stylesheet" href="css/fontello.css">
-</head>
-<body>
-  <header>
-    <div>
-      <label for="chkMenu">&equiv;</label>
-      <input type="checkbox" name="menu" id="chkMenu">
-      <a href="index.html"><img src="img/logo1.png" alt="logo"></a>
-      <nav>
-        <ul>
-          <li><a href="index.html"><span class="icon-home"></span>Inicio</a></li>
-          <li><a href="busqueda.html"><span class="icon-search"></span>Buscador</a></li>
-          <li><a href="registro.html"><span class="icon-user-plus"></span>Regístrate</a></li>
-          <li><a href="login.html"><span class="icon-login"></span>Iniciar sesión</a></li>
-        </ul>
-      </nav>
-    </div>
-    <form action="resultado.html" id="form-search">
-      <input type="search" placeholder="Buscar...">
-      <button class="btn-search" type="submit">Buscar</button>
-    </form>
-  </header>
-  <main>
+<?php 
+$titulo = "KeepMoments - Respuesta Registro";
+include "inc/html-start.php";
+$usuario_identificado = false;
+include "inc/cabecera.php";
+?>
+<main>
     <h1>Declaración de Accesibilidad</h1>
     <section>
       <h2>Etiquetado Semántico</h2>
@@ -62,11 +34,8 @@
         <li>Los formularios incluyen etiquetas descriptivas y mensajes de error claros.</li>
       </ul>
     </section>
-  </main>
-  <footer class="container-footer">
-    <p>Autores: Kevin Danilo & Marcos López</p>
-    <p>&copy; 2024 - Proyecto DAW</p>
-    <P><a href="accesibilidad.html">Declaración de Accesibilidad</a></P>
-  </footer>
-</body>
-</html>
+</main>
+<?php
+include "inc/pie.php";
+include "inc/html-end.php";
+?>
