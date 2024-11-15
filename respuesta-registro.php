@@ -1,7 +1,6 @@
 <?php
 $titulo = "KeepMoments - Respuesta Registro";
 include "inc/html-start.php";
-$usuario_identificado = false;
 include "inc/cabecera.php";
 
 // almacenamos los datos del formulario y si no hay datos, asignamos un valor por defecto

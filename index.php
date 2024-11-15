@@ -1,22 +1,26 @@
 <?php
-session_start();
 $titulo = "KeepMoments - Página principal";
 include "inc/html-start.php";
-$usuario_identificado = false;
 include "inc/cabecera.php";
+
+//para verificar el estado de la sesión y las cookies (SE BORRARÁ LUEGO)
+echo '<pre>';
+print_r($_SESSION);
+print_r($_COOKIE);
+echo '</pre>';
 ?>
 <main>
   <h1>Últimas fotos subidas</h1>
 
-  <?php if (isset($_SESSION['error'])): ?> 
+  <?php if (isset($_SESSION['error'])): ?>
     <div class="error-message" style="text-align: center; margin: 20px; font-size: 18px; background-color: #ffebee;padding: 20px;">
       <?php
-      echo $_SESSION['error']; 
-      unset($_SESSION['error']); // elimino el mensaje de error
+      echo $_SESSION['error'];
+      unset($_SESSION['error']); // elimino el mensaje 
       ?>
     </div>
   <?php endif; ?>
-  
+
   <div class="container-photos">
     <a href="login.php">
       <figure>

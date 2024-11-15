@@ -1,16 +1,6 @@
-<!--  
-  Archivo: resultado.php
-  En este archivo se muestra el resultado de la búsqueda de fotos.
-
-  Creado por: Kevin Danilo, Marcos López el 23/09/2024
-
-  Historial de cambios:
-  23/09/2024 - Creación del archivo
--->
 <?php
 $titulo = "KeepMoments - Resultado de búsqueda";
 include "inc/html-start.php";
-$usuario_identificado = false;
 include "inc/cabecera.php";
 
 // Almacenamos los valores introducidos en el formulario

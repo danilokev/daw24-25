@@ -1,8 +1,8 @@
 <?php
 $titulo = "KeepMoments - Página principal";
 include "inc/html-start.php";
-$usuario_identificado = true;
 include "inc/cabecera.php";
+include "inc/auth.php";
 ?>
 <main class="main-form">
     <form action="#">

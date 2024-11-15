@@ -1,8 +1,8 @@
 <?php
 $titulo = "KeepMoments - Detalle de Foto";
 include "inc/html-start.php";
-$usuario_identificado = true;
 include "inc/cabecera.php";
+include "inc/auth.php";
 
 // recuperamos el id de la URL, si no existe le asignamos 1
 $id = $_GET['id'] ?? 1;

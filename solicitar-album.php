@@ -1,8 +1,8 @@
 <?php
 $titulo = "KeepMoments - Solicitar álbum impreso";
 include "inc/html-start.php";
-$usuario_identificado = true;
 include "inc/cabecera.php";
+include "inc/auth.php";
 ?>
 <main>
   <h1>Solicitar álbum impreso</h1>

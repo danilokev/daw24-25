@@ -10,7 +10,6 @@
 <?php
 $titulo = "KeepMoments - Página de búsqueda";
 include "inc/html-start.php";
-$usuario_identificado = true;
 include "inc/cabecera.php";
 ?>
 

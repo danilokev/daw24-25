@@ -1,8 +1,8 @@
 <?php
 $titulo = "KeepMoments - Confirmación de solicitud de álbum impreso";
 include "inc/html-start.php";
-$usuario_identificado = true;
 include "inc/cabecera.php";
+include "inc/auth.php";
 
 $impresion = $_POST['impresion'] ?? '0';
 

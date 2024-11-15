@@ -5,7 +5,6 @@
 <?php 
 $titulo = "KeepMoments - Respuesta Registro";
 include "inc/html-start.php";
-$usuario_identificado = false;
 include "inc/cabecera.php";
 ?>
 <main>
