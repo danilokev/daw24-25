@@ -125,3 +125,12 @@ table {
 main>form {
   box-shadow: 0 0 10px var(--dark-primary-color);
 }
+
+#menu-usu a {
+  color: var(--dark-text-primary);
+}
+
+#menu-usu a:hover {
+  background-color: var(--dark-hover-primary);
+  color: var(--color-negro);
+}

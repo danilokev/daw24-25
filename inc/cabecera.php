@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 if (isset($_SESSION['usuario'])) {
   $usuarioIdentificado = true;
@@ -8,7 +8,7 @@ if (isset($_SESSION['usuario'])) {
   $usuarioIdentificado = true;
 } else {
   $usuarioIdentificado = false;
-  unset($_SESSION['usuario']); 
+  unset($_SESSION['usuario']);
 }
 ?>
 <header>
@@ -19,12 +19,12 @@ if (isset($_SESSION['usuario'])) {
     <nav>
       <ul>
         <?php if ($usuarioIdentificado): ?>
-        <li><a href="identificado.php"><span class="icon-home"></span>Inicio</a></li>
-        <li><a href="menu-usuario.php"><span class="icon-user-circle"></span>Mi Cuenta</a></li>
+          <li><a href="identificado.php"><span class="icon-home"></span>Inicio</a></li>
+          <li><a href="menu-usuario.php"><span class="icon-user-circle"></span>Mi Cuenta</a></li>
         <?php else: ?>
-        <li><a href="index.php"><span class="icon-home"></span>Inicio</a></li>
-        <li><a href="registro.php"><span class="icon-user-plus"></span>Regístrate</a></li>
-        <li><a href="login.php"><span class="icon-login"></span>Iniciar sesión</a></li>
+          <li><a href="index.php"><span class="icon-home"></span>Inicio</a></li>
+          <li><a href="registro.php"><span class="icon-user-plus"></span>Regístrate</a></li>
+          <li><a href="login.php"><span class="icon-login"></span>Iniciar sesión</a></li>
         <?php endif; ?>
         <li><a href="busqueda.php"><span class="icon-search"></span>Buscador</a></li>
       </ul>

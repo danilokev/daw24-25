@@ -3,9 +3,10 @@ $titulo = "KeepMoments - Menú de usuario";
 include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/auth.php";
+include "inc/saludo.php"
 ?>
 <main>
-  <h1>Menú de usuario</h1>
+  <h1><?= $saludo . ' ' . $nombreUsuario ?></h1>
   <div id="menu-usu">
     <ul>
       <li><a href="#"><span class="icon-user"></span>Modificar datos</a></li>

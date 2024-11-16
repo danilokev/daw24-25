@@ -5,7 +5,7 @@ include "inc/cabecera.php";
 
 // Redirigir al menú de usuario si ya está identificado
 if (isset($_SESSION['usuario']) || (isset($_COOKIE['usu']) && isset($_COOKIE['pwd']))) {
-  header('Location: menu-usuario.php');
+  header('Location: menu-usuario.php?notice=already_logged_in');
   exit;
 }
 
