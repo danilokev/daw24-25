@@ -4,11 +4,14 @@ include "inc/html-start.php";
 include "inc/cabecera.php";
 
 //para verificar el estado de la sesión y las cookies (SE BORRARÁ LUEGO)
+/*
 echo '<pre>';
 print_r($_SESSION);
 print_r($_COOKIE);
 echo '</pre>';
+*/
 ?>
+
 <main>
   <h1>Últimas fotos subidas</h1>
 

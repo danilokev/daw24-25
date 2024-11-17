@@ -3,10 +3,20 @@ $titulo = "KeepMoments - Menú de usuario";
 include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/auth.php";
-include "inc/saludo.php"
+include "inc/saludo.php";
+
+// Actualizar la cookie con la última visita a esta página
+setcookie('ultima_visita', date('Y-m-d H:i:s') . ' ', time() + (90 * 24 * 60 * 60), '/');
+
+// Generar el mensaje de última visita (si aplica)
+$mensajeUltimaVisita = '';
+if (isset($_COOKIE['usu']) && isset($_COOKIE['ultima_visita'])) {
+  $mensajeUltimaVisita = " (Su última visita fue el " . htmlspecialchars($_COOKIE['ultima_visita']) . ")";
+}
 ?>
 <main>
-  <h1><?= $saludo . ' ' . $nombreUsuario ?></h1>
+  <h1><?= $saludo . ' ' . $nombreUsuario . $mensajeUltimaVisita ?></h1>
+
   <div id="menu-usu">
     <ul>
       <li><a href="#"><span class="icon-user"></span>Modificar datos</a></li>

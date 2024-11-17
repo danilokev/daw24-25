@@ -32,10 +32,12 @@ if ($esValido) {
     setcookie('usu', $usu, time() + (90 * 24 * 60 * 60), '/');
     setcookie('pwd', $pwd, time() + (90 * 24 * 60 * 60), '/');
     setcookie('estilo', $estiloUsuario, time() + (90 * 24 * 60 * 60), '/');
+    setcookie('ultima_visita', date('Y-m-d H:i:s') . ' en control-accesos.php', time() + (90 * 24 * 60 * 60), '/');
   } else {
     setcookie('usu', '', time() - 3600, '/');
     setcookie('pwd', '', time() - 3600, '/');
     setcookie('estilo', '', time() - 3600, '/');
+    setcookie('ultima_visita', '', time() - 3600, '/');
   }
 
   header('Location: menu-usuario.php');
