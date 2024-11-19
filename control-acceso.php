@@ -27,12 +27,11 @@ foreach ($usuarios as $usuario) {
 if ($esValido) {
   $_SESSION['usuario'] = $usu;
   $_SESSION['estilo'] = $estiloUsuario;
-
   if (isset($_POST['recuerdame'])) {
     setcookie('usu', $usu, time() + (90 * 24 * 60 * 60), '/');
     setcookie('pwd', $pwd, time() + (90 * 24 * 60 * 60), '/');
     setcookie('estilo', $estiloUsuario, time() + (90 * 24 * 60 * 60), '/');
-    setcookie('ultima_visita', date('Y-m-d H:i:s') . ' en control-accesos.php', time() + (90 * 24 * 60 * 60), '/');
+    setcookie('ultima_visita', date('d/m/Y H:i'), time() + (90 * 24 * 60 * 60), '/');
   } else {
     setcookie('usu', '', time() - 3600, '/');
     setcookie('pwd', '', time() - 3600, '/');
@@ -42,6 +41,7 @@ if ($esValido) {
 
   header('Location: menu-usuario.php');
 } else {
-  $_SESSION['error'] = 'Usuario o contraseña incorrectos';
-  header('Location: index.php');
+  $mensajeError = urlencode('Usuario o contraseña incorrectos');
+  header("Location: index.php?error=$mensajeError");
+  exit;
 }

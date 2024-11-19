@@ -31,7 +31,7 @@ if (isset($_SESSION['usuario'])) {
     </nav>
   </div>
   <form action="resultado.php" method="get" id="form-search">
-    <input type="search" name="titulo" placeholder="Buscar...">
+    <input type="search" placeholder="Buscar...">
     <button class="btn-search" type="submit">Buscar</button>
   </form>
 </header>

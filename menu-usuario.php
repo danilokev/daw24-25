@@ -4,18 +4,14 @@ include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/auth.php";
 include "inc/saludo.php";
-
-// Actualizar la cookie con la última visita a esta página
-setcookie('ultima_visita', date('Y-m-d H:i:s') . ' ', time() + (90 * 24 * 60 * 60), '/');
-
-// Generar el mensaje de última visita (si aplica)
-$mensajeUltimaVisita = '';
-if (isset($_COOKIE['usu']) && isset($_COOKIE['ultima_visita'])) {
-  $mensajeUltimaVisita = " (Su última visita fue el " . htmlspecialchars($_COOKIE['ultima_visita']) . ")";
-}
+include "inc/mensaje.php";
 ?>
 <main>
-  <h1><?= $saludo . ' ' . $nombreUsuario . $mensajeUltimaVisita ?></h1>
+  <h1><?= $saludo . ' ' . $nombreUsuario ?></h1>
+  
+  <?php if ($mensaje): ?>
+    <h2><?= htmlspecialchars($mensaje) ?></h2>
+  <?php endif; ?>
 
   <div id="menu-usu">
     <ul>

@@ -3,9 +3,15 @@ $titulo = "KeepMoments - Solicitar álbum impreso";
 include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/auth.php";
+include "inc/mensaje.php";
 ?>
 <main>
   <h1>Solicitar álbum impreso</h1>
+
+  <?php if ($mensaje): ?>
+    <h2><?= htmlspecialchars($mensaje) ?></h2>
+  <?php endif; ?>
+
   <div class="container-text-impreso">
     <p class="text-album-impreso">Para solicitar un álbum impreso, por favor rellena el formulario a continuación. Asegúrate de completar todos los campos obligatorios marcados con (*). </p>
     <p class="text-album-impreso">Podrás personalizar tu álbum con un título, texto adicional, y elegir entre varias opciones de configuración como el color de la portada, el número de copias, y la resolución de las fotos.</p>
