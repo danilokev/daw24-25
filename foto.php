@@ -38,7 +38,7 @@ if ($id % 2 == 0) {
 
   <article class="container-card">
     <div id="article-account">
-      <a href="menu-usuario.html">
+      <a href="perfil-usuario.php">
         <span id="icon-account" class="icon-user-circle"></span>
         <p><?= $foto['usuario']; ?></p>
       </a>
