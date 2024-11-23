@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `estilos` (
   `idEstilo` INTEGER NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
   `descripcion` VARCHAR(500),
-  `fichero` VARCHAR(255),
+  `fichero` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`idEstilo`)
 );
 
@@ -28,12 +28,12 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `clave` VARCHAR(15) NOT NULL,
   `email` VARCHAR(254) NOT NULL,
   `sexo` SMALLINT,
-  `fNacimiento` DATETIME,
+  `fNacimiento` DATE,
   `ciudad` VARCHAR(100),
   `pais` INTEGER NOT NULL,
   `foto` VARCHAR(255),
   `fRegistro` TIMESTAMP,
-  `estilo` INTEGER,
+  `estilo` INTEGER NOT NULL,
   PRIMARY KEY (`idUsuario`),
   FOREIGN KEY (`pais`) REFERENCES `paises`(`idPais`),
   FOREIGN KEY (`estilo`) REFERENCES `estilos`(`idEstilo`)
@@ -45,7 +45,7 @@ INSERT INTO `paises` (nomPais) VALUES ('España');
 INSERT INTO `estilos` (nombre, descripcion, fichero) VALUES ('Modo noche', 'Descripción del estilo', 'noche.css');
 
 INSERT INTO `usuarios` (nomUsuario, clave, email, sexo, fNacimiento, ciudad, pais, foto, fRegistro, estilo)
-VALUES ('marcos123', 'marcos123', 'marcos@correo.com', 1, '1990-01-01', 'Alicante', 1, 'img/foto1.jpg', NOW(), 1);
+VALUES ('marcos123', 'marcos123', 'marcos@correo.com', 0, '1990-01-01', 'Alicante', 1, 'foto1.jpg', NOW(), 1);
 
 -- Tabla álbumes
 CREATE TABLE IF NOT EXISTS `albumes` (
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `fotos` (
   `idFoto` INTEGER NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(255) NOT NULL,
   `descripcion` VARCHAR(500),
-  `fecha` DATETIME,
+  `fecha` DATE,
   `pais` INTEGER NOT NULL,
   `album` INTEGER NOT NULL,
   `fichero` VARCHAR(255) NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `solicitudes` (
   `color` VARCHAR(255),
   `copias` INTEGER,
   `resolucion` INTEGER,
-  `fecha` DATETIME,
+  `fecha` DATE,
   `iColor` BOOLEAN,
   `fRegistro` TIMESTAMP,
   `coste` DECIMAL(10, 2),
