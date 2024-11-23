@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2024 a las 22:35:39
+-- Tiempo de generación: 23-11-2024 a las 23:10:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,12 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `pibd`
 --
+CREATE DATABASE IF NOT EXISTS `pibd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `pibd`;
+
+CREATE USER 'wwwdata'@'localhost' IDENTIFIED BY 'daw';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'wwwdata'@'localhost' IDENTIFIED BY 'daw' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 
 -- --------------------------------------------------------
 
