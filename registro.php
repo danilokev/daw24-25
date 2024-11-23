@@ -2,6 +2,7 @@
 $titulo = "KeepMoments - Registro";
 include "inc/html-start.php";
 include "inc/cabecera.php";
+include "inc/conexion-db.php"; // Conexión a la base de datos
 
 // Redirigir al menú de usuario si ya está identificado
 if (isset($_SESSION['usuario']) || (isset($_COOKIE['usu']) && isset($_COOKIE['pwd']))) {
@@ -9,7 +10,21 @@ if (isset($_SESSION['usuario']) || (isset($_COOKIE['usu']) && isset($_COOKIE['pw
   exit;
 }
 
-$errores = $_GET['errores'] ?? []; 
+$errores = $_GET['errores'] ?? [];
+
+// Consulta para obtener los países de la base de datos
+$sql = "SELECT IdPais, NomPais FROM Paises ORDER BY NomPais ASC";
+$result = $conn->query($sql);
+
+// Verificar si hay resultados
+$paises = [];
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $paises[] = $row;
+    }
+}
+
+$conn->close();
 ?>
 
 <main class="main-form">
@@ -56,16 +71,11 @@ $errores = $_GET['errores'] ?? [];
       <label for="country"><span class="icon-flag"></span>País de residencia:</label>
       <select name="country" id="country">
         <option value="">--Elige un país--</option>
-        <option value="es">España</option>
-        <option value="prt">Portugal</option>
-        <option value="ita">Italia</option>
-        <option value="fra">Francia</option>
-        <option value="su">Suiza</option>
-        <option value="mx">México</option>
-        <option value="ar">Argentina</option>
-        <option value="us">Estados Unidos</option>
-        <option value="al">Alemania</option>
-        <option value="other">Otro</option>
+        <?php foreach ($paises as $pais): ?>
+          <option value="<?= htmlspecialchars($pais['IdPais'], ENT_QUOTES, 'UTF-8'); ?>">
+            <?= htmlspecialchars($pais['NomPais'], ENT_QUOTES, 'UTF-8'); ?>
+          </option>
+        <?php endforeach; ?>
       </select>
     </p>
     <p>

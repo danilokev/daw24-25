@@ -17,7 +17,7 @@ include "inc/mensaje.php";
     <ul>
       <li><a href="#"><span class="icon-user"></span>Modificar datos</a></li>
       <li><a href="#"><span class="icon-trash"></span>Darse de baja</a></li>
-      <li><a href="#"><span class="icon-picture"></span>Visualizar álbumes</a></li>
+      <li><a href="mis-albumes.php"><span class="icon-picture"></span>Visualizar álbumes</a></li>
       <li><a href="crear-album.php"><span class="icon-plus"></span>Crear álbum nuevo</a></li>
       <li><a href="solicitar-album.php"><span class="icon-print"></span>Solicitar álbum impreso</a></li>
       <li><a href="salir.php"><span class="icon-logout"></span>Salir</a></li>

@@ -2,13 +2,27 @@
 $titulo = "KeepMoments - Página principal";
 include "inc/html-start.php";
 include "inc/cabecera.php";
+include "inc/conexion-db.php";
 
-//para verificar el estado de la sesión y las cookies (SE BORRARÁ LUEGO)
-// echo '<pre>';
-// print_r($_SESSION);
-// print_r($_COOKIE);
-// echo '</pre>';
+// Consulta para obtener las últimas cinco fotos
+$query = "SELECT Fotos.Titulo, Fotos.Fichero, Fotos.FRegistro, Paises.NomPais
+          FROM Fotos
+          JOIN Paises ON Fotos.Pais = Paises.IdPais
+          ORDER BY Fotos.FRegistro DESC
+          LIMIT 5";
+
+$result = $conn->query($query);
+
+$fotos = [];
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $fotos[] = $row;
+    }
+} else {
+    $error = "No hay fotos disponibles en este momento.";
+}
 ?>
+
 <main>
   <h1>Últimas fotos subidas</h1>
 
@@ -21,38 +35,27 @@ include "inc/cabecera.php";
   <?php endif; ?>
 
   <div class="container-photos">
-    <a href="login.php">
-      <figure>
-        <img src="img/foto1.jpg" alt="Abeja en flor amarilla">
-        <figcaption>Abeja</figcaption>
-      </figure>
-    </a>
-    <a href="login.php">
-      <figure>
-        <img src="img/foto2.jpg" alt="Bosque verde">
-        <figcaption>Bosque</figcaption>
-      </figure>
-    </a>
-    <a href="login.php">
-      <figure>
-        <img src="img/foto3.webp" alt="Atardecer en el bosque">
-        <figcaption>Atardecer en el bosque</figcaption>
-      </figure>
-    </a>
-    <a href="login.php">
-      <figure>
-        <img src="img/foto4.webp" alt="Plantas iluminadas con un rayo de sol">
-        <figcaption>Plantas</figcaption>
-      </figure>
-    </a>
-    <a href="login.php">
-      <figure>
-        <img src="img/foto5.jpeg" alt="Guepardo posando">
-        <figcaption>Lindo minino</figcaption>
-      </figure>
-    </a>
+    <?php if (!empty($fotos)): ?>
+      <?php foreach ($fotos as $foto): ?>
+        <a href="login.php">
+          <figure>
+            <img src="<?= htmlspecialchars($foto['Fichero']) ?>" alt="<?= htmlspecialchars($foto['Titulo']) ?>">
+            <figcaption>
+              <?= htmlspecialchars($foto['Titulo']) ?><br>
+              Fecha: <?= htmlspecialchars($foto['FRegistro']) ?><br>
+              País: <?= htmlspecialchars($foto['NomPais']) ?>
+            </figcaption>
+          </figure>
+        </a>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p style="text-align: center; font-size: 18px; color: gray;">
+        <?= isset($error) ? htmlspecialchars($error) : "No hay fotos para mostrar." ?>
+      </p>
+    <?php endif; ?>
   </div>
 </main>
+
 <?php
 include "inc/pie.php";
 include "inc/html-end.php";

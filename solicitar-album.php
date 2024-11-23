@@ -4,6 +4,21 @@ include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/auth.php";
 include "inc/mensaje.php";
+include "inc/conexion-db.php"; // Conexión a la base de datos
+
+// Consulta para obtener los países de la base de datos
+$sql = "SELECT idAlbum, titulo FROM albumes ORDER BY titulo ASC";
+$result = $conn->query($sql);
+
+// Verificar si hay resultados
+$albumes = [];
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $albumes[] = $row;
+    }
+}
+
+$conn->close();
 ?>
 <main>
   <h1>Solicitar álbum impreso</h1>
@@ -170,8 +185,12 @@ include "inc/mensaje.php";
         <p class="form-input">
           <label for="album">Álbum de fotos:<abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
           <select id="album" name="album" required>
-            <option value="1">Álbum 1</option>
-            <option value="2">Álbum 2</option>
+            <option value="">--Elige un Album--</option>
+                <?php foreach ($albumes as $album): ?>
+                    <option value="<?= htmlspecialchars($album['idAlbum'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <?= htmlspecialchars($album['titulo'], ENT_QUOTES, 'UTF-8'); ?>
+                    </option>
+                <?php endforeach; ?>
           </select>
         </p>
         <p class="form-input">

@@ -2,56 +2,71 @@
 $titulo = "KeepMoments - Detalle de Foto";
 include "inc/html-start.php";
 include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/mensaje.php";
+include "inc/conexion-db.php"; // Conexión a la base de datos
 
-// recuperamos el id de la URL, si no existe le asignamos 1
-$id = $_GET['id'] ?? 1;
-
-// Si el id es par muestra una foto, si es impar muestra otra
-if ($id % 2 == 0) {
-  $foto = [
-    'src' => 'img/foto2.jpg',
-    'titulo' => 'Bosque',
-    'fecha' => '01/09/2024',
-    'pais' => 'Argentina',
-    'album' => 'Naturaleza',
-    'usuario' => 'Usuario2'
-  ];
-} else {
-  $foto = [
-    'src' => 'img/foto1.jpg',
-    'titulo' => 'Abeja en flor amarilla',
-    'fecha' => '01/09/2024',
-    'pais' => 'España',
-    'album' => 'Insectos',
-    'usuario' => 'Usuario1'
-  ];
+// Recuperamos el id de la URL, si no existe, redirigimos con error
+$id = $_GET['id'] ?? null;
+if (!$id || !is_numeric($id)) {
+    header("Location: index.php?error=Foto no encontrada");
+    exit;
 }
+
+// Consulta SQL para obtener la información de la foto
+$sql = "SELECT 
+            Fotos.Titulo AS titulo_foto, 
+            Fotos.Descripcion AS descripcion, 
+            Fotos.FRegistro AS fecha, 
+            Fotos.Fichero AS fichero, 
+            Paises.NomPais AS pais, 
+            Albumes.Titulo AS album, 
+            Usuarios.NomUsuario AS usuario
+        FROM Fotos
+        LEFT JOIN Paises ON Fotos.Pais = Paises.IdPais
+        LEFT JOIN Albumes ON Fotos.Album = Albumes.IdAlbum
+        LEFT JOIN Usuarios ON Albumes.Usuario = Usuarios.IdUsuario
+        WHERE Fotos.IdFoto = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    header("Location: index.php?error=Foto no encontrada");
+    exit;
+}
+
+$foto = $result->fetch_assoc();
 ?>
 <main>
   <h1>Detalle de la Foto</h1>
 
-  <?php if ($mensaje): ?>
-    <h2><?= htmlspecialchars($mensaje) ?></h2>
+  <?php if (isset($_GET['error'])): ?>
+    <div class="error-message">
+      <?= htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8'); ?>
+    </div>
   <?php endif; ?>
 
   <article class="container-card">
     <div id="article-account">
       <a href="perfil-usuario.php">
         <span id="icon-account" class="icon-user-circle"></span>
-        <p><?= $foto['usuario']; ?></p>
+        <p><?= htmlspecialchars($foto['usuario'], ENT_QUOTES, 'UTF-8'); ?></p>
       </a>
     </div>
-    <img src="<?= $foto['src'] ?>" alt="<?= $foto['titulo']; ?>">
-    <h2><?= $foto['titulo'] ?></h2>
-    <p class="article-p">Fecha de publicación: <?= $foto['fecha']; ?></p>
-    <p class="article-p">País: <?= $foto['pais']; ?></p>
-    <p class="article-p">Álbum: <?= $foto['album']; ?></p>
+    <img src="<?= htmlspecialchars($foto['fichero'], ENT_QUOTES, 'UTF-8'); ?>" 
+         alt="<?= htmlspecialchars($foto['titulo_foto'], ENT_QUOTES, 'UTF-8'); ?>">
+    <h2><?= htmlspecialchars($foto['titulo_foto'], ENT_QUOTES, 'UTF-8'); ?></h2>
+    <p class="article-p">Descripción: <?= htmlspecialchars($foto['descripcion'], ENT_QUOTES, 'UTF-8'); ?></p>
+    <p class="article-p">Fecha de publicación: <?= htmlspecialchars($foto['fecha'], ENT_QUOTES, 'UTF-8'); ?></p>
+    <p class="article-p">País: <?= htmlspecialchars($foto['pais'], ENT_QUOTES, 'UTF-8'); ?></p>
+    <p class="article-p">Álbum: <?= htmlspecialchars($foto['album'], ENT_QUOTES, 'UTF-8'); ?></p>
     <button class="btn">Ver Álbum</button>
   </article>
 </main>
 <?php
+$stmt->close();
+$conn->close();
 include "inc/pie.php";
 include "inc/html-end.php";
 ?>
