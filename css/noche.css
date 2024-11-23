@@ -48,7 +48,7 @@ nav>ul {
   }
 }
 
-body>main>h1 {
+body>main>h1, h2 {
   color: var(--dark-text-primary);
 }
 

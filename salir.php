@@ -19,6 +19,10 @@ if (isset($_COOKIE['estilo'])) {
   setcookie('estilo', '', time() - 3600, '/');
 }
 
+if (isset($_COOKIE['idUsuario'])) {
+  setcookie('idUsuario', '', time() - 3600, '/');
+}
+
 session_destroy();
 
 header('Location: index.php?logout=success');

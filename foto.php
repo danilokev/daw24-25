@@ -2,24 +2,25 @@
 $titulo = "KeepMoments - Detalle de Foto";
 include "inc/html-start.php";
 include "inc/cabecera.php";
-include "inc/conexion-db.php"; // Conexión a la base de datos
+include "inc/auth.php";
+include "inc/conexion-db.php";
 
-// Recuperamos el id de la URL, si no existe, redirigimos con error
 $id = $_GET['id'] ?? null;
 if (!$id || !is_numeric($id)) {
-    header("Location: index.php?error=Foto no encontrada");
-    exit;
+  header("Location: index.php?error=Foto no encontrada");
+  exit;
 }
 
 // Consulta SQL para obtener la información de la foto
 $sql = "SELECT 
             Fotos.Titulo AS titulo_foto, 
             Fotos.Descripcion AS descripcion, 
-            Fotos.FRegistro AS fecha, 
+            Fotos.Fecha AS fecha, 
             Fotos.Fichero AS fichero, 
             Paises.NomPais AS pais, 
             Albumes.Titulo AS album, 
-            Usuarios.NomUsuario AS usuario
+            Usuarios.NomUsuario AS usuario,
+            Usuarios.IdUsuario AS id_usuario
         FROM Fotos
         LEFT JOIN Paises ON Fotos.Pais = Paises.IdPais
         LEFT JOIN Albumes ON Fotos.Album = Albumes.IdAlbum
@@ -32,8 +33,8 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows === 0) {
-    header("Location: index.php?error=Foto no encontrada");
-    exit;
+  header("Location: index.php?error=Foto no encontrada");
+  exit;
 }
 
 $foto = $result->fetch_assoc();
@@ -49,16 +50,16 @@ $foto = $result->fetch_assoc();
 
   <article class="container-card">
     <div id="article-account">
-      <a href="perfil-usuario.php">
+      <a href="perfil-usuario.php?id=<?= $foto['id_usuario'] ?>">
         <span id="icon-account" class="icon-user-circle"></span>
         <p><?= htmlspecialchars($foto['usuario'], ENT_QUOTES, 'UTF-8'); ?></p>
       </a>
     </div>
-    <img src="<?= htmlspecialchars($foto['fichero'], ENT_QUOTES, 'UTF-8'); ?>" 
-         alt="<?= htmlspecialchars($foto['titulo_foto'], ENT_QUOTES, 'UTF-8'); ?>">
+    <img src="img/<?= htmlspecialchars($foto['fichero'], ENT_QUOTES, 'UTF-8'); ?>"
+      alt="<?= htmlspecialchars($foto['titulo_foto'], ENT_QUOTES, 'UTF-8'); ?>">
     <h2><?= htmlspecialchars($foto['titulo_foto'], ENT_QUOTES, 'UTF-8'); ?></h2>
     <p class="article-p">Descripción: <?= htmlspecialchars($foto['descripcion'], ENT_QUOTES, 'UTF-8'); ?></p>
-    <p class="article-p">Fecha de publicación: <?= htmlspecialchars($foto['fecha'], ENT_QUOTES, 'UTF-8'); ?></p>
+    <p class="article-p">Fecha de publicación: <?= htmlspecialchars($foto['fecha']); ?></p>
     <p class="article-p">País: <?= htmlspecialchars($foto['pais'], ENT_QUOTES, 'UTF-8'); ?></p>
     <p class="article-p">Álbum: <?= htmlspecialchars($foto['album'], ENT_QUOTES, 'UTF-8'); ?></p>
     <button class="btn">Ver Álbum</button>

@@ -107,7 +107,7 @@ header img {
 }
 
 /* Estilos index --------------------------------------------- */
-body>main>h1 {
+body>main>h1, h2 {
   text-align: center;
   color: var(--text-color);
   margin: 1em 0;
@@ -679,7 +679,7 @@ textarea {
 
 @media screen and (width > 1280px) {
   header img {
-    width: 4em;
+    width: 3em;
   }
 
   body>main>h1 {
@@ -703,10 +703,11 @@ textarea {
 
   /* formulario */
   main>form {
-    width: 40em;
+    width: 32em;
   }
 
   #container-form-impreso {
+    width: 30em;
     margin: 0 0 4em 0;
   }
 

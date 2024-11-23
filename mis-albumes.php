@@ -2,17 +2,8 @@
 $titulo = "KeepMoments - Mis álbumes";
 include "inc/html-start.php";
 include "inc/cabecera.php";
+include "inc/auth.php";
 include "inc/conexion-db.php";
-
-// Verificar sesión
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Depuración: Comprobar si existe `idUsuario` en la sesión
-if (!isset($_SESSION['idUsuario'])) {
-    die("Error: No hay un usuario autenticado en la sesión. Asegúrate de haber iniciado sesión.");
-}
 
 // Obtener el ID del usuario
 $usuarioId = $_SESSION['idUsuario'];
@@ -22,7 +13,7 @@ $sql = "SELECT * FROM albumes WHERE usuario = ?";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
-    die("Error al preparar la consulta: " . $conn->error);
+  die("Error al preparar la consulta: " . $conn->error);
 }
 
 $stmt->bind_param("i", $usuarioId);
@@ -30,7 +21,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if (!$result) {
-    die("Error en la consulta: " . $conn->error);
+  die("Error en la consulta: " . $conn->error);
 }
 ?>
 <main>

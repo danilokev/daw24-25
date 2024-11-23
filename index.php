@@ -5,7 +5,7 @@ include "inc/cabecera.php";
 include "inc/conexion-db.php";
 
 // Consulta para obtener las últimas cinco fotos
-$query = "SELECT Fotos.Titulo, Fotos.Fichero, Fotos.FRegistro, Paises.NomPais
+$query = "SELECT Fotos.Titulo, Fotos.Fichero, Fotos.FRegistro, Paises.NomPais, Fotos.alternativo
           FROM Fotos
           JOIN Paises ON Fotos.Pais = Paises.IdPais
           ORDER BY Fotos.FRegistro DESC
@@ -15,12 +15,18 @@ $result = $conn->query($query);
 
 $fotos = [];
 if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $fotos[] = $row;
-    }
+  while ($row = $result->fetch_assoc()) {
+    $fotos[] = $row;
+  }
 } else {
-    $error = "No hay fotos disponibles en este momento.";
+  $error = "No hay fotos disponibles en este momento.";
 }
+
+// QUITAR DESPUÉS --------------------
+echo '<pre>';
+print_r($_SESSION);
+print_r($_COOKIE);
+echo '</pre>';
 ?>
 
 <main>
@@ -39,11 +45,9 @@ if ($result && $result->num_rows > 0) {
       <?php foreach ($fotos as $foto): ?>
         <a href="login.php">
           <figure>
-            <img src="<?= htmlspecialchars($foto['Fichero']) ?>" alt="<?= htmlspecialchars($foto['Titulo']) ?>">
+            <img src="img/<?= htmlspecialchars($foto['Fichero']) ?>" alt="<?= htmlspecialchars($foto['alternativo']) ?>">
             <figcaption>
-              <?= htmlspecialchars($foto['Titulo']) ?><br>
-              Fecha: <?= htmlspecialchars($foto['FRegistro']) ?><br>
-              País: <?= htmlspecialchars($foto['NomPais']) ?>
+              <?= htmlspecialchars($foto['Titulo']) ?>
             </figcaption>
           </figure>
         </a>
@@ -55,7 +59,6 @@ if ($result && $result->num_rows > 0) {
     <?php endif; ?>
   </div>
 </main>
-
 <?php
 include "inc/pie.php";
 include "inc/html-end.php";
