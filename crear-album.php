@@ -1,5 +1,5 @@
 <?php
-$titulo = "KeepMoments - Página principal";
+$titulo = "KeepMoments - Crea un nuevo álbum";
 include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/auth.php";
@@ -14,7 +14,7 @@ include "inc/auth.php";
     </p>
     <p class="form-input">
       <label for="descripcion"><span class="icon-calendar"></span>Descripción:</label>
-      <input type="text" id="descripcion" name="descripcion">
+      <textarea id="descripcion" name="descripcion" rows="4"></textarea>
     </p>
     <p class="form-input">
       <input class="btn" type="submit" value="Crear álbum">

@@ -20,7 +20,8 @@ $sql = "SELECT
             Paises.NomPais AS pais, 
             Albumes.Titulo AS album, 
             Usuarios.NomUsuario AS usuario,
-            Usuarios.IdUsuario AS id_usuario
+            Usuarios.IdUsuario AS id_usuario,
+            Albumes.IdAlbum as idAlbum
         FROM Fotos
         LEFT JOIN Paises ON Fotos.Pais = Paises.IdPais
         LEFT JOIN Albumes ON Fotos.Album = Albumes.IdAlbum
@@ -55,14 +56,14 @@ $foto = $result->fetch_assoc();
         <p><?= htmlspecialchars($foto['usuario'], ENT_QUOTES, 'UTF-8'); ?></p>
       </a>
     </div>
-    <img src="img/<?= htmlspecialchars($foto['fichero'], ENT_QUOTES, 'UTF-8'); ?>"
+    <img src="fotos/<?= htmlspecialchars($foto['fichero'], ENT_QUOTES, 'UTF-8'); ?>"
       alt="<?= htmlspecialchars($foto['titulo_foto'], ENT_QUOTES, 'UTF-8'); ?>">
     <h2><?= htmlspecialchars($foto['titulo_foto'], ENT_QUOTES, 'UTF-8'); ?></h2>
     <p class="article-p">Descripción: <?= htmlspecialchars($foto['descripcion'], ENT_QUOTES, 'UTF-8'); ?></p>
     <p class="article-p">Fecha de publicación: <?= htmlspecialchars($foto['fecha']); ?></p>
     <p class="article-p">País: <?= htmlspecialchars($foto['pais'], ENT_QUOTES, 'UTF-8'); ?></p>
     <p class="article-p">Álbum: <?= htmlspecialchars($foto['album'], ENT_QUOTES, 'UTF-8'); ?></p>
-    <button class="btn">Ver Álbum</button>
+    <a href="ver-album.php?id=<?= $foto['idAlbum'] ?>" class="btn" style="width: 20em; text-decoration: none;">Ver álbum</a>
   </article>
 </main>
 <?php

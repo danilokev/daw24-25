@@ -6,7 +6,7 @@ include "inc/auth.php";
 include "inc/conexion-db.php"; 
 
 // Consulta para obtener las últimas fotos subidas
-$sql = "SELECT IdFoto, Titulo, Fichero FROM Fotos ORDER BY FRegistro DESC LIMIT 10";
+$sql = "SELECT IdFoto, Titulo, Fichero FROM Fotos ORDER BY FRegistro DESC LIMIT 5";
 $result = $conn->query($sql);
 
 // Verificar si hay resultados
@@ -26,7 +26,7 @@ if ($result && $result->num_rows > 0) {
     <?php foreach ($fotos as $foto): ?>
       <a href="foto.php?id=<?= htmlspecialchars($foto['IdFoto'], ENT_QUOTES, 'UTF-8'); ?>">
         <figure>
-          <img src="img/<?= htmlspecialchars($foto['Fichero'], ENT_QUOTES, 'UTF-8'); ?>"
+          <img src="fotos/<?= htmlspecialchars($foto['Fichero'], ENT_QUOTES, 'UTF-8'); ?>"
             alt="<?= htmlspecialchars($foto['Titulo'], ENT_QUOTES, 'UTF-8'); ?>">
           <figcaption><?= htmlspecialchars($foto['Titulo'], ENT_QUOTES, 'UTF-8'); ?></figcaption>
         </figure>

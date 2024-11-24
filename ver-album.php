@@ -3,15 +3,15 @@ $titulo = "KeepMoments - Ver álbum";
 include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/auth.php";
-
 include "inc/conexion-db.php";
 
 $albumId = $_GET['id'] ?? null;
-if (!$albumId) {
-  die("Álbum no especificado.");
+if (!$albumId || !is_numeric($albumId)) {
+  header("Location: index.php?error=Álbum no especificado");
+  exit;
 }
 
-// Consulta detalles del álbum
+// Consulta de albumes
 $sql = "SELECT * FROM albumes WHERE idAlbum = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $albumId);
@@ -47,7 +47,6 @@ $resultFotos = $stmtFotos->get_result();
     <p>Este álbum no tiene fotos.</p>
   <?php endif; ?>
 </main>
-
 <?php
 include "inc/pie.php";
 include "inc/html-end.php";

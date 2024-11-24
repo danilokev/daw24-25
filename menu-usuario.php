@@ -10,16 +10,18 @@ include "inc/mensaje.php";
   <h1><?= $saludo . ' ' . $nombreUsuario ?></h1>
   
   <?php if ($mensaje): ?>
-    <h2><?= htmlspecialchars($mensaje) ?></h2>
+    <h2><?= $mensaje ?></h2>
   <?php endif; ?>
 
   <div id="menu-usu">
     <ul>
-      <li><a href="#"><span class="icon-user"></span>Modificar datos</a></li>
-      <li><a href="#"><span class="icon-trash"></span>Darse de baja</a></li>
-      <li><a href="mis-albumes.php"><span class="icon-picture"></span>Visualizar álbumes</a></li>
+      <li><a href="mis-datos.php"><span class="icon-user"></span>Mis datos</a></li>
+      <li><a href="mis-albumes.php"><span class="icon-picture"></span>Mis álbumes</a></li>
       <li><a href="crear-album.php"><span class="icon-plus"></span>Crear álbum nuevo</a></li>
+      <li><a href="subir-foto.php"><span class="icon-plus"></span>Subir una foto</a></li>
       <li><a href="solicitar-album.php"><span class="icon-print"></span>Solicitar álbum impreso</a></li>
+      <li><a href="#"><span class="icon-trash"></span>Darse de baja</a></li>
+      <li><a href="configurar.php"><span class="icon-user"></span>Configuración</a></li>
       <li><a href="salir.php"><span class="icon-logout"></span>Salir</a></li>
     </ul>
   </div>

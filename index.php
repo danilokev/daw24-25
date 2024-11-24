@@ -22,18 +22,16 @@ if ($result && $result->num_rows > 0) {
   $error = "No hay fotos disponibles en este momento.";
 }
 
-// QUITAR DESPUÉS --------------------
-echo '<pre>';
-print_r($_SESSION);
-print_r($_COOKIE);
-echo '</pre>';
+// echo '<pre>';
+// print_r($_SESSION);
+// print_r($_COOKIE);
+// echo '</pre>';
 ?>
-
 <main>
   <h1>Últimas fotos subidas</h1>
 
   <?php if (isset($_GET['error'])): ?>
-    <div class="error-message" style="text-align: center; margin: 20px; font-size: 18px; background-color: #ffebee;padding: 20px;">
+    <div class="error-message" style="text-align: center; margin: 20px; font-size: 20px; background-color: #ffebee;padding: 20px;">
       <?php
       echo htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8');
       ?>
@@ -45,7 +43,7 @@ echo '</pre>';
       <?php foreach ($fotos as $foto): ?>
         <a href="login.php">
           <figure>
-            <img src="img/<?= htmlspecialchars($foto['Fichero']) ?>" alt="<?= htmlspecialchars($foto['alternativo']) ?>">
+            <img src="fotos/<?= htmlspecialchars($foto['Fichero']) ?>" alt="<?= htmlspecialchars($foto['alternativo']) ?>">
             <figcaption>
               <?= htmlspecialchars($foto['Titulo']) ?>
             </figcaption>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2024 a las 23:10:47
+-- Tiempo de generación: 24-11-2024 a las 17:33:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -67,7 +67,10 @@ CREATE TABLE `estilos` (
 --
 
 INSERT INTO `estilos` (`idEstilo`, `nombre`, `descripcion`, `fichero`) VALUES
-(1, 'Modo noche', 'Descripción del estilo', 'noche.css');
+(1, 'Modo noche', 'Aplica el modo noche al sitio web', 'noche.css'),
+(2, 'Modo letra grande', 'Aplica el estilo para una letra grande', 'big.css'),
+(3, 'Modo alto contraste', 'Estilos para el modo de alto contraste', 'contrast.css'),
+(4, 'Modo alto contraste y letra grande', 'Estilos para el modo de alto contraste con un tipo de letra mayor', 'contrast-big.css');
 
 -- --------------------------------------------------------
 
@@ -96,7 +99,9 @@ INSERT INTO `fotos` (`idFoto`, `titulo`, `descripcion`, `fecha`, `pais`, `album`
 (2, 'Abeja', 'Las abejas forman parte importante de la diversidad de especies', '2024-11-23', 1, 2, 'foto1.jpg', 'Abeja posada sobre un girasol', '2024-11-23 18:16:03'),
 (3, 'Atardecer el bosque', 'Un bello atardecer', '2024-11-17', 1, 2, 'foto3.webp', 'Árbol con un hermoso paisaje de fondo', '2024-11-23 18:18:18'),
 (4, 'Flores Blancas', 'Lindas Flores', '2024-11-10', 2, 1, 'foto4.webp', 'campo lleno de flores blancas', '2024-11-23 18:21:03'),
-(5, 'Lindo minino', 'Espectacular felino', '2024-11-16', 1, 1, 'foto5.jpeg', 'felino descansando sobre un tronco', '2024-11-23 18:20:40');
+(5, 'Lindo minino', 'Espectacular felino', '2024-11-16', 1, 1, 'foto5.jpeg', 'felino descansando sobre un tronco', '2024-11-23 18:20:40'),
+(6, 'Gato blanco', 'Raza de gato muy interesante', '2024-11-09', 2, 3, 'gato1.jpg', 'Gato mirando hacia algo que le interesa', '2024-11-24 16:22:08'),
+(7, 'Gato descansando', 'Gato descansando plácidamente', '2024-11-24', 2, 3, 'gato2.jpg', 'Gato marrón reposado sobre el suelo', '2024-11-24 16:24:35');
 
 -- --------------------------------------------------------
 
@@ -238,13 +243,13 @@ ALTER TABLE `albumes`
 -- AUTO_INCREMENT de la tabla `estilos`
 --
 ALTER TABLE `estilos`
-  MODIFY `idEstilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idEstilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `paises`

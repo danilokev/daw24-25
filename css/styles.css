@@ -679,7 +679,7 @@ textarea {
 
 @media screen and (width > 1280px) {
   header img {
-    width: 3em;
+    width: 3.5em;
   }
 
   body>main>h1 {
@@ -703,11 +703,11 @@ textarea {
 
   /* formulario */
   main>form {
-    width: 32em;
+    width: 35em;
   }
 
   #container-form-impreso {
-    width: 30em;
+    width: 35em;
     margin: 0 0 4em 0;
   }
 

@@ -33,7 +33,7 @@ if ($result->num_rows === 1) {
   $stmt->execute();
   $resultEstilo = $stmt->get_result();
   $usuarioEstilo = $resultEstilo->fetch_assoc();
-  if ($usuarioEstilo['Fichero']) {
+  if ($usuarioEstilo['Fichero'] != null) {
     $estiloUsuario = $usuarioEstilo['Fichero'];
   }
 
