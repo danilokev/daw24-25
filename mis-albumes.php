@@ -39,6 +39,7 @@ if (!$result) {
   <?php else: ?>
     <p>No tienes álbumes creados.</p>
   <?php endif; ?>
+  <a href="mis-fotos.php"><h2>Mis fotos</h2> </a>
 </main>
 
 <?php

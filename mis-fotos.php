@@ -7,10 +7,10 @@ include "inc/auth.php";
 include "inc/conexion-db.php";
 
 $usuarioId = $_SESSION['idUsuario'];
-$sql = "SELECT Fotos.*, Albumes.Titulo AS AlbumTitulo 
-        FROM Fotos 
-        INNER JOIN Albumes ON Fotos.AlbumId = Albumes.IdAlbum
-        WHERE Albumes.UsuarioId = ?";
+$sql = "SELECT Fotos.*, Albumes.titulo AS AlbumTitulo 
+        FROM fotos 
+        INNER JOIN albumes ON fotos.album = albumes.idAlbum
+        WHERE albumes.usuario = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $usuarioId);
 $stmt->execute();
@@ -23,10 +23,13 @@ $result = $stmt->get_result();
     <ul>
       <?php while ($foto = $result->fetch_assoc()): ?>
         <li>
-          <strong><?= htmlspecialchars($foto['Titulo']) ?></strong><br>
-          <?= htmlspecialchars($foto['Descripcion']) ?><br>
+          <img src="fotos/<?= htmlspecialchars($foto['fichero'], ENT_QUOTES, 'UTF-8'); ?>" 
+               alt="<?= htmlspecialchars($foto['titulo'], ENT_QUOTES, 'UTF-8'); ?>" 
+               style="max-width: 200px; height: auto;"><br>
+          <strong><?= htmlspecialchars($foto['titulo']) ?></strong><br>
+          <?= htmlspecialchars($foto['descripcion']) ?><br>
           Álbum: <?= htmlspecialchars($foto['AlbumTitulo']) ?><br>
-          <a href="ver-album.php?id=<?= $foto['AlbumId'] ?>">Ver álbum</a>
+          <a href="ver-album.php?id=<?= $foto['album'] ?>">Ver álbum</a>
         </li>
       <?php endwhile; ?>
     </ul>
