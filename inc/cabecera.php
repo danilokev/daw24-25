@@ -1,14 +1,32 @@
 <?php
-//session_start();
+// session_start(); // Descomenta esto si no está iniciada en otro archivo
 
 if (isset($_SESSION['usuario'])) {
-  $usuarioIdentificado = true;
+    $usuarioIdentificado = true;
+    $idUsuario = $_SESSION['usuario']; // ID del usuario autenticado
+
+    // Recuperar el estilo del usuario desde la base de datos
+    $sqlEstiloUsuario = "SELECT `estilo` FROM `usuarios` WHERE `idUsuario` = ?";
+    $stmt = $conn->prepare($sqlEstiloUsuario);
+
+    if ($stmt) {
+        $stmt->bind_param("i", $idUsuario);
+        $stmt->execute();
+        $stmt->bind_result($estilo);
+        $stmt->fetch();
+        $stmt->close();
+    }
+
+    // Usar estilo por defecto si no hay un estilo seleccionado
+    $estilo = $estilo ?? 1; // Estilo ID 1 es el predeterminado
+
 } elseif (isset($_COOKIE['usu']) && isset($_COOKIE['pwd'])) {
-  $_SESSION['usuario'] = $_COOKIE['usu'];
-  $usuarioIdentificado = true;
+    $_SESSION['usuario'] = $_COOKIE['usu'];
+    $usuarioIdentificado = true;
 } else {
-  $usuarioIdentificado = false;
-  unset($_SESSION['usuario']);
+    $usuarioIdentificado = false;
+    unset($_SESSION['usuario']);
+    $estilo = 1; // Estilo por defecto para usuarios no autenticados
 }
 ?>
 <header>

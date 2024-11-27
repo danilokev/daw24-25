@@ -17,14 +17,59 @@ $errores = []; // Variable para errores
 // si los campos están vacíos, añadimos un mensaje de error
 if (empty($usuario)) {
   $errores['usu'] = "El nombre de usuario es obligatorio.";
+} elseif (!preg_match('/^[a-zA-Z][a-zA-Z0-9]{2,14}$/', $usuario)) { //Expresion Regular
+  $errores['usu'] = "Debe comenzar con una letra, contener solo letras/números, y tener entre 3 y 15 caracteres.";
 }
+
 if (empty($password)) {
   $errores['pwd'] = "La contraseña es obligatoria.";
+}elseif (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d_-]{6,15}$/', $password)) {
+  $errores['pwd'] = "La contraseña debe tener al menos una letra mayúscula, una minúscula, un número y entre 6 y 15 caracteres.";
 }
+
 if (empty($repetirPassword)) {
   $errores['pwd2'] = "Repetir la contraseña es obligatorio.";
 } elseif ($password !== $repetirPassword) {
   $errores['pwd2'] = "Las contraseñas no coinciden.";
+}
+
+if (empty($email)) { //Filtro
+  $errores['email'] = "El correo electrónico es obligatorio.";
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $errores['email'] = "El formato del correo electrónico no es válido.";
+}
+
+if (empty($genero)) {
+  $errores['genero'] = "Debes seleccionar un género.";
+}
+
+if (empty($genero)) {
+  $errores['fnac'] = "Debes seleccionar una Fecha de nacimiento.";
+}elseif (!empty($fnac)) {
+  // Comprobar el formato con una expresión regular
+  if (!preg_match('/^(\d{2})\/(\d{2})\/(\d{4})$/', $fnac, $matches)) {
+      $errores['fnac'] = "El formato de la fecha debe ser dd/mm/yyyy.";
+  } else {
+      // Extraer día, mes y año
+      $dia = (int)$matches[1];
+      $mes = (int)$matches[2];
+      $anio = (int)$matches[3];
+
+      // Validar valores de día, mes y año
+      $fechaValida = checkdate($mes, $dia, $anio);
+      if (!$fechaValida) {
+          $errores['fnac'] = "La fecha ingresada no es válida.";
+      } else {
+          // Comprobar que el usuario tenga al menos 18 años
+          $edad = (int)date('Y') - $anio;
+          if ((int)date('m') < $mes || ((int)date('m') == $mes && (int)date('d') < $dia)) {
+              $edad--; // Aún no cumplió años este año
+          }
+          if ($edad < 18) {
+              $errores['fnac'] = "Debes tener al menos 18 años.";
+          }
+      }
+  }
 }
 
 // verificamos si hay errores

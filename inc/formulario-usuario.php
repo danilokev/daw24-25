@@ -23,19 +23,22 @@ $errores = $errores ?? [];
   <p class="form-input">
     <label for="email"><span class="icon-mail-alt"></span>Correo electrónico:</label>
     <input type="text" name="email" id="email" value="<?= $datos['email'] ?? '' ?>">
+    <span class="error-message"><?= $errores['email'] ?? '' ?></span>
   </p>
   <p class="form-input">
     <label for="genero"><span class="icon-adult"></span>Sexo:</label>
     <select name="genero" id="genero">
       <option value="">--Elige una opción--</option>
-      <option value="0" <?= (isset($datos['sexo']) && $datos['sexo'] == '0') ? 'selected' : '' ?>>Hombre</option>
-      <option value="1" <?= (isset($datos['sexo']) && $datos['sexo'] == '1') ? 'selected' : '' ?>>Mujer</option>
-      <option value="2" <?= (isset($datos['sexo']) && $datos['sexo'] == '2') ? 'selected' : '' ?>>Otro</option>
+      <option value="Hombre" <?= (isset($datos['sexo']) && $datos['sexo'] == 'Hombre') ? 'selected' : '' ?>>Hombre</option>
+      <option value="Mujer" <?= (isset($datos['sexo']) && $datos['sexo'] == 'Mujer') ? 'selected' : '' ?>>Mujer</option>
+      <option value="Otro" <?= (isset($datos['sexo']) && $datos['sexo'] == 'Otro') ? 'selected' : '' ?>>Otro</option>
     </select>
+    <span class="error-message"><?= $errores['genero'] ?? '' ?></span>
   </p>
   <p class="form-input">
     <label for="fnac"><span class="icon-calendar"></span>Fecha de nacimiento:</label>
     <input type="text" name="fnac" id="fnac" value="<?= $datos['fNacimiento'] ?? '' ?>">
+    <span class="error-message"><?= $errores['fnac'] ?? '' ?></span>
   </p>
   <p class="form-input">
     <label for="city"><span class="icon-building"></span>Ciudad de residencia:</label>

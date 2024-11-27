@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-// compruebo si el usuario ha marcado "recuerdame"
+// Conexión a la base de datos
+include "inc/conexion-db.php";
+
+// Compruebo si el usuario ha marcado "recuérdame"
 if (!isset($_SESSION['usuario']) && isset($_COOKIE['usu']) && isset($_COOKIE['pwd'])) {
   $_SESSION['usuario'] = $_COOKIE['usu'];
 
@@ -9,12 +12,33 @@ if (!isset($_SESSION['usuario']) && isset($_COOKIE['usu']) && isset($_COOKIE['pw
   setcookie('ultima_visita', date('d/m/Y H:i'), time() + (90 * 24 * 60 * 60), '/');
 }
 
-// compruebo si hay un estilo seleccionado
+// Inicializo el estilo predeterminado
+$estilo = 'estilo1.css'; // Archivo CSS predeterminado
+
+// Compruebo si hay un estilo seleccionado en sesión o cookies
 if (isset($_SESSION['estilo'])) {
   $estilo = $_SESSION['estilo'];
 } elseif (isset($_COOKIE['estilo'])) {
   $estilo = $_COOKIE['estilo'];
+} elseif (isset($_SESSION['usuario'])) {
+  // Si el usuario está autenticado, recupero el estilo desde la base de datos
+  $idUsuario = $_SESSION['usuario'];
+  $sqlEstiloUsuario = "SELECT `estilo` FROM `usuarios` WHERE `idUsuario` = ?";
+  $stmt = $conn->prepare($sqlEstiloUsuario);
+
+  if ($stmt) {
+    $stmt->bind_param("i", $idUsuario);
+    $stmt->execute();
+    $stmt->bind_result($idEstilo);
+    if ($stmt->fetch()) {
+      $estilo = "estilo{$idEstilo}.css"; // Genero el nombre del archivo CSS basado en el ID
+    }
+    $stmt->close();
+  }
 }
+
+// Si el estilo aún no se ha determinado, usar el predeterminado
+$estilo = $estilo ?? 'styles.css';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,7 +47,7 @@ if (isset($_SESSION['estilo'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $titulo; ?></title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/<?= $estilo ?>" title="Modo noche">
+  <link rel="stylesheet" href="css/<?= $estilo ?>" title="Estilo seleccionado">
   <link rel="stylesheet" href="css/print.css" media="print">
   <link rel="stylesheet" href="css/fontello.css">
 </head>

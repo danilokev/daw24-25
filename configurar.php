@@ -13,7 +13,7 @@ if (!($resultEstilo = $conn->query($sqlEstilo))) {
 }
 ?>
 <main>
-  <form id="form-estilos" action="configurar.php" method="get">
+  <form id="form-estilos" action="respuesta-configurar.php" method="get">
     <h1>Selecciona un estilo</h1>
     <p class="form-input">
       <label for="estilo">Elige un estilo:</label>
