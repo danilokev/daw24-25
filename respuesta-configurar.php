@@ -19,14 +19,18 @@ if (!$estiloSeleccionado || !ctype_digit($estiloSeleccionado)) {
     exit;
 }
 
-// Actualizar el estilo del usuario
+// Actualizar el estilo en la base de datos
 $sqlActualizarEstilo = "UPDATE `usuarios` SET `estilo` = ? WHERE `idUsuario` = ?";
 $stmt = $conn->prepare($sqlActualizarEstilo);
 if ($stmt) {
     $stmt->bind_param("ii", $estiloSeleccionado, $idUsuario);
     if ($stmt->execute()) {
+        // Actualizar la sesión con el nuevo estilo
+        $_SESSION['estilo'] = "estilo{$estiloSeleccionado}.css";
+
         echo "<main><h1>Estilo actualizado</h1>";
         echo "<p>Has seleccionado un nuevo estilo. ¡Disfruta de la experiencia personalizada!</p>";
+        echo "<p><a href='configurar.php'>Volver a configuración</a></p>";
     } else {
         echo "<p>Error al actualizar el estilo: " . $stmt->error . "</p>";
     }
@@ -34,7 +38,13 @@ if ($stmt) {
 } else {
     echo "<p>Error en la preparación de la consulta: " . $conn->error . "</p>";
 }
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
+
+
 $conn->close();
+
 ?>
 <p><a href="configurar.php">Volver a configuración</a></p>
 </main>
