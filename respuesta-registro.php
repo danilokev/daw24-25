@@ -47,13 +47,13 @@ if (empty($genero)) {
   $errores['fnac'] = "Debes seleccionar una Fecha de nacimiento.";
 }elseif (!empty($fnac)) {
   // Comprobar el formato con una expresión regular
-  if (!preg_match('/^(\d{2})\/(\d{2})\/(\d{4})$/', $fnac, $matches)) {
-      $errores['fnac'] = "El formato de la fecha debe ser dd/mm/yyyy.";
+  if (!preg_match('/^(\d{4})\/(\d{2})\/(\d{2})$/', $fnac, $matches)) {
+      $errores['fnac'] = "El formato de la fecha debe ser yyyy/mm/dd.";
   } else {
       // Extraer día, mes y año
-      $dia = (int)$matches[1];
+      $dia = (int)$matches[3];
       $mes = (int)$matches[2];
-      $anio = (int)$matches[3];
+      $anio = (int)$matches[1];
 
       // Validar valores de día, mes y año
       $fechaValida = checkdate($mes, $dia, $anio);
@@ -79,6 +79,36 @@ if (!empty($errores)) {
   header("Location: registro.php?$errorString");
   exit;
 }
+
+   // Preparar la consulta
+   $stmt = $conn->prepare("INSERT INTO usuarios (nomUsuario, clave, email, sexo, fNacimiento, ciudad, pais) VALUES (?, ?, ?, ?, ?, ?, ?)");
+     
+   // Asignar los valores a los parámetros
+   $stmt->bind_param("ssssssi", $usuario, $password, $email, $genero, $fnac, $city, $country);
+   
+   // Ejecutar la consulta
+   if ($stmt->execute()) {
+       // Registro exitoso
+       echo "Usuario registrado exitosamente.";
+   } else {
+       // Manejar el error
+       echo "Error al registrar el usuario: " . $stmt->error;
+   }
+   
+   // Cerrar la declaración
+   $stmt->close();
+
+   // Verificamos si hay errores
+   if (!empty($errores)) {
+       // Si hay errores, redirigir al formulario con los mensajes de error
+       $errorString = http_build_query(['errores' => $errores]);
+       header("Location: registro.php?$errorString");
+       exit;
+   }
+   
+   // Cerrar la conexión
+   $conn->close();
+
 ?>
 <main>
   <section id="res-registro">

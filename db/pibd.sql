@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2024 a las 17:33:29
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Temps de generació: 03-12-2024 a les 17:12:42
+-- Versió del servidor: 10.4.32-MariaDB
+-- Versió de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,19 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `pibd`
+-- Base de dades: `pibd`
 --
-CREATE DATABASE IF NOT EXISTS `pibd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `pibd`;
-
-CREATE USER 'wwwdata'@'localhost' IDENTIFIED BY 'daw';
-
-GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'wwwdata'@'localhost' IDENTIFIED BY 'daw' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `albumes`
+-- Estructura de la taula `albumes`
 --
 
 CREATE TABLE `albumes` (
@@ -41,7 +35,7 @@ CREATE TABLE `albumes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `albumes`
+-- Bolcament de dades per a la taula `albumes`
 --
 
 INSERT INTO `albumes` (`idAlbum`, `titulo`, `descripcion`, `usuario`) VALUES
@@ -52,7 +46,7 @@ INSERT INTO `albumes` (`idAlbum`, `titulo`, `descripcion`, `usuario`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estilos`
+-- Estructura de la taula `estilos`
 --
 
 CREATE TABLE `estilos` (
@@ -63,19 +57,19 @@ CREATE TABLE `estilos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `estilos`
+-- Bolcament de dades per a la taula `estilos`
 --
 
 INSERT INTO `estilos` (`idEstilo`, `nombre`, `descripcion`, `fichero`) VALUES
-(1, 'Modo noche', 'Aplica el modo noche al sitio web', 'noche.css'),
-(2, 'Modo letra grande', 'Aplica el estilo para una letra grande', 'big.css'),
-(3, 'Modo alto contraste', 'Estilos para el modo de alto contraste', 'contrast.css'),
-(4, 'Modo alto contraste y letra grande', 'Estilos para el modo de alto contraste con un tipo de letra mayor', 'contrast-big.css');
+(1, 'Modo noche', 'Aplica el modo noche al sitio web', 'estilo1.css'),
+(2, 'Modo letra grande', 'Aplica el estilo para una letra grande', 'estilo2.css'),
+(3, 'Modo alto contraste', 'Estilos para el modo de alto contraste', 'estilo3.css'),
+(4, 'Modo alto contraste y letra grande', 'Estilos para el modo de alto contraste con un tipo de letra mayor', 'estilo4.css');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `fotos`
+-- Estructura de la taula `fotos`
 --
 
 CREATE TABLE `fotos` (
@@ -91,7 +85,7 @@ CREATE TABLE `fotos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `fotos`
+-- Bolcament de dades per a la taula `fotos`
 --
 
 INSERT INTO `fotos` (`idFoto`, `titulo`, `descripcion`, `fecha`, `pais`, `album`, `fichero`, `alternativo`, `fRegistro`) VALUES
@@ -106,7 +100,7 @@ INSERT INTO `fotos` (`idFoto`, `titulo`, `descripcion`, `fecha`, `pais`, `album`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `paises`
+-- Estructura de la taula `paises`
 --
 
 CREATE TABLE `paises` (
@@ -115,7 +109,7 @@ CREATE TABLE `paises` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `paises`
+-- Bolcament de dades per a la taula `paises`
 --
 
 INSERT INTO `paises` (`idPais`, `nomPais`) VALUES
@@ -125,7 +119,7 @@ INSERT INTO `paises` (`idPais`, `nomPais`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `solicitudes`
+-- Estructura de la taula `solicitudes`
 --
 
 CREATE TABLE `solicitudes` (
@@ -156,7 +150,7 @@ CREATE TABLE `solicitudes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de la taula `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -174,32 +168,33 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Bolcament de dades per a la taula `usuarios`
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nomUsuario`, `clave`, `email`, `sexo`, `fNacimiento`, `ciudad`, `pais`, `foto`, `fRegistro`, `estilo`) VALUES
 (1, 'marcos123', 'marcos123', 'marcos@correo.com', 0, '1990-01-01', 'Alicante', 1, 'foto1.jpg', '2024-11-23 11:20:37', 1),
-(2, 'usuario1', 'usuario1', 'usuario1@ua.es', 0, '2004-11-01', 'Valencia', 1, 'foto5.jpeg', '2024-11-23 19:17:39', NULL);
+(2, 'usuario1', 'usuario1', 'usuario1@ua.es', 0, '2004-11-01', 'Valencia', 1, 'foto5.jpeg', '2024-12-03 15:59:34', NULL),
+(4, 'Claudia', 'Clau123', 'clau@gmail.com', 0, '2000-10-10', 'Madrid', 1, NULL, '2024-12-03 16:12:01', NULL);
 
 --
--- Índices para tablas volcadas
+-- Índexs per a les taules bolcades
 --
 
 --
--- Indices de la tabla `albumes`
+-- Índexs per a la taula `albumes`
 --
 ALTER TABLE `albumes`
   ADD PRIMARY KEY (`idAlbum`),
   ADD KEY `usuario` (`usuario`);
 
 --
--- Indices de la tabla `estilos`
+-- Índexs per a la taula `estilos`
 --
 ALTER TABLE `estilos`
   ADD PRIMARY KEY (`idEstilo`);
 
 --
--- Indices de la tabla `fotos`
+-- Índexs per a la taula `fotos`
 --
 ALTER TABLE `fotos`
   ADD PRIMARY KEY (`idFoto`),
@@ -207,13 +202,13 @@ ALTER TABLE `fotos`
   ADD KEY `album` (`album`);
 
 --
--- Indices de la tabla `paises`
+-- Índexs per a la taula `paises`
 --
 ALTER TABLE `paises`
   ADD PRIMARY KEY (`idPais`);
 
 --
--- Indices de la tabla `solicitudes`
+-- Índexs per a la taula `solicitudes`
 --
 ALTER TABLE `solicitudes`
   ADD PRIMARY KEY (`idSolicitud`),
@@ -221,7 +216,7 @@ ALTER TABLE `solicitudes`
   ADD KEY `pais` (`pais`);
 
 --
--- Indices de la tabla `usuarios`
+-- Índexs per a la taula `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuario`),
@@ -230,71 +225,71 @@ ALTER TABLE `usuarios`
   ADD KEY `estilo` (`estilo`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT per les taules bolcades
 --
 
 --
--- AUTO_INCREMENT de la tabla `albumes`
+-- AUTO_INCREMENT per la taula `albumes`
 --
 ALTER TABLE `albumes`
   MODIFY `idAlbum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `estilos`
+-- AUTO_INCREMENT per la taula `estilos`
 --
 ALTER TABLE `estilos`
   MODIFY `idEstilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `fotos`
+-- AUTO_INCREMENT per la taula `fotos`
 --
 ALTER TABLE `fotos`
   MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `paises`
+-- AUTO_INCREMENT per la taula `paises`
 --
 ALTER TABLE `paises`
   MODIFY `idPais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `solicitudes`
+-- AUTO_INCREMENT per la taula `solicitudes`
 --
 ALTER TABLE `solicitudes`
   MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT per la taula `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Restricciones para tablas volcadas
+-- Restriccions per a les taules bolcades
 --
 
 --
--- Filtros para la tabla `albumes`
+-- Restriccions per a la taula `albumes`
 --
 ALTER TABLE `albumes`
   ADD CONSTRAINT `albumes_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`idUsuario`);
 
 --
--- Filtros para la tabla `fotos`
+-- Restriccions per a la taula `fotos`
 --
 ALTER TABLE `fotos`
   ADD CONSTRAINT `fotos_ibfk_1` FOREIGN KEY (`pais`) REFERENCES `paises` (`idPais`),
   ADD CONSTRAINT `fotos_ibfk_2` FOREIGN KEY (`album`) REFERENCES `albumes` (`idAlbum`);
 
 --
--- Filtros para la tabla `solicitudes`
+-- Restriccions per a la taula `solicitudes`
 --
 ALTER TABLE `solicitudes`
   ADD CONSTRAINT `solicitudes_ibfk_1` FOREIGN KEY (`album`) REFERENCES `albumes` (`idAlbum`),
   ADD CONSTRAINT `solicitudes_ibfk_2` FOREIGN KEY (`pais`) REFERENCES `paises` (`idPais`);
 
 --
--- Filtros para la tabla `usuarios`
+-- Restriccions per a la taula `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`pais`) REFERENCES `paises` (`idPais`),
