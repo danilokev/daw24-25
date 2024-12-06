@@ -1,31 +1,43 @@
 <?php
-session_start();
+include "inc/html-start.php";
+include "inc/cabecera.php";
 include "inc/conexion-db.php";
 include "inc/auth.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idUsuario = $_POST['idUsuario'];
+    $idUsuario = $_SESSION['idUsuario']; // ID del usuario autenticado
     $clave = $_POST['clave'];
+
+    var_dump(value: $idUsuario);     // Depuración
 
     // Obtener la contraseña almacenada del usuario
     $sqlClave = "SELECT clave FROM usuarios WHERE idUsuario = ?";
     $stmtClave = $conn->prepare($sqlClave);
     $stmtClave->bind_param("i", $idUsuario);
-    $stmtClave->execute();
+
+    if (!$stmtClave->execute()) {
+        echo "Error en la consulta: " . $stmtClave->error;
+        exit;
+    }
+
     $resultClave = $stmtClave->get_result();
     $usuario = $resultClave->fetch_assoc();
     $stmtClave->close();
-    var_dump($clave); // Para verificar que la contraseña recibida es correcta
-    var_dump(value: $usuario['clave']); // Para verificar la contraseña almacenada en la base de datos
 
-    if (!$usuario || $clave !== $usuario['clave']) {
+    if (!$usuario) {
+        echo "<p>No se encontró el usuario con el ID especificado.</p>";
+        exit;
+    }
+
+    // Comparar contraseñas
+    if ($clave !== $usuario['clave']) { // Para contraseñas sin encriptar
         echo "<p>Contraseña incorrecta. No se puede realizar la baja.</p>";
         echo '<a href="darme-de-baja.php">Volver</a>';
         exit;
     }
 
-    // Eliminar datos relacionados con el usuario
-    $conn->autocommit(false); // Iniciar transacción
+    // Transacción para eliminar datos relacionados
+    $conn->autocommit(false);
     try {
         // Eliminar fotos
         $sqlEliminarFotos = "
@@ -52,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmtUsuario->execute();
         $stmtUsuario->close();
 
-        $conn->commit(); // Confirmar transacción
+        $conn->commit();
         $conn->autocommit(true);
 
         // Cerrar sesión
@@ -60,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<p>Tu cuenta ha sido eliminada correctamente.</p>";
         echo '<a href="index.php">Volver al inicio</a>';
     } catch (Exception $e) {
-        $conn->rollback(); // Revertir transacción en caso de error
+        $conn->rollback();
         echo "<p>Error al eliminar la cuenta: " . $e->getMessage() . "</p>";
         echo '<a href="menu-usuario.php">Volver</a>';
     }
