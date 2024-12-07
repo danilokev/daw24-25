@@ -63,7 +63,7 @@ $foto = $result->fetch_assoc();
     <p class="article-p">Fecha de publicación: <?= htmlspecialchars($foto['fecha']); ?></p>
     <p class="article-p">País: <?= htmlspecialchars($foto['pais'], ENT_QUOTES, 'UTF-8'); ?></p>
     <p class="article-p">Álbum: <?= htmlspecialchars($foto['album'], ENT_QUOTES, 'UTF-8'); ?></p>
-    <a href="ver-album.php?id=<?= $foto['idAlbum'] ?>" class="btn" style="width: 20em; text-decoration: none;">Ver álbum</a>
+    <a href="album.php?id=<?= $foto['idAlbum'] ?>" class="btn" style="width: 20em; text-decoration: none;">Ver álbum</a>
   </article>
 </main>
 <?php

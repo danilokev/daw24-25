@@ -12,6 +12,8 @@ if (isset($_SESSION['usuario']) || (isset($_COOKIE['usu']) && isset($_COOKIE['pw
 $action = "respuesta-registro.php";
 $id = "registrationForm";
 $botonTexto = "Registrarse";
+$textoLabelPdw = "Contraseña";
+$textoLabelPdw2 = "Repetir contraseña";
 $errores = $_GET['errores'] ?? [];
 
 $sql = "SELECT `idPais`, `nomPais` FROM `paises` ORDER BY `nomPais` ASC";

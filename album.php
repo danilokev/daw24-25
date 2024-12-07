@@ -5,8 +5,7 @@ include "inc/cabecera.php";
 include "inc/auth.php";
 include "inc/conexion-db.php";
 
-if (!isset($_GET['id']) || empty($_GET['id'])) {
-  header("Location: index.php");
+if (!isset($_GET['id']) || !is_numeric($_GET['id']) || empty($_GET['id'])) {
   $mensajeError = urlencode('Álbum no encontrado');
   header("Location: index.php?error=$mensajeError");
   exit;
@@ -43,20 +42,24 @@ while ($foto = $resultFoto->fetch_assoc()) {
 
 $resultFoto->data_seek(0);
 ?>
-<main>
-  <section>
+<main id="album-container">
+  <section id="section-album">
     <h1><?= $album['titulo'] ?></h1>
-    <p><?= $album['descripcion'] ?></p>
-    <p>Total de fotos: <?= $totalFotos ?></p>
-    <p>Fecha antigua: <?= $fechaMasAntigua ?> y Fecha reciente: <?= $fechaMasReciente ?></p>
+    <div>
+      <p><strong>Descripción</strong>: <?= $album['descripcion'] ?></p>
+      <p><strong>Total fotos</strong>: <?= $totalFotos ?></p>
+      <p><strong>Fecha antigua</strong>: <?= $fechaMasAntigua ?> y <strong>Fecha reciente</strong>: <?= $fechaMasReciente ?></p>
+    </div>
   </section>
-  <article>
-      <?php while ($foto = $resultFoto->fetch_assoc()): ?>
+  <article id="article-album-fotos">
+    <?php while ($foto = $resultFoto->fetch_assoc()): ?>
+      <div>
         <img src="fotos/<?= $foto['fichero'] ?>" alt="<?= $foto['alternativo'] ?>">
         <h2><?= $foto['titulo'] ?></h2>
-        <p><?= $foto['nomPais'] ?></p>
+        <p>País: <?= $foto['nomPais'] ?></p>
+      </div>
       <?php endwhile; ?>
-    </article>
+  </article>
 </main>
 <?php
 $resultAlbum->close();

@@ -5,11 +5,16 @@ include "inc/cabecera.php";
 include "inc/auth.php";
 include "inc/conexion-db.php";
 
-$idUsuario = $_SESSION['idUsuario'];
 if (!isset($_SESSION['idUsuario']) || empty($_SESSION['idUsuario'])) {
-  header("Location: index.php?error=ID de usuario no está definida");
-  exit;
+  if (isset($_COOKIE['idUsuario']) && !empty($_COOKIE['idUsuario'])) {
+    $_SESSION['idUsuario'] = $_COOKIE['idUsuario'];
+  } else {
+    header("Location: index.php?error=ID de usuario no está definida");
+    exit;
+  }
 }
+
+$idUsuario = $_SESSION['idUsuario'];
 
 $sentenciaUsu = "SELECT `nomUsuario`, `clave`, `email`, `sexo`, `fNacimiento`, `ciudad`, `pais` FROM `usuarios` WHERE `idUsuario` = $idUsuario";
 $sentenciaPais = "SELECT `idPais`, `nomPais` FROM `paises` ORDER BY `nomPais` ASC";
@@ -25,6 +30,9 @@ if(!($resultPais = $conn->query($sentenciaPais))) {
 
 $datos = $resultUsu->fetch_assoc();
 $botonTexto = "Actualizar datos";
+$action = "confirmar-update.php";
+$textoLabelPdw = "Nueva contraseña";
+$textoLabelPdw2 = "Repetir nueva contraseña";
 
 $paises = [];
 if ($resultPais->num_rows > 0) {
@@ -33,7 +41,7 @@ if ($resultPais->num_rows > 0) {
   }
 }
 ?>
-<main>
+<main id="main-form-mis-datos">
   <?php include "inc/formulario-usuario.php" ?>
 </main>
 <?php

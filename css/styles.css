@@ -307,6 +307,35 @@ td:last-child {
   text-align: right;
 }
 
+/* Estilos página album */
+#album-container {
+  padding: 1em;
+}
+
+#section-album {
+  >h1 {
+    text-align: center;
+  }
+  >div {
+    margin: 1.5em 0;
+  }
+  p{
+    text-wrap: pretty;
+    line-height: 1.5;
+  }
+}
+
+#article-album-fotos {
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+}
+
 /* Estilos botones ----------------------------------------- */
 .btn {
   display: inline-block;
@@ -375,6 +404,27 @@ textarea {
   margin: 1.5em 0;
   color: var(--text-color);
   text-wrap: pretty;
+}
+
+/* Formulario de selección de estilos */
+#main-form-estilos {
+  padding: 4em 1.5em;
+}
+
+#form-estilos {
+  > h1 {
+    font-size: 28px;
+    margin-bottom: .75em;
+  }
+
+  button {
+    margin-top: 1.2em;
+  }
+}
+
+/* Formulario mis-datos */
+#main-form-mis-datos {
+  padding: 4em 1.5em;
 }
 
 /* Estilos para los campos con errores */
@@ -479,7 +529,7 @@ textarea {
   margin-left: .5em;
 }
 
-/* Estilos para el menú del usuario */
+/* Estilos para el menú del usuario ----------------------------------- */
 #menu-usu {
   text-align: center;
   width: 20em;
@@ -507,6 +557,55 @@ textarea {
   color: var(--color-blanco);
 }
 
+/* Estilos para perfil de usuario ------------------------------------- */
+#main-perfil-usuario {
+  padding: 4em 1.5em;
+}
+
+#perfil-usuario {
+  background-color: var(--card-background-color);
+  box-shadow: 0 0 10px var(--shadow-color);
+  padding: 1em;
+  border-radius: .5em;
+
+  >h1 {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  >h2 {
+    margin: 0;
+  }
+
+  >img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 10em; 
+    height: 10em; 
+    object-fit: cover;
+  }
+
+  >p {
+    margin: 2em 0;
+    text-wrap: pretty;
+  }
+
+  ul {
+    list-style-type: none;
+    margin-top: 1em;
+  }
+  
+  a {
+    color: var(--text-color);
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 /* Footer ---------------------------------------------------- */
 .container-footer {
   background-color: #333;
@@ -525,11 +624,10 @@ textarea {
   }
 }
 
-/* ---------------------------------------------- */
-/* MEDIA QUERIES                                  */
-/* ---------------------------------------------- */
+/* ---------------------------------------------------------------------------- */
+/* MEDIA QUERIES                                                                */
+/* ---------------------------------------------------------------------------- */
 @media screen and (width >=600px) {
-
   /* Estilos index */
   .container-photos {
     padding: 1em;
@@ -546,10 +644,25 @@ textarea {
   table {
     table-layout: auto;
   }
+  
+  /* Perfil de usuario */
+  #main-perfil-usuario {
+    padding: 6em;
+  }
+
+  #perfil-usuario {
+    p, ul {
+      text-align: center;
+    }
+  }
+
+  /* formulario seleccionar estilos */
+  #main-form-estilos {
+    padding: 6em;
+  }
 }
 
 @media screen and (width >=768px) {
-
   /* header y nav */
   header>div>label {
     display: none;
@@ -675,6 +788,30 @@ textarea {
   .container-respuesta {
     margin: 0;
   }
+
+  #perfil-usuario {
+    width: 25em; 
+    display: block;
+    margin: 0 auto;
+  }
+
+  #article-album-fotos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5em;
+  }
+
+  #article-album-fotos > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #article-album-fotos img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (width > 1280px) {
@@ -737,4 +874,6 @@ textarea {
   .text-res-album {
     text-align: center;
   }
+
+
 }

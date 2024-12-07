@@ -4,18 +4,26 @@ include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/auth.php";
 include "inc/mensaje.php";
-include "inc/conexion-db.php"; // Conexión a la base de datos
+include "inc/conexion-db.php";
 
 // Consulta para obtener los países de la base de datos
 $sql = "SELECT idAlbum, titulo FROM albumes ORDER BY titulo ASC";
 $result = $conn->query($sql);
 
-// Verificar si hay resultados
+// verificamos si hay resultados
 $albumes = [];
 if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $albumes[] = $row;
-    }
+  while ($row = $result->fetch_assoc()) {
+    $albumes[] = $row;
+  }
+}
+
+// consulta para paises
+$sqlPaises = "SELECT * FROM paises";
+$resultPaises = $conn->query($sqlPaises);
+
+if (!$resultPaises) {
+  die("Error: no se pudo mostrar el listado de países. " . $conn->error);
 }
 
 $conn->close();
@@ -151,17 +159,13 @@ $conn->close();
         <p class="form-input">
           <label for="pais">País:<abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
           <select name="pais" id="pais" required>
-            <option value="">--Elige un país--</option>
-            <option value="es">España</option>
-            <option value="prt">Portugal</option>
-            <option value="ita">Italia</option>
-            <option value="fra">Francia</option>
-            <option value="su">Suiza</option>
-            <option value="mx">México</option>
-            <option value="ar">Argentina</option>
-            <option value="us">Estados Unidos</option>
-            <option value="al">Alemania</option>
-            <option value="other">Otro</option>
+            <?php if ($resultPaises->num_rows > 0): ?>
+              <?php while ($pais = $resultPaises->fetch_assoc()): ?>
+                <option value="<?= htmlspecialchars($pais['idPais']) ?>">
+                  <?= htmlspecialchars($pais['nomPais']) ?>
+                </option>
+              <?php endwhile; ?>
+            <?php endif; ?>
           </select>
         </p>
       </fieldset>
@@ -186,11 +190,11 @@ $conn->close();
           <label for="album">Álbum de fotos:<abbr class="obligatorio" title="obligatorio" aria-label="obligatorio">*</abbr></label>
           <select id="album" name="album" required>
             <option value="">--Elige un Album--</option>
-                <?php foreach ($albumes as $album): ?>
-                    <option value="<?= htmlspecialchars($album['idAlbum'], ENT_QUOTES, 'UTF-8'); ?>">
-                        <?= htmlspecialchars($album['titulo'], ENT_QUOTES, 'UTF-8'); ?>
-                    </option>
-                <?php endforeach; ?>
+            <?php foreach ($albumes as $album): ?>
+              <option value="<?= htmlspecialchars($album['idAlbum'], ENT_QUOTES, 'UTF-8'); ?>">
+                <?= htmlspecialchars($album['titulo'], ENT_QUOTES, 'UTF-8'); ?>
+              </option>
+            <?php endforeach; ?>
           </select>
         </p>
         <p class="form-input">

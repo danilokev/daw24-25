@@ -6,10 +6,10 @@ include "inc/conexion-db.php";
 
 // Compruebo si el usuario ha marcado "recuérdame"
 if (!isset($_SESSION['usuario']) && isset($_COOKIE['usu']) && isset($_COOKIE['pwd'])) {
-  $_SESSION['usuario'] = $_COOKIE['usu'];
+    $_SESSION['usuario'] = $_COOKIE['usu'];
 
-  // Actualizar la cookie de última visita
-  setcookie('ultima_visita', date('d/m/Y H:i'), time() + (90 * 24 * 60 * 60), '/');
+    // Actualizar la cookie de última visita
+    setcookie('ultima_visita', date('d/m/Y H:i'), time() + (90 * 24 * 60 * 60), '/');
 }
 
 // Inicializo el estilo predeterminado
@@ -39,23 +39,20 @@ if (isset($_SESSION['estilo'])) {
 
 // Si el estilo aún no se ha determinado, usar el predeterminado
 //$estilo = $estilo ?? 'styles.css';
-echo "<pre style='background-color:#FFF; color:#000'>"; 
-print_r($_SESSION);
-print_r($estilo);
-
-echo "</pre>";
-
-
+// echo "<pre style='background-color:#FFF; color:#000'>";
+// print_r($_SESSION);
+// print_r($estilo);
+// echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $titulo; ?></title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/<?= $estilo ?>?v=<?= time(); ?>" title="Estilo seleccionado">
-  <link rel="stylesheet" href="css/print.css" media="print">
-  <link rel="stylesheet" href="css/fontello.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $titulo; ?></title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/<?= $estilo ?>?v=<?= time(); ?>" title="Estilo seleccionado">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/fontello.css">
 </head>
 <body>

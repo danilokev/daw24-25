@@ -6,9 +6,8 @@ include "inc/auth.php";
 include "inc/conexion-db.php";
 
 $idUsuario = $_GET['id'];
-
-if (!isset($_GET['id']) || empty($_GET['id'])) {
-  header("Location: index.php");
+if (!isset($_GET['id']) || !is_numeric($_GET['id']) || empty($_GET['id'])) {
+  header("Location: index.php?error=ID de usuario no está definida");
   exit;
 }
 
@@ -26,11 +25,11 @@ if (!($resultAlbum = $conn->query($sqlAlbum))) {
 
 $usuario = $resultUser->fetch_assoc();
 ?>
-<main>
-<section>
+<main id="main-perfil-usuario">
+  <section id="perfil-usuario">
     <h1>Perfil de <?= $usuario['nomUsuario'] ?></h1>
     <img src="fotos/<?= $usuario['foto'] ?>" alt="Foto de perfil">
-    <p>Fecha de incorporación: <?= $usuario['fRegistro'] ?></p>
+    <p><strong>Fecha de incorporación:</strong> <?= $usuario['fRegistro'] ?></p>
     <h2>Álbumes</h2>
     <ul>
       <?php while ($album = $resultAlbum->fetch_assoc()): ?>

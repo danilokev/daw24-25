@@ -8,7 +8,7 @@ include "inc/mensaje.php";
 $idUsuario = $_SESSION['usuario']; // O de otra manera, si se pasa desde un formulario
 
 // Verifica si el idUsuario está correctamente asignado
-var_dump(value: $idUsuario);
+// var_dump(value: $idUsuario);
 
 ?>
 <main>
