@@ -46,7 +46,7 @@ $resultFoto->data_seek(0);
   <section id="section-album">
     <h1><?= $album['titulo'] ?></h1>
     <div>
-      <p><strong>Descripción</strong>: <?= $album['descripcion'] ?></p>
+      <p><strong>Descripcion</strong>: <?= $album['descripcion'] ?></p>
       <p><strong>Total fotos</strong>: <?= $totalFotos ?></p>
       <p><strong>Fecha antigua</strong>: <?= $fechaMasAntigua ?> y <strong>Fecha reciente</strong>: <?= $fechaMasReciente ?></p>
     </div>

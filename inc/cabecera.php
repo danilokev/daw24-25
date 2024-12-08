@@ -1,6 +1,4 @@
 <?php
-// session_start(); // Descomenta esto si no está iniciada en otro archivo
-
 if (isset($_SESSION['usuario'])) {
     $usuarioIdentificado = true;
     $idUsuario = $_SESSION['usuario']; // ID del usuario autenticado
@@ -49,7 +47,7 @@ if (isset($_SESSION['usuario'])) {
     </nav>
   </div>
   <form action="resultado.php" method="get" id="form-search">
-    <input type="search" placeholder="Buscar...">
+    <input type="search" name="q" placeholder="Buscar..." required>
     <button class="btn-search" type="submit">Buscar</button>
-  </form>
+</form>
 </header>

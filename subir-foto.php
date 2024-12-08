@@ -10,14 +10,13 @@ if (!isset($_SESSION['idUsuario']) || empty($_SESSION['idUsuario'])) {
   exit;
 }
 
-$usuarioId = $_SESSION['idUsuario'];
-
 $errores = $_SESSION['errores'] ?? [];
 $datos = $_SESSION['datos'] ?? [];
 
 // elemino solo las variables temporales
 unset($_SESSION['errores'], $_SESSION['datos']);
 
+$usuarioId = $_SESSION['idUsuario'];
 $albumId = $_GET['id'] ?? null; // TODO: hacer comprobación para el id obtenido por URL
 
 $sql = "SELECT IdAlbum, Titulo FROM Albumes WHERE usuario = ?";
