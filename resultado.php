@@ -4,7 +4,6 @@ include "inc/html-start.php";
 include "inc/cabecera.php";
 include "inc/conexion-db.php";
 
-// Detectar si es búsqueda simple o avanzada
 $q = isset($_GET['q']) ? trim($_GET['q']) : null; // Parámetro del buscador simple
 $tituloBusqueda = isset($_GET['titulo']) ? trim($_GET['titulo']) : '';
 $fechaBusqueda = isset($_GET['fecha']) ? trim($_GET['fecha']) : '';
@@ -12,19 +11,14 @@ $paisBusqueda = isset($_GET['country']) ? trim($_GET['country']) : '';
 
 // Si es búsqueda simple
 if (!empty($q)) {
-  $sql = "SELECT idFoto, titulo, fecha, pais, fichero, alternativo 
-            FROM fotos 
-            WHERE titulo LIKE ? OR fecha LIKE ? OR pais LIKE ?
-            ORDER BY fecha DESC";
+  $sql = "SELECT idFoto, titulo, fecha, pais, fichero, alternativo FROM fotos WHERE titulo LIKE ? OR fecha LIKE ? OR pais LIKE ? ORDER BY fecha DESC";
   $paramTypes = 'sss';
   $params = ['%' . $q . '%', '%' . $q . '%', '%' . $q . '%'];
 }
 
 // Si es búsqueda avanzada
 else if (!empty($tituloBusqueda) || !empty($fechaBusqueda) || !empty($paisBusqueda)) {
-  $sql = "SELECT idFoto, titulo, fecha, pais, fichero, alternativo 
-            FROM fotos 
-            WHERE 1=1";
+  $sql = "SELECT idFoto, titulo, fecha, pais, fichero, alternativo FROM fotos WHERE 1=1";
 
   $paramTypes = '';
   $params = [];
@@ -45,10 +39,7 @@ else if (!empty($tituloBusqueda) || !empty($fechaBusqueda) || !empty($paisBusque
     $params[] = $paisBusqueda;
   }
   $sql .= " ORDER BY fecha DESC";
-}
-
-
-else {
+} else {
   echo "<p>Por favor, completa al menos un campo para realizar una búsqueda.</p>";
   exit;
 }

@@ -7,15 +7,7 @@ include "inc/auth.php";
 $idUsuario = $_SESSION['idUsuario'];
 
 // Obtener el resumen de álbumes y fotos
-$sqlResumen = "
-    SELECT 
-        a.idAlbum, 
-        a.titulo, 
-        COUNT(f.idFoto) AS numFotos
-    FROM albumes a
-    LEFT JOIN fotos f ON a.idAlbum = f.album
-    WHERE a.usuario = ?
-    GROUP BY a.idAlbum, a.titulo";
+$sqlResumen = "SELECT a.idAlbum, a.titulo, COUNT(f.idFoto) AS numFotos FROM albumes a LEFT JOIN fotos f ON a.idAlbum = f.album WHERE a.usuario = ? GROUP BY a.idAlbum, a.titulo";
 
 $stmtResumen = $conn->prepare($sqlResumen);
 $stmtResumen->bind_param("i", $idUsuario);
@@ -65,6 +57,3 @@ $stmtResumen->close();
 $conn->close();
 include "inc/html-end.php";
 ?>
-
-
-

@@ -16,6 +16,7 @@ include "inc/conexion-db.php";
     <input type="hidden" name="fnac" value="<?= $_POST['fnac'] ?>">
     <input type="hidden" name="city" value="<?= $_POST['city'] ?>">
     <input type="hidden" name="country" value="<?= $_POST['country'] ?>">
+    <input type="hidden" name="foto" value="<?= $_FILES['foto']['name'] ?>">
     <p class="form-input">
       <label for="pwd_actual">Contraseña actual:</label>
       <input type="password" id="pwd_actual" name="pwd_actual" required>

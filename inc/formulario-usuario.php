@@ -2,7 +2,7 @@
 $datos = $datos ?? []; // valores actuales de los campos
 $errores = $errores ?? [];
 ?>
-<form id="<?= $id ?? '#' ?>" action="<?= $action ?? '#' ?>" method="post">
+<form id="<?= $id ?? '#' ?>" action="<?= $action ?? '#' ?>" method="post" enctype="<?= $enctype ?? '#' ?>">
   <h1>KeepMoments</h1>
   <p class="form-info">Por favor, completa los datos requeridos.</p>
   <p class="form-input">
@@ -31,7 +31,7 @@ $errores = $errores ?? [];
       <option value="">--Elige una opción--</option>
       <option value="0" <?= (isset($datos['sexo']) && $datos['sexo'] == '0') ? 'selected' : '' ?>>Hombre</option>
       <option value="1" <?= (isset($datos['sexo']) && $datos['sexo'] == '1') ? 'selected' : '' ?>>Mujer</option>
-      <option value="2" <?= (isset($datos['sexo']) && $datos['sexo'] == '2') ? 'selected' : '' ?>>Otro</option>  
+      <option value="2" <?= (isset($datos['sexo']) && $datos['sexo'] == '2') ? 'selected' : '' ?>>Otro</option>
     </select>
     <span class="error-message"><?= $errores['genero'] ?? '' ?></span>
   </p>
@@ -55,6 +55,10 @@ $errores = $errores ?? [];
         </option>
       <?php endforeach; ?>
     </select>
+  </p>
+  <p class="form-input">
+    <label for="foto"><span class="icon-camera"></span><?= $textoLabelPerfil ?>:</label>
+    <input type="file" name="foto" id="foto" accept="image/*">
   </p>
   <p>
     <input class="btn" type="submit" value="<?= $botonTexto ?>">

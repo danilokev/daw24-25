@@ -14,6 +14,8 @@ $id = "registrationForm";
 $botonTexto = "Registrarse";
 $textoLabelPdw = "Contraseña";
 $textoLabelPdw2 = "Repetir contraseña";
+$textoLabelPerfil = "Foto de perfil";
+$enctype = "multipart/form-data";
 $errores = $_GET['errores'] ?? [];
 
 $sql = "SELECT `idPais`, `nomPais` FROM `paises` ORDER BY `nomPais` ASC";

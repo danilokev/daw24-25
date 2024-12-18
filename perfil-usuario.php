@@ -28,7 +28,7 @@ $usuario = $resultUser->fetch_assoc();
 <main id="main-perfil-usuario">
   <section id="perfil-usuario">
     <h1>Perfil de <?= $usuario['nomUsuario'] ?></h1>
-    <img src="fotos/<?= $usuario['foto'] ?>" alt="Foto de perfil">
+    <img src="fotos/usuarios/<?= $usuario['foto'] ?>" alt="Foto de perfil">
     <p><strong>Fecha de incorporación:</strong> <?= $usuario['fRegistro'] ?></p>
     <h2>Álbumes</h2>
     <ul>

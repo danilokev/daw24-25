@@ -16,7 +16,7 @@ if (!isset($_SESSION['idUsuario']) || empty($_SESSION['idUsuario'])) {
 
 $idUsuario = $_SESSION['idUsuario'];
 
-$sentenciaUsu = "SELECT `nomUsuario`, `clave`, `email`, `sexo`, `fNacimiento`, `ciudad`, `pais` FROM `usuarios` WHERE `idUsuario` = $idUsuario";
+$sentenciaUsu = "SELECT `nomUsuario`, `clave`, `email`, `sexo`, `fNacimiento`, `ciudad`, `pais`, `foto` FROM `usuarios` WHERE `idUsuario` = $idUsuario";
 $sentenciaPais = "SELECT `idPais`, `nomPais` FROM `paises` ORDER BY `nomPais` ASC";
 
 if(!($resultUsu = $conn->query($sentenciaUsu))) {
@@ -33,6 +33,8 @@ $botonTexto = "Actualizar datos";
 $action = "confirmar-update.php";
 $textoLabelPdw = "Nueva contraseña";
 $textoLabelPdw2 = "Repetir nueva contraseña";
+$textoLabelPerfil = "Actualizar foto perfil";
+$enctype = "multipart/form-data";
 
 $paises = [];
 if ($resultPais->num_rows > 0) {

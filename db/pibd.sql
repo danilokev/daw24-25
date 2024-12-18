@@ -20,6 +20,12 @@ SET time_zone = "+00:00";
 --
 -- Base de dades: `pibd`
 --
+CREATE DATABASE IF NOT EXISTS `pibd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `pibd`;
+
+CREATE USER 'wwwdata'@'localhost' IDENTIFIED BY 'daw';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'wwwdata'@'localhost' IDENTIFIED BY 'daw' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 
 -- --------------------------------------------------------
 
@@ -156,7 +162,7 @@ CREATE TABLE `solicitudes` (
 CREATE TABLE `usuarios` (
   `idUsuario` int(11) NOT NULL,
   `nomUsuario` varchar(15) NOT NULL,
-  `clave` varchar(15) NOT NULL,
+  `clave` varchar(255) NOT NULL,
   `email` varchar(254) NOT NULL,
   `sexo` smallint(6) DEFAULT NULL,
   `fNacimiento` date DEFAULT NULL,
