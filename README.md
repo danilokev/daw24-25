@@ -55,7 +55,7 @@ Sistema web completo para la gestión de álbumes de fotos que permite a múltip
 ### Frontend
 - **HTML5** - Estructura semántica
 - **CSS3** - Estilos y diseño responsive
-- **JavaScript (ES6+)** - Validación de formularios y interactividad
+- **JavaScript (ES6+)** - Validación de formularios e interactividad
 
 ### Base de Datos
 - **MySQL/MariaDB** con 6 tablas principales:
