@@ -2,7 +2,7 @@
 session_start();
 
 // Conexión a la base de datos
-include "inc/conexion-db.php";
+include __DIR__ . "/conexion-db.php";
 
 // Compruebo si el usuario ha marcado "recuérdame"
 if (!isset($_SESSION['usuario']) && isset($_COOKIE['usu']) && isset($_COOKIE['pwd'])) {

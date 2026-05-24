@@ -1,92 +1,73 @@
-# KeepMoments 📸
+# KeepMoments
 
-**Sistema gestor de álbumes de fotos multi-usuario**
+_Sistema gestor de albumes de fotos multi-usuario. Aplicacion web completa que permite a multiples usuarios crear, organizar y compartir sus colecciones fotograficas. Proyecto desarrollado para la asignatura de Desarrollo de Aplicaciones Web (DAW) del Grado en Ingenieria Multimedia de la Universidad de Alicante._
 
-Sistema web completo para la gestión de álbumes de fotos que permite a múltiples usuarios crear, organizar y compartir sus colecciones fotográficas. Proyecto desarrollado para la asignatura de Desarrollo de Aplicaciones Web (DAW) del Grado en Ingeniería Multimedia de la Universidad de Alicante.
+| Ruta                      | Descripcion                                              |
+| :------------------------ | :------------------------------------------------------- |
+| /                         | Pagina principal con las ultimas fotos subidas.          |
+| /login.php                | Formulario de inicio de sesion.                          |
+| /control-acceso.php       | Procesa las credenciales de inicio de sesion.            |
+| /registro.php             | Formulario de registro de nuevo usuario.                 |
+| /respuesta-registro.php   | Procesa y almacena el nuevo usuario en la base de datos. |
+| /subir-foto.php           | Formulario para subir una nueva foto.                    |
+| /respuesta-subir-foto.php | Procesa y almacena la foto subida.                       |
+| /busqueda.php             | Pagina de busqueda de fotos por titulo, fecha y pais.    |
 
-## 🛠️ Tecnologías Utilizadas
+## Comenzando
 
-### Backend
-- **PHP 8.2+** - Lenguaje de programación del servidor
-- **MySQL/MariaDB** - Sistema de gestión de bases de datos
-- **Sesiones PHP** - Gestión de autenticación
-- **Cookies** - Persistencia de preferencias
+_Estas instrucciones te permitiran obtener una copia del proyecto en funcionamiento en tu maquina local para propositos de desarrollo y pruebas._
 
-### Frontend
-- **HTML5** - Estructura semántica
-- **CSS3** - Estilos y diseño responsive
-- **JavaScript (ES6+)** - Validación de formularios e interactividad
+### Pre-requisitos
 
-### Base de Datos
-- **MySQL/MariaDB** con 6 tablas principales:
-  - `usuarios` - Información de usuarios
-  - `albumes` - Álbumes de fotos
-  - `fotos` - Metadatos de las fotos
-  - `paises` - Catálogo de países
-  - `estilos` - Estilos de accesibilidad
-  - `solicitudes` - Solicitudes de álbumes impresos
+_Se debe tener instalado **PHP** y un servidor web en el equipo de desarrollo. Las siguientes lineas muestran como hacerlo con comandos para **Ubuntu 22.04**:_
 
-## 📋 Requisitos del Sistema
-
-- **Servidor web**: Apache 2.4+ o Nginx
-- **PHP**: 8.2 o superior
-- **Base de datos**: MySQL 10.4+ o MariaDB equivalente
-- **Extensiones PHP requeridas**:
-  - `mysqli`
-  - `session`
-  - `json`
-  - `gd` (para procesamiento de imágenes)
-
-## 🚀 Instalación
-
-### 1. Clonar el repositorio
-
-```bash
-git clone https://github.com/danilokev/daw24-25.git
-cd daw24-25
+```sh
+sudo apt update
+sudo apt install apache2 mysql-server php php-mysqli php-gd
+sudo systemctl start apache2
+sudo systemctl start mysql
 ```
 
-### 2. Configurar la base de datos
+_Igualmente se debe tener instalada la base de datos **MySQL/MariaDB** y asegurarnos de que esta lanzada..._
 
-1. Importar el archivo SQL en tu servidor MySQL:
-```bash
+```sh
+sudo apt update
+sudo apt install mysql-server
+sudo systemctl start mysql
+```
+
+### Instalacion
+
+_En esta seccion veremos como instalar y configurar el entorno de desarrollo para trabajar con el proyecto._
+
+_En primer lugar, debemos clonar el proyecto desde nuestro repositorio._
+
+```sh
+git clone https://github.com/danilokev/daw24-25.git
+```
+
+_Una vez clonado el repositorio, debemos importar la base de datos y configurar la conexion._
+
+```sh
+cd daw24-25
 mysql -u root -p < db/pibd.sql
 ```
 
-2. O ejecutar el script SQL desde phpMyAdmin o tu cliente MySQL preferido.
+_Para poner el proyecto en marcha, ejecutaremos el siguiente comando:_
 
-### 3. Configurar la conexión a la base de datos
-
-Edita el archivo `inc/conexion-db.php` con tus credenciales:
-
-```php
-$host       = "localhost";
-$dbUserName = "wwwdata";
-$dbPassword = "daw";
-$dbName     = "pibd";
+```sh
+php -S localhost:8000 -t public
 ```
 
-### 4. Configurar permisos
+## Construido con
 
-Asegúrate de que el directorio `fotos/` tenga permisos de escritura:
+- [PHP](https://www.php.net/) - Lenguaje de programacion del servidor ampliamente utilizado.
+- [MySQL](https://www.mysql.com/) - Sistema de gestion de bases de datos relacional open-source.
+- [Apache HTTP Server](https://httpd.apache.org/) - Servidor web HTTP multiplataforma.
+- [CSS](https://developer.mozilla.org/es/docs/Web/CSS) - Lenguaje de estilos para el diseño visual de la aplicacion.
+- [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) - Lenguaje de programacion para dinamismo e interactividad en el cliente.
 
-```bash
-chmod 755 fotos/
-```
+## Autores
 
-### 5. Configurar el servidor web
-
-#### Apache
-Configura un VirtualHost apuntando al directorio del proyecto o coloca los archivos en `htdocs/` o `www/`.
-
-#### Desarrollo local con PHP built-in server
-```bash
-php -S localhost:8000
-```
-
-Luego accede a `http://localhost:8000` en tu navegador.
-
-## ✒️ Autores
-
-* **Marcos López Mira** - [MarcosLopezMira](https://github.com/MarcosLopezMira)
-* **Kevin D. Analuisa Ortiz** - [danilokev](https://github.com/danilokev)
+- **Marcos Lopez Mira** - _Desarrollo y documentacion_ - [MarcosLopezMira](https://github.com/MarcosLopezMira)
+- **Kevin D. Analuisa Ortiz** - _Desarrollo y documentacion_ - [danilokev](https://github.com/danilokev)

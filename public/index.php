@@ -1,8 +1,8 @@
 <?php
 $titulo = "KeepMoments - Página principal";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/conexion-db.php";
 
 // Consulta para obtener las últimas cinco fotos
 $query = "SELECT Fotos.Titulo, Fotos.Fichero, Fotos.FRegistro, Paises.NomPais, Fotos.alternativo
@@ -49,7 +49,7 @@ if ($result && $result->num_rows > 0) {
       <?php endforeach; ?>
 
       <?php
-      $archivoCriticas = "fotos_criticas.txt";
+      $archivoCriticas = __DIR__ . "/../data/fotos_criticas.txt";
 
       $fotoEscogida = null;
       if (file_exists($archivoCriticas)) {
@@ -70,7 +70,7 @@ if ($result && $result->num_rows > 0) {
           }
         }
       }
-      $archivoConsejos = "consejos.json";
+      $archivoConsejos = __DIR__ . "/../data/consejos.json";
 
       $consejo = null;
       if (file_exists($archivoConsejos)) {
@@ -118,6 +118,6 @@ if ($result && $result->num_rows > 0) {
   </div>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

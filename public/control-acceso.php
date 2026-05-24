@@ -1,5 +1,5 @@
 <?php
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/conexion-db.php";
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }

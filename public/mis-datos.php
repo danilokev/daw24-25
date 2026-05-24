@@ -1,9 +1,9 @@
 <?php
 $titulo = "KeepMoments - Datos de usuario";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
+include __DIR__ . "/../inc/conexion-db.php";
 
 if (!isset($_SESSION['idUsuario']) || empty($_SESSION['idUsuario'])) {
   if (isset($_COOKIE['idUsuario']) && !empty($_COOKIE['idUsuario'])) {
@@ -44,13 +44,13 @@ if ($resultPais->num_rows > 0) {
 }
 ?>
 <main id="main-form-mis-datos">
-  <?php include "inc/formulario-usuario.php" ?>
+  <?php include __DIR__ . "/../inc/formulario-usuario.php" ?>
 </main>
 <?php
 $resultPais->close();
 $resultUsu->close();
 $conn->close();
 
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

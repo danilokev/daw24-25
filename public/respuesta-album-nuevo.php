@@ -1,9 +1,9 @@
 <?php
 $titulo = "KeepMoments - respuesta álbum creado";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
+include __DIR__ . "/../inc/conexion-db.php";
 
 if (!isset($_SESSION['idUsuario']) || empty($_SESSION['idUsuario'])) {
   header("Location: index.html?error=ID de usuario no está definida");
@@ -58,6 +58,6 @@ mysqli_close($conn);
   </section>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

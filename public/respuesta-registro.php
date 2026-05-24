@@ -1,7 +1,7 @@
 <?php
 $titulo = "KeepMoments - Respuesta Registro";
-include "inc/html-start.php";
-include "inc/cabecera.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
 
 // almacenamos los datos del formulario y si no hay datos, asignamos un valor por defecto
 $usuario = $_POST['usu'] ?? '';
@@ -156,6 +156,6 @@ $conn->close();
   </section>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

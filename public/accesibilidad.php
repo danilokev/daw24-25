@@ -4,8 +4,8 @@
 -->
 <?php 
 $titulo = "KeepMoments - Respuesta Registro";
-include "inc/html-start.php";
-include "inc/cabecera.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
 ?>
 <main>
     <h1>Declaración de Accesibilidad</h1>
@@ -35,6 +35,6 @@ include "inc/cabecera.php";
     </section>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

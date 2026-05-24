@@ -1,8 +1,8 @@
 <?php
 $titulo = "KeepMoments - Crea un nuevo álbum";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
 
 $errores = $_SESSION['errores'] ?? [];
 $datos = $_SESSION['datos'] ?? [];
@@ -31,6 +31,6 @@ unset($_SESSION['errores'], $_SESSION['datos']);
   </form>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

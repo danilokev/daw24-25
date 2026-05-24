@@ -1,10 +1,10 @@
 <?php
 $titulo = "KeepMoments - Solicitar álbum impreso";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/mensaje.php";
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
+include __DIR__ . "/../inc/mensaje.php";
+include __DIR__ . "/../inc/conexion-db.php";
 
 // Consulta para obtener los países de la base de datos
 $sql = "SELECT idAlbum, titulo FROM albumes ORDER BY titulo ASC";
@@ -88,7 +88,7 @@ $conn->close();
 
       <button id="mostrar-tabla" class="btn" onclick="verTabla()">Ver posibles costes</button>
       <div id="contenedor-tabla-coste" style="display: none">
-        <?php include 'inc/tabla.php'; ?>
+        <?php include __DIR__ . '/../inc/tabla.php'; ?>
       </div>
     </div>
 
@@ -223,6 +223,6 @@ $conn->close();
   }
 </script>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

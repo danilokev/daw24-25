@@ -1,9 +1,9 @@
 <?php
 $titulo = "KeepMoments - Darse de baja";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
+include __DIR__ . "/../inc/conexion-db.php";
 ?>
 <main>
   <h1>¿Estás seguro de que quieres actualizar tus datos?</h1>
@@ -25,6 +25,6 @@ include "inc/conexion-db.php";
   </form>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

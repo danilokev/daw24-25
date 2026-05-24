@@ -1,8 +1,8 @@
 <?php
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/conexion-db.php";
-include "inc/auth.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/conexion-db.php";
+include __DIR__ . "/../inc/auth.php";
 
 $idUsuario = $_SESSION['idUsuario'];
 
@@ -55,5 +55,5 @@ $stmtResumen->close();
 </main>
 <?php
 $conn->close();
-include "inc/html-end.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

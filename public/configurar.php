@@ -1,9 +1,9 @@
 <?php
 $titulo = "KeepMoments - Configurar";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
+include __DIR__ . "/../inc/conexion-db.php";
 
 $sqlEstilo = "SELECT `idEstilo`, `nombre`, `descripcion` FROM `estilos`";
 
@@ -31,6 +31,6 @@ if (!($resultEstilo = $conn->query($sqlEstilo))) {
 <?php
 $resultEstilo->close();
 $conn->close();
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

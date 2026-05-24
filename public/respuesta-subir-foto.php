@@ -1,9 +1,9 @@
 <?php
 $titulo = "KeepMoments - respuesta subir nueva foto";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
+include __DIR__ . "/../inc/conexion-db.php";
 
 // recogo los datos del formulario
 $titulo = $_POST['titulo'] ?? '';
@@ -74,6 +74,6 @@ mysqli_close($conn);
   </section>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

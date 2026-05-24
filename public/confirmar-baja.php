@@ -1,8 +1,8 @@
 <?php
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/conexion-db.php";
-include "inc/auth.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/conexion-db.php";
+include __DIR__ . "/../inc/auth.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idUsuario = $_SESSION['idUsuario']; // ID del usuario autenticado

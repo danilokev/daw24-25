@@ -1,9 +1,9 @@
 <?php
 $titulo = "KeepMoments - Detalle de Foto";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/conexion-db.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
+include __DIR__ . "/../inc/conexion-db.php";
 
 $id = $_GET['id'] ?? null;
 if (!$id || !is_numeric($id)) {
@@ -69,6 +69,6 @@ $foto = $result->fetch_assoc();
 <?php
 $stmt->close();
 $conn->close();
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

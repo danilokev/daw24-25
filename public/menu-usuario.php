@@ -1,10 +1,10 @@
 <?php
 $titulo = "KeepMoments - Menú de usuario";
-include "inc/html-start.php";
-include "inc/cabecera.php";
-include "inc/auth.php";
-include "inc/saludo.php";
-include "inc/mensaje.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
+include __DIR__ . "/../inc/auth.php";
+include __DIR__ . "/../inc/saludo.php";
+include __DIR__ . "/../inc/mensaje.php";
 $idUsuario = $_SESSION['usuario']; // O de otra manera, si se pasa desde un formulario
 
 // Verifica si el idUsuario está correctamente asignado
@@ -32,6 +32,6 @@ $idUsuario = $_SESSION['usuario']; // O de otra manera, si se pasa desde un form
   </div>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>

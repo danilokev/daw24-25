@@ -1,7 +1,7 @@
 <?php
 $titulo = "KeepMoments - Página principal";
-include "inc/html-start.php";
-include "inc/cabecera.php";
+include __DIR__ . "/../inc/html-start.php";
+include __DIR__ . "/../inc/cabecera.php";
 
 // Redirigo al menú de usuario si ya está identificado
 if (isset($_SESSION['usuario']) || (isset($_COOKIE['usu']) && isset($_COOKIE['pwd']))) {
@@ -37,6 +37,6 @@ $cookiePwd = isset($_COOKIE['pwd']) ? $_COOKIE['pwd'] : '';
   </form>
 </main>
 <?php
-include "inc/pie.php";
-include "inc/html-end.php";
+include __DIR__ . "/../inc/pie.php";
+include __DIR__ . "/../inc/html-end.php";
 ?>
